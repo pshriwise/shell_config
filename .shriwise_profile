@@ -2,7 +2,7 @@
 
 ### Include Git Aware Prompt ###
 
-export GITAWAREPROMPT=~/test/
+export GITAWAREPROMPT=~/.bash/
 source $GITAWAREPROMPT/main.sh
 export PS1=$PS1:"\[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
 
