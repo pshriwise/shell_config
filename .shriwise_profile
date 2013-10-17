@@ -1,0 +1,51 @@
+#!/bin/bash
+
+### Include Git Aware Prompt ###
+
+export GITAWAREPROMPT=~/test/
+source $GITAWAREPROMPT/main.sh
+export PS1=$PS1:"\[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
+
+# some more ls aliases
+alias ll='ls -lh'
+alias la='ls -A'
+alias l='ls -CF'
+
+### Filesystem Aliases ###
+
+mkcd () { mkdir $1 ;  cd $1 ; }
+rmdir () { rm -rf $1; }
+
+### End Filesystem Section ###
+
+
+# ssh Aliases
+
+alias tux='ssh cae'
+
+#Workout Aliases
+if [ -d ~/Dropbox ]; then
+
+alias viewworkout='cd ~/Dropbox/Workouts/ &&  python View_Workout.py'
+alias editworkout='cd ~/Dropbox/Workouts/EW'
+
+fi
+
+
+
+
+### Mount/UnMount remote directories ####
+
+function remmnt {
+
+if [ ! -d ~/mnt/$1 ]; then 
+    mkdir -p ~/mnt/$1
+fi 
+
+  sshfs $1:/ ~/mnt/$1
+ 
+}
+
+umount () { fusermount -u ~/mnt/$1 ; rmdir ~/mnt/$1 ; }
+
+#### End Mount Section ###
