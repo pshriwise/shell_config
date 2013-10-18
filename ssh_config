@@ -1,0 +1,14 @@
+Host home
+	HostName 68.190.167.114
+	User patrick
+ForwardAgent yes
+ForwardX11 yes
+Forwardx11Trusted yes
+
+Host cae
+       HostName best-tux.cae.wisc.edu
+       User shriwise
+ForwardAgent yes
+ForwardX11 yes
+ForwardX11Trusted yes
+
