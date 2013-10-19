@@ -1,4 +1,0 @@
-To check using topology of facet points:              
-./check_watertight <filename> <verbose(true or false)>
-To check using geometry tolerance of facet points:    
-./check_watertight <filename> <verbose(true or false)> <tolerance>

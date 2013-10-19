@@ -1,3 +1,0 @@
-topology check
-number of surfaces=9423
-number of volumes=759
