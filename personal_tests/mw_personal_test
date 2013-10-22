@@ -1,6 +1,5 @@
 #!/bin/bash
 
-shopt -s expand_aliases
 source ~/.bashrc
 
 ### Script to verify personal confidence that make_watertight is going what its supposed to
