@@ -21,9 +21,9 @@ rmdir () { rm -rf $1; }
 
 # ssh Aliases
 
-alias tux='ssh cae'
-alias tower='ssh home'
-
+alias tux='ssh -X cae'
+alias tower='ssh -X home'
+alias hova='ssh -X hova'
 #Workout Aliases
 if [ -d ~/Dropbox ]; then
 
