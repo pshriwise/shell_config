@@ -19,8 +19,8 @@ rmdir () { rm -rf $1; }
 ### End Filesystem Section ###
 
 
-# ssh Aliases
 
+# ssh Aliases
 alias tux='ssh -X cae'
 alias tower='ssh -X home'
 alias hova='ssh -X hova'
@@ -32,6 +32,9 @@ alias editworkout='cd ~/Dropbox/Workouts/EW'
 
 fi
 
+###git aliases###
+
+list_authors='git log --format='%aN' | sort -u'
 
 
 
