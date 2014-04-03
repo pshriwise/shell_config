@@ -32,7 +32,9 @@ alias editworkout='cd ~/Dropbox/Workouts/EW'
 
 fi
 
-
+#Application Aliases
+alias Q104='mplayer http://208.92.55.51:3690/KBEQFMAAC'
+alias Chill='mplayer http://listen.di.fm/public3/chilloutdreams.pls'
 
 
 ### Mount/UnMount remote directories ####
