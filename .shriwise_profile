@@ -35,7 +35,7 @@ fi
 #Application Aliases
 alias Q104='mplayer http://208.92.55.51:3690/KBEQFMAAC'
 alias Chill='mplayer http://listen.di.fm/public3/chilloutdreams.pls'
-=======
+
 ###git aliases###
 
 list_authors='git log --format='%aN' | sort -u'
