@@ -24,6 +24,8 @@ rmdir () { rm -rf $1; }
 alias tux='ssh -X cae'
 alias tower='ssh -X home'
 alias hova='ssh -X hova'
+alias ff='ssh -X serenity'
+alias ta='tmux attach'
 #Workout Aliases
 if [ -d ~/Dropbox ]; then
 
