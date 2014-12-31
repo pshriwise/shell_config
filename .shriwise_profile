@@ -33,6 +33,8 @@ alias hova='ssh -X hova'
 alias ff='ssh -X serenity'
 alias ta='tmux attach'
 alias clc='clear; l'
+
+
 #Workout Aliases
 if [ -d ~/Dropbox ]; then
 

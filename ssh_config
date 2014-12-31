@@ -17,5 +17,12 @@ Host serenity
        User shriwise
 ForwardAgent yes
 ForwardX11 yes
->>>>>>> Stashed changes
 ForwardX11Trusted yes
+
+Host work
+	HostName serenity.ep.wisc.edu
+	User shriwise
+ForwardAgent yes
+ForwardX11 yes
+ForwardX11Trusted yes
+
