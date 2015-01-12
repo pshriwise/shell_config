@@ -14,7 +14,13 @@ alias l='ls -CF'
 ### Filesystem Aliases ###
 
 mkcd () { mkdir $1 ;  cd $1 ; }
-rmdir () { rm -rf $1; }
+rmdir () { rm -rf "$@"; }
+
+alias cch='make clean && make -j 32 && make -j 8 check'
+alias ch='make -j 8 check'
+
+
+follow () { cp $1 $2 ; cd $2 ; }
 
 ### End Filesystem Section ###
 
