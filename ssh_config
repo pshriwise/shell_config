@@ -1,6 +1,6 @@
 Host home
 	HostName 68.190.167.114
-	User patrick
+	User shriwise
 ForwardAgent yes
 ForwardX11 yes
 Forwardx11Trusted yes
@@ -19,10 +19,13 @@ ForwardAgent yes
 ForwardX11 yes
 ForwardX11Trusted yes
 
-Host work
-	HostName serenity.ep.wisc.edu
-	User shriwise
+Host aci-compile
+     HostName aci-service-2.chtc.wisc.edu
+     User shriwise
 ForwardAgent yes
-ForwardX11 yes
-ForwardX11Trusted yes
+
+Host aci-submit
+     HostName aci-service-2.chtc.wisc.edu
+     User shriwise
+ForwardAgent yes
 
