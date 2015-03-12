@@ -25,7 +25,6 @@ Host aci-compile
 ForwardAgent yes
 
 Host aci-submit
-     HostName aci-service-2.chtc.wisc.edu
+     HostName aci-service-1.chtc.wisc.edu
      User shriwise
 ForwardAgent yes
-
