@@ -6,6 +6,8 @@
 (require 'auto-complete-config)
 (global-auto-complete-mode t)
 
+(column-number-mode 1)
+
 (global-set-key [hpDeleteChar] 'delete-char)
    (setq line-number-mode t)
    (setq line-number-display-limit 3000000)
