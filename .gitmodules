@@ -1,3 +1,6 @@
 [submodule "emacs/auto-complete"]
 	path = emacs/ac
 	url = https://github.com/auto-complete/auto-complete.git
+[submodule "emacs/popup-el"]
+	path = emacs/popup-el
+	url = https://github.com/auto-complete/popup-el.git
