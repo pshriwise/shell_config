@@ -4,3 +4,6 @@
 [submodule "emacs/popup-el"]
 	path = emacs/popup-el
 	url = https://github.com/auto-complete/popup-el.git
+[submodule "emacs/emacs-bash-completion"]
+	path = emacs/emacs-bash-completion
+	url = https://github.com/szermatt/emacs-bash-completion.git
