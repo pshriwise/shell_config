@@ -3,9 +3,12 @@
 (add-to-list 'load-path "/home/shriwise/.bash/emacs/popup-el")
 (add-to-list 'load-path "/home/shriwise/.bash/emacs/ac")
 (add-to-list 'load-path "/home/shriwise/.bash/emacs/mplayer-mode")
+(add-to-list 'load-path "/home/shriwise/.bash/emacs/bash-compl")
 
 (require 'auto-complete-config)
 (require 'mplayer-mode)
+(require 'bash-completion)
+(bash-completion-setup)
 (global-auto-complete-mode t)
 
 (column-number-mode 1)
@@ -51,3 +54,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+

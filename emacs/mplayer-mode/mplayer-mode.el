@@ -145,7 +145,8 @@ documentation for `mplayer-mode' for available bindings."
   (message "Playing all in directory, %s." dir)
   (set (make-local-variable 'mplayer-process)
        (start-process-shell-command "mplayer" mplayer-process-buffer
-		      (concat mplayer-executable " -quiet -slave " (shell-quote-argument dir) "*.mp3")
+		      (concat mplayer-executable " -quiet -slave "
+                              dir "*.mp3")
                       ))
 
   (mplayer-mode t))
