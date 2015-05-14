@@ -3,7 +3,7 @@
 (add-to-list 'load-path "/home/shriwise/.bash/emacs/popup-el")
 (add-to-list 'load-path "/home/shriwise/.bash/emacs/ac")
 (add-to-list 'load-path "/home/shriwise/.bash/emacs/mplayer-mode")
-(add-to-list 'load-path "/home/shriwise/.bash/emacs/bash-compl")
+(add-to-list 'load-path "/home/shriwise/.bash/emacs/bash-completion")
 
 (require 'auto-complete-config)
 (require 'mplayer-mode)
