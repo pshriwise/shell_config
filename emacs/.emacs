@@ -13,6 +13,21 @@
 
 (column-number-mode 1)
 
+(defun bury-compile-buffer-if-successful (buffer string)
+  "Bury a compilation buffer if succeeded without warnings "
+  (if (and
+       (string-match "compilation" (buffer-name buffer))
+       (string-match "finished" string)
+       (not
+        (with-current-buffer buffer
+          (search-forward "warning" nil t))))
+      (run-with-timer 1 nil
+                      (lambda (buf)
+			(delete-windows-on buf))
+                      buffer)))
+(add-hook 'compilation-finish-functions 'bury-compile-buffer-if-successful)
+
+
 (global-set-key [hpDeleteChar] 'delete-char)
    (setq line-number-mode t)
    (setq line-number-display-limit 3000000)
