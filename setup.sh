@@ -18,6 +18,14 @@ else
 fi 
 
 
+#Add the displays setup if the machine's name is serenity
+MACHINE_NAME="$(hostname)"
 
+if [ $MACHINE_NAME != "serenity" ]
+then
+    echo "No display settings for this machine."
+else
+    ln -s ~/.bash/displays.sh ~/.config/displays.sh
+fi
 
 
