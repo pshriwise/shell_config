@@ -25,7 +25,8 @@ if [ $MACHINE_NAME != "serenity" ]
 then
     echo "No display settings for this machine."
 else
-    ln -s ~/.bash/displays.sh ~/.config/displays.sh
+    echo "Display settings for this machine added in ~/.config/"
+    ln -s ~/.bash/display_settings/serenity_displays.sh ~/.config/displays.sh
 fi
 
 
