@@ -56,6 +56,9 @@
    (global-set-key [(control-c) (c)] 'tags-loop-continue)
    (global-set-key [(control-c) (s)] 'tags-search)
 
+(setq org-todo-keywords
+  '((sequence "TODO" "IN-PROGRESS" "WAITING" "DONE")))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
