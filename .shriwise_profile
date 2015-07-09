@@ -64,6 +64,6 @@ fi
  
 }
 
-function remumnt () { fusermount -u ~/mnt/$1 ; rmdir ~/mnt/$1 ; }
+function remumnt () { fusermount -u ~/mnt/$1 && rmdir ~/mnt/$1 ; }
 
 #### End Mount Section ###
