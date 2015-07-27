@@ -13,6 +13,11 @@ ForwardX11 yes
 ForwardX11Trusted yes
 LocalForward localhost:2222 serenity.ep.wisc.edu:22
 
+Host local
+     HostName localhost
+     User shriwise
+     Port 2222
+
 Host serenity
        HostName serenity.ep.wisc.edu
        User shriwise
