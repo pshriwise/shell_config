@@ -11,6 +11,7 @@ Host cae
 ForwardAgent yes
 ForwardX11 yes
 ForwardX11Trusted yes
+LocalForward localhost:2222 serenity.ep.wisc.edu:22
 
 Host serenity
        HostName serenity.ep.wisc.edu
