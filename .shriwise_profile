@@ -56,11 +56,28 @@ list_authors='git log --format='%aN' | sort -u'
 
 function remmnt {
 
-if [ ! -d ~/mnt/$1 ]; then 
-    mkdir -p ~/mnt/$1
+if [ "$#" -eq 2 -o "$#" -gt 3 ]
+then 
+    echo "Function is designed for 1 or 3 arguments."
+    return 1
+fi
+
+if [ "$#" -gt 2 ]
+then
+    if [ "$2" != "as" ] 
+    then 
+	echo "Please use the following format to set remote filesystems: "
+	echo "remmnt <hostname> as <desired_name>"
+	return 1
+    fi
+    echo "Using third argument to set directory name."
+    if [ ! -d ~/mnt/$3 ]; then mkdir -p ~/mnt/$3; fi
+    sshfs $1:/ ~/mnt/$3
+else
+    if [ ! -d ~/mnt/$1 ]; then mkdir -p ~/mnt/$1; fi
+    sshfs $1:/ ~/mnt/$1
 fi 
 
-  sshfs $1:/ ~/mnt/$1
  
 }
 
