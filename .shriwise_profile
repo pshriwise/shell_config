@@ -85,4 +85,6 @@ fi
 
 function remumnt () { fusermount -u ~/mnt/$1 && rmdir ~/mnt/$1 ; }
 
+. ~/.bash/bash_completion/remumnt
+
 #### End Mount Section ###
