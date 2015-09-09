@@ -27,6 +27,12 @@
                       buffer)))
 (add-hook 'compilation-finish-functions 'bury-compile-buffer-if-successful)
 
+(defun compile-in-new-window ()
+  "Always does compilation in a new window, so old buffers aren't buried."
+  (interactive)
+	  (progn
+	    (split-window-vertically)))
+(add-hook `compilation-mode-hook `compile-in-new-window)
 
 (global-set-key [hpDeleteChar] 'delete-char)
    (setq line-number-mode t)
