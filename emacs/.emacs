@@ -30,8 +30,10 @@
 (defun compile-in-new-window ()
   "Always does compilation in a new window, so old buffers aren't buried."
   (interactive)
+  (progn 
+    (if (not (get-buffer-window "*compilation*"))
 	  (progn
-	    (split-window-vertically)))
+	    (split-window-vertically)))))
 (add-hook `compilation-mode-hook `compile-in-new-window)
 
 (global-set-key [hpDeleteChar] 'delete-char)
