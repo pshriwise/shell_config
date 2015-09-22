@@ -12,6 +12,7 @@
 (global-auto-complete-mode t)
 
 (column-number-mode 1)
+(setq compilation-scroll-output t)
 
 (defun bury-compile-buffer-if-successful (buffer string)
   "Bury a compilation buffer if succeeded without warnings "
