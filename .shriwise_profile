@@ -34,6 +34,26 @@ alias ff='ssh -X serenity'
 alias ta='tmux attach'
 alias clc='clear; l'
 
+#Notebook Aliases
+function notebook {
+
+    if [ -d ~/Documents/personal/notebook/ ]; then 
+	have_jekyll=$(which jekyll | wc -l)
+	if [ $have_jekyll != 0 ]; then
+#	    tmux start-server
+	    tmux new-session -d 'cd ~/Documents/personal/notebook/ && jekyll serve -u'
+	    echo "Notebook server started."
+	    return 0
+	else
+	    echo "Please install jekyll."
+	    return 1
+	fi
+    else
+	echo "Could not locate notebook directory"
+	return 1
+	fi
+}
+   
 
 #Workout Aliases
 if [ -d ~/Dropbox ]; then
