@@ -1,0 +1,7 @@
+
+
+XTerm*loginShell: true
+XTerm*faceName: Mono
+XTerm*faceSize: 36
+XTerm*background: black
+XTerm*foreground: gray
