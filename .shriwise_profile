@@ -24,7 +24,10 @@ follow () { cp $1 $2 ; cd $2 ; }
 
 ### End Filesystem Section ###
 
-
+#keybinding addition
+if [ $TERM == "xterm" ]; then
+    bind '"\C-H":backward-kill-word'
+fi
 
 # ssh Aliases
 alias tux='ssh -X cae'
