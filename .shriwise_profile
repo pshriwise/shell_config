@@ -29,6 +29,10 @@ if [ $TERM == "xterm" ]; then
     bind '"\C-H":backward-kill-word'
 fi
 
+#Infinite history
+export HISTSIZE=
+export HISTFILESIZE=
+
 # ssh Aliases
 alias tux='ssh -X cae'
 alias tower='ssh -X home'
