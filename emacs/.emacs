@@ -37,6 +37,10 @@
 	    (split-window-vertically)))))
 
 
+(fset 'plusone
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([23 24 42 113 49 43 25 return 25] 0 "%d")) arg)))
+
+
 (global-set-key [hpDeleteChar] 'delete-char)
    (setq line-number-mode t)
    (setq line-number-display-limit 3000000)
@@ -64,6 +68,11 @@
    (global-set-key [(control-c) (q)] 'tags-query-replace)
    (global-set-key [(control-c) (c)] 'tags-loop-continue)
    (global-set-key [(control-c) (s)] 'tags-search)
+
+(setq help-char nil)
+
+(global-set-key "\C-h"  'backward-kill-word)
+
 
 (setq org-todo-keywords
   '((sequence "TODO" "IN-PROGRESS" "WAITING" "DONE")))
