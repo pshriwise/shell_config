@@ -4,10 +4,12 @@
 (add-to-list 'load-path "/home/shriwise/.bash/emacs/ac")
 (add-to-list 'load-path "/home/shriwise/.bash/emacs/mplayer-mode")
 (add-to-list 'load-path "/home/shriwise/.bash/emacs/bash-completion")
+(add-to-list 'load-path "/home/shriwise/.bash/emacs/cython-mode")
 
 (require 'auto-complete-config)
 (require 'mplayer-mode)
 (require 'bash-completion)
+(require 'cython-mode)
 (bash-completion-setup)
 (global-auto-complete-mode t)
 
