@@ -93,3 +93,10 @@
  ;; If there is more than one, they won't work right.
  )
 
+;;; CUSTOM MACROS ;;;
+
+(fset 'todays_post
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([24 6 S-home delete 126 47 68 111 99 tab 112 114 backspace 101 114 tab 110 111 tab 116 111 tab return] 0 "%d")) arg)))
+
+(fset 'new_post
+   (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([134217761 99 100 32 126 47 68 111 99 101 backspace 117 109 101 110 116 115 47 112 101 114 115 111 110 97 108 47 110 111 101 backspace 116 101 98 111 111 107 32 38 33554464 S-backspace 38 33554464 109 97 107 101 32 110 101 119 return] 0 "%d")) arg)))
