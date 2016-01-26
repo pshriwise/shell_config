@@ -1,10 +1,10 @@
 
 
-(add-to-list 'load-path "/home/shriwise/.bash/emacs/popup-el")
-(add-to-list 'load-path "/home/shriwise/.bash/emacs/ac")
-(add-to-list 'load-path "/home/shriwise/.bash/emacs/mplayer-mode")
-(add-to-list 'load-path "/home/shriwise/.bash/emacs/bash-completion")
-(add-to-list 'load-path "/home/shriwise/.bash/emacs/cython-mode")
+(add-to-list 'load-path "~/.bash/emacs/popup-el")
+(add-to-list 'load-path "~/.bash/emacs/ac")
+(add-to-list 'load-path "~/.bash/emacs/mplayer-mode")
+(add-to-list 'load-path "~/.bash/emacs/bash-completion")
+(add-to-list 'load-path "~/.bash/emacs/cython-mode")
 
 (require 'auto-complete-config)
 (require 'mplayer-mode)
