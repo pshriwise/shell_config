@@ -1,0 +1,81 @@
+#!/bin/zsh
+
+
+
+
+
+
+
+
+######################
+##Alias Perso/Boulot##
+######################
+alias clean='rm *~ \~\$*'
+alias texclean='rm *~ \~\$* *.log *.aux *.out *.synctex.gz'
+alias Xcode='open -a XCode'
+alias nedit='open -a Sublime\ Text'
+alias gedit='Xcode'
+alias finder='open -a finder'
+alias sed='gsed'
+alias root='root -l'
+
+
+############################################################################
+
+
+
+
+
+#######################
+######### SVN #########
+#######################
+alias co="svn co svn+ssh://r17187.ovh.net/home/mouginot/Baptiste-svn-depot/PhD PhD"
+alias ci="svn ci"
+alias status="svn status"
+alias up="svn up"
+alias log="svn log"
+
+
+
+alias cdh="source /Users/mouginot/.bin/cdh.sh"
+
+alias ucdh="/Users/mouginot/.bin/UmountAll"
+
+
+alias qstat="ssh -Y nansl1.in2p3.fr ssh -Y nansl3.in2p3.fr qstat"
+alias qdel="ssh nansl1.in2p3.fr qdel"
+alias QSUB="/Users/mouginot/.bin/QSUB.sh"
+
+alias sl1="~/.bin/nanssh.sh nansl1"
+alias kermit="ssh -X kermit.ep.wisc.edu"
+alias mountkernit="source ~/.bin/mountkermit.sh"
+
+alias imac="~/.bin/imacssh.sh"
+
+alias sync='/Users/mouginot/.bin/sync.sh'
+alias get='/Users/mouginot/.bin/get.sh'
+alias put='/Users/mouginot/.bin/put.sh'
+
+
+
+alias tunnel='ssh -D8080 vps204419.ovh.net'
+alias pi="ssh -X osmc@10.130.35.96"
+
+##################
+##Alias generaux##
+##################
+alias cp='cp -v'
+alias ls='ls -Gh'
+alias ll='ls -alG'
+alias lf='ls -FG'
+alias xterm='xterm&'
+alias ld='ls -ldG'
+alias xmgr='xmgrace&'
+alias gimp='gimp&'
+alias opof="openoffice"
+alias umount='sudo umount'
+alias mount='sudo mount'
+alias srm='mv -v \!* ~/.Trash/'
+alias mv='mv -v'
+alias sudo='/Users/mouginot/.bin/sudo.sh'
+alias ssh='ssh -X'

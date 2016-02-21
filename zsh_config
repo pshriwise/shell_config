@@ -1,0 +1,94 @@
+#!/bin/zsh
+
+#############################
+# variables d'environnement #
+#############################
+export MANPATH="/opt/local/share/man"
+
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+
+export PATH=${PATH}:/Users/mouginot/.bin
+export LANG="en_US.UTF-8"
+
+####---------------------------------------------------####
+# User specific aliases and functions
+
+DEFAULT_USER=mouginot
+export MYHOME=/Users/mouginot/work
+export APP_PATH=$MYHOME/App
+
+export PATH="$PATH:${HOME}/.local/bin"
+export MYHOME="/Users/mouginotwork"
+
+
+####---------------------------------------------------####
+
+
+
+
+
+
+
+####---------------------------------------------------####
+# Compilation
+
+export CC=/opt/local/bin/gcc
+export CXX=/opt/local/bin/g++
+
+export CMAKE_MODULE_PATH=/opt/local/include
+export CMAKE_PREFIX_PATH=/opt/local
+
+
+####---------------------------------------------------####
+
+
+####---------------------------------------------------####
+# HDF5
+
+export HDF5_DIR=/opt/local/lib
+export HDF5_ROOT=/opt/local/
+
+export PATH="$PATH:${HDF5_DIR}"
+
+####---------------------------------------------------####
+
+
+####---------------------------------------------------####
+# MCNP
+
+#export MCNP_PATH=${APP_PATH}/MCNP
+
+#export PATH=$MCNP_PATH/MCNP_CODE/MCNP6/bin/:${PATH}
+
+####---------------------------------------------------####
+
+
+####---------------------------------------------------####
+# root
+
+export ROOTSYS=$APP_PATH/root
+export PATH=${PATH}:${ROOTSYS}/bin
+export LD_LIBRARY_PATH=/Users/mouginot/work/App/root/lib/
+
+####---------------------------------------------------####
+
+
+####---------------------------------------------------####
+# CLASS package libraries
+
+export CLASS_PATH=${APP_PATH}/CLASS
+export CLASS_include=${CLASS_PATH}/source/include
+export CLASS_DB=${CLASS_PATH}/Database
+export CLASS_lib=${CLASS_PATH}/lib
+
+####---------------------------------------------------####
+
+
+
+
+
+
+
+
+
+
