@@ -12,7 +12,7 @@ export LANG="en_US.UTF-8"
 
 # User specific aliases and functions
 
-
+DEFAULT_USER=mouginot
 
 export CC=/opt/local/bin/gcc
 export CXX=/opt/local/bin/g++
