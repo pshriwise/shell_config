@@ -1,9 +1,9 @@
 #!/bin/zsh
 
 
-alias source_zshrc "source ~/.zshrc"
-alias source_alias "source ~/.zsh_config/zsh_alias"
-alias source_config "source ~/.zsh_config/zsh_config"
+alias source_zshrc="source ~/.zshrc"
+alias source_alias="source ~/.zsh_config/zsh_alias"
+alias source_config="source ~/.zsh_config/zsh_config"
 
 alias cyplot="cyan -db cyclus.sqlite flowgraph -proto | dot -Tpng > flow.png"
 
