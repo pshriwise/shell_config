@@ -52,11 +52,11 @@ ZSH_THEME="bam"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx macports terminalapp cp )
+plugins=(git osx macports terminalapp cp python pip)
 
 # User configuration
 
-export PATH="/opt/local/lib:/Users/mouginot/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Library/TeX/texbin:/Users/mouginot/.bin:/Users/mouginot/work/App/root/bin"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
