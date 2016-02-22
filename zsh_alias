@@ -5,6 +5,7 @@
 ######################
 ##Alias Perso/Boulot##
 ######################
+alias ql='quick-look'
 alias clean='rm *~ \~\$*'
 alias texclean='rm *~ \~\$* *.log *.aux *.out *.synctex.gz'
 alias Xcode='open -a XCode'
