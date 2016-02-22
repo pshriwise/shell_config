@@ -7,24 +7,24 @@ export MANPATH="/opt/local/share/man"
 
 
 export PATH="/opt/local/lib"
+export PATH="${PATH}:/opt/local/bin"
 export PATH="${PATH}:/usr/local/bin"
-export PATH="${PATH}::/usr/bin:/bin:"
+export PATH="${PATH}:/usr/bin:/bin:"
 export PATH="${PATH}:/usr/sbin:/sbin"
 export PATH="${PATH}:/opt/X11/bin"
 export PATH="${PATH}:/Library/TeX/texbin"
 
-export PATH="${PATH}:/Users/mouginot/.bin"
 export LANG="en_US.UTF-8"
 
 ####---------------------------------------------------####
 
 DEFAULT_USER=mouginot
-export MYHOME=/Users/mouginot/work
-export APP_PATH=$MYHOME/App
+export MYHOME="/Users/mouginot/work"
+export APP_PATH="${MYHOME}/App"
 
-export PATH="$PATH:${HOME}/.local/bin"
-export MYHOME="/Users/mouginotwork"
-
+export PATH="${HOME}/.local/bin:$PATH"
+export MYHOME="/Users/mouginot/work"
+export CYCLUS_PATH="${APP_PATH}/cyclus"
 
 ####---------------------------------------------------####
 
@@ -73,7 +73,7 @@ export PATH="$PATH:${HDF5_DIR}"
 
 export ROOTSYS=$APP_PATH/root
 export PATH=${PATH}:${ROOTSYS}/bin
-export LD_LIBRARY_PATH=/Users/mouginot/work/App/root/lib/
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/Users/mouginot/work/App/root/lib/"
 
 ####---------------------------------------------------####
 
