@@ -11,7 +11,6 @@ export PATH=${PATH}:/Users/mouginot/.bin
 export LANG="en_US.UTF-8"
 
 ####---------------------------------------------------####
-# User specific aliases and functions
 
 DEFAULT_USER=mouginot
 export MYHOME=/Users/mouginot/work

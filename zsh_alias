@@ -2,11 +2,6 @@
 
 
 
-
-
-
-
-
 ######################
 ##Alias Perso/Boulot##
 ######################
@@ -18,13 +13,6 @@ alias gedit='Xcode'
 alias finder='open -a finder'
 alias sed='gsed'
 alias root='root -l'
-
-
-############################################################################
-
-
-
-
 
 #######################
 ######### SVN #########
@@ -38,7 +26,6 @@ alias log="svn log"
 
 
 alias cdh="source /Users/mouginot/.bin/cdh.sh"
-
 alias ucdh="/Users/mouginot/.bin/UmountAll"
 
 
