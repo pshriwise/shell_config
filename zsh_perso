@@ -1,1 +1,7 @@
 #!/bin/zsh
+#
+function =
+{
+	echo "$@" | root -l
+}
+alias calcul="="
