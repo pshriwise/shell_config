@@ -19,11 +19,11 @@ export LANG="en_US.UTF-8"
 ####---------------------------------------------------####
 
 DEFAULT_USER=mouginot
-export MYHOME="/Users/mouginot/work"
-export APP_PATH="${MYHOME}/App"
+export WORK_PATH="/Users/mouginot/work"
+export APP_PATH="${WORK_PATH}/App"
 
 export PATH="${HOME}/.local/bin:$PATH"
-export MYHOME="/Users/mouginot/work"
+export WORK_PATH="/Users/mouginot/work"
 export CYCLUS_PATH="${APP_PATH}/cyclus"
 
 ####---------------------------------------------------####
@@ -85,6 +85,7 @@ export CLASS_PATH=${APP_PATH}/CLASS
 export CLASS_include=${CLASS_PATH}/source/include
 export CLASS_DB=${CLASS_PATH}/Database
 export CLASS_lib=${CLASS_PATH}/lib
+export PATH=${PATH}:${CLASS_PATH}/gui/bin
 
 ####---------------------------------------------------####
 
