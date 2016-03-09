@@ -61,9 +61,11 @@ export PATH="$PATH:${HDF5_DIR}"
 ####---------------------------------------------------####
 # MCNP
 
-#export MCNP_PATH=${APP_PATH}/MCNP
+export MCNP_PATH=${APP_PATH}/MCNP
 
-#export PATH=$MCNP_PATH/MCNP_CODE/MCNP6/bin/:${PATH}
+export PATH=$MCNP_PATH/MCNP_CODE/MCNP6/bin/:${PATH}
+#export DATAPATH ="$MYHOME/base/MCNP_DATA"
+
 
 ####---------------------------------------------------####
 
