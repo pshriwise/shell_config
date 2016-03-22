@@ -40,6 +40,7 @@ alias hova='ssh -X hova'
 alias ff='ssh -X serenity'
 alias ta='tmux attach'
 alias clc='clear; l'
+alias ec2='ssh ec2'
 
 #Notebook Aliases
 function notebook {

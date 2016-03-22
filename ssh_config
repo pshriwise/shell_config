@@ -13,7 +13,12 @@ ForwardX11 yes
 ForwardX11Trusted yes
 LocalForward localhost:2222 serenity.ep.wisc.edu:22
 LocalForward localhost:2223 tux-c1.cae.wisc.edu:22
+LocalForward localhost:8000 serenity.ep.wisc.edu:4001
 
+Host ec2
+     HostName ec2-54-86-111-95.compute-1.amazonaws.com
+     User ubuntu
+     
 Host local
      HostName localhost
      User shriwise
