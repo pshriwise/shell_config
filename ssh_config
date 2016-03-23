@@ -4,6 +4,8 @@ Host home
 ForwardAgent yes
 ForwardX11 yes
 Forwardx11Trusted yes
+LocalForward localhost:32400 192.168.1.136:32400
+LocalForward localhost:32401 192.168.1.30:32401
 
 Host cae
        HostName best-tux.cae.wisc.edu
@@ -51,3 +53,10 @@ Host aci-submit
      HostName aci-service-1.chtc.wisc.edu
      User shriwise
 ForwardAgent yes
+
+Host tippytyper
+     HostName 128.104.186.9
+     User shriwise
+ForwardAgent yes
+ForwardX11 yes
+ForwardX11Trusted yes
