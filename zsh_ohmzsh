@@ -52,7 +52,7 @@ ZSH_THEME="bam"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-extras osx macports cp python pip zsh-syntax-highlighting)
+plugins=(git git-extras osx macports cp python pip docker zsh-syntax-highlighting)
 
 # User configuration
 

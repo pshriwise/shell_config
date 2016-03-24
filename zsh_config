@@ -68,7 +68,9 @@ export PATH=$MCNP_PATH/MCNP_CODE/MCNP6/bin/:${PATH}
 
 
 ####---------------------------------------------------####
-
+# SERPENT
+export SERPENT_PATH="${APP_PATH}/Serpent/"
+export PATH=${PATH}:${SERPENT_PATH}
 
 ####---------------------------------------------------####
 # root
