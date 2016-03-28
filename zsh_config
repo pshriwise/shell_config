@@ -28,8 +28,10 @@ export CYCLUS_PATH="${APP_PATH}/cyclus"
 
 ####---------------------------------------------------####
 
-
-
+export kermit='kermit.ep.wisc.edu'
+export ovh='vps204419.ovh.net'
+export pi='10.130.35.96'
+export git='git@github.com:Baaaaam/'
 
 
 
