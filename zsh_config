@@ -39,8 +39,8 @@ export git='git@github.com:Baaaaam/'
 ####---------------------------------------------------####
 # Compilation
 
-export CC=/opt/local/bin/gcc
-export CXX=/opt/local/bin/g++
+#export CC=/opt/local/bin/gcc
+#export CXX=/opt/local/bin/g++
 
 export CMAKE_MODULE_PATH=/opt/local/include
 export CMAKE_PREFIX_PATH=/opt/local
@@ -77,7 +77,7 @@ export PATH=${PATH}:${SERPENT_PATH}
 ####---------------------------------------------------####
 # root
 
-export ROOTSYS=$APP_PATH/root
+export ROOTSYS=$APP_PATH/root/bld
 export PATH=${PATH}:${ROOTSYS}/bin
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/Users/mouginot/work/App/root/lib/"
 
