@@ -18,9 +18,12 @@ alias Xcode='open -a XCode'
 alias nedit='open -a Sublime\ Text'
 alias gedit='Xcode'
 alias finder='open -a finder'
-alias sed='gsed'
+#alias sed='gsed'
 alias root='root -l'
 alias cdw='cd ${WORK_PATH}'
+
+alias py_switch='$HOME/.zsh_config/py_switch'
+
 
 #######################
 ######### SVN #########
