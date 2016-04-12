@@ -19,11 +19,11 @@ export LANG="en_US.UTF-8"
 ####---------------------------------------------------####
 
 DEFAULT_USER=mouginot
-export WORK_PATH="/Users/mouginot/work"
+export WORK_PATH="$HOME/work"
 export APP_PATH="${WORK_PATH}/App"
 
 export PATH="${HOME}/.local/bin:$PATH"
-export WORK_PATH="/Users/mouginot/work"
+export WORK_PATH="$HOME/work"
 export CYCLUS_PATH="${APP_PATH}/cyclus"
 
 ####---------------------------------------------------####
@@ -79,7 +79,7 @@ export PATH=${PATH}:${SERPENT_PATH}
 
 export ROOTSYS=$APP_PATH/root/bld
 export PATH=${PATH}:${ROOTSYS}/bin
-export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/Users/mouginot/work/App/root/lib/"
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:$HOME/work/App/root/lib/"
 
 ####---------------------------------------------------####
 

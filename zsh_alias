@@ -1,9 +1,9 @@
 #!/bin/zsh
 
 
-alias source_zshrc="source ~/.zshrc"
-alias source_alias="source ~/.zsh_config/zsh_alias"
-alias source_config="source ~/.zsh_config/zsh_config"
+alias source_zshrc="source $HOME/.zshrc"
+alias source_alias="source $HOME/.zsh_config/zsh_alias"
+alias source_config="source $HOME/.zsh_config/zsh_config"
 
 
 alias cyplot="cyan -db cyclus.sqlite flowgraph -proto | dot -Tpng > flow.png"
@@ -12,13 +12,12 @@ alias cyplot="cyan -db cyclus.sqlite flowgraph -proto | dot -Tpng > flow.png"
 ##Alias Perso/Boulot##
 ######################
 alias ql='quick-look'
-alias clean='rm *~; rm \~\$*'
-alias texclean='rm *~ \~\$* *.log *.aux *.out *.synctex.gz'
+alias clean='rm *$HOME; rm \$HOME\$*'
+alias texclean='rm *$HOME \$HOME\$* *.log *.aux *.out *.synctex.gz'
 alias Xcode='open -a XCode'
 alias nedit='open -a Sublime\ Text'
 alias gedit='Xcode'
 alias finder='open -a finder'
-#alias sed='gsed'
 alias root='root -l'
 alias cdw='cd ${WORK_PATH}'
 
@@ -36,23 +35,23 @@ alias log="svn log"
 
 
 
-alias cdh="source /Users/mouginot/.bin/cdh.sh"
-alias ucdh="/Users/mouginot/.bin/UmountAll"
+alias cdh="source $HOME/.bin/cdh.sh"
+alias ucdh="$HOME/.bin/UmountAll"
 
 
 alias qstat="ssh -Y nansl1.in2p3.fr ssh -Y nansl3.in2p3.fr qstat"
 alias qdel="ssh nansl1.in2p3.fr qdel"
-alias QSUB="/Users/mouginot/.bin/QSUB.sh"
+alias QSUB="$HOME/.bin/QSUB.sh"
 
-alias sl1="~/.bin/nanssh.sh nansl1"
+alias sl1="$HOME/.bin/nanssh.sh nansl1"
 alias kermit="ssh -X kermit.ep.wisc.edu"
-alias mountkernit="source ~/.bin/mountkermit.sh"
+alias mountkernit="source $HOME/.bin/mountkermit.sh"
 
-alias imac="~/.bin/imacssh.sh"
+alias imac="$HOME/.bin/imacssh.sh"
 
-alias sync='/Users/mouginot/.bin/sync.sh'
-alias get='/Users/mouginot/.bin/get.sh'
-alias put='/Users/mouginot/.bin/put.sh'
+alias sync='$HOME/.bin/sync.sh'
+alias get='$HOME/.bin/get.sh'
+alias put='$HOME/.bin/put.sh'
 
 
 
@@ -73,7 +72,7 @@ alias gimp='gimp&'
 alias opof="openoffice"
 alias umount='sudo umount'
 alias mount='sudo mount'
-alias srm='mv -v \!* ~/.Trash/'
+alias srm='mv -v \!* $HOME/.Trash/'
 alias mv='mv -v'
-alias sudo='/Users/mouginot/.bin/sudo.sh'
+alias sudo='$HOME/.bin/sudo.sh'
 alias ssh='ssh -X'

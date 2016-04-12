@@ -9,8 +9,8 @@
 # # Even if there are commands inbetween commands that are the same, still only save the last one
  setopt HIST_IGNORE_ALL_DUPS
 
-source ~/.zsh_config/zsh_ohmzsh
+source $HOME/.zsh_config/zsh_ohmzsh
 
-source ~/.zsh_config/zsh_alias
-source ~/.zsh_config/zsh_config
-source ~/.zsh_config/zsh_perso
+source $HOME/.zsh_config/zsh_alias
+source $HOME/.zsh_config/zsh_config
+source $HOME/.zsh_config/zsh_perso
