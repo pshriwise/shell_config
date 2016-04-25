@@ -15,6 +15,7 @@
 
 (column-number-mode 1)
 (setq compilation-scroll-output t)
+(savehist-mode 1)
 
 (defun bury-compile-buffer-if-successful (buffer string)
   "Bury a compilation buffer if succeeded without warnings "
