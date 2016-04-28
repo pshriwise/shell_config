@@ -12,7 +12,7 @@ alias cyplot="cyan -db cyclus.sqlite flowgraph -proto | dot -Tpng > flow.png"
 ##Alias Perso/Boulot##
 ######################
 alias ql='quick-look'
-alias clean='rm *$HOME; rm \$HOME\$*'
+alias clean='rm *~; rm ~$*'
 alias texclean='rm *$HOME \$HOME\$* *.log *.aux *.out *.synctex.gz'
 alias Xcode='open -a XCode'
 alias nedit='open -a Sublime\ Text'
@@ -22,6 +22,8 @@ alias root='root -l'
 alias cdw='cd ${WORK_PATH}'
 
 alias py_switch='$HOME/.zsh_config/py_switch'
+
+alias cyclus_debug='export CYCLUS_NO_CATCH=1'
 
 
 #######################
