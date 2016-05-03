@@ -20,7 +20,7 @@ alias gedit='Xcode'
 alias finder='open -a finder'
 alias root='root -l'
 alias cdw='cd ${WORK_PATH}'
-
+alias emacs='/opt/local/bin/emacs'
 alias py_switch='$HOME/.zsh_config/py_switch'
 
 alias cyclus_debug='export CYCLUS_NO_CATCH=1'
