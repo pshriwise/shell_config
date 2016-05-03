@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+#name : $(error text)
+#contributor : Dylan.Wen <hhkbp2@gmail.com>
+# --
+$(error ${1:text})

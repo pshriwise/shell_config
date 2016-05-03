@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+#name : $(shell command)
+#contributor : Dylan.Wen <hhkbp2@gmail.com>
+# --
+$(shell ${1:command})

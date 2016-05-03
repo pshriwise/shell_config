@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+#name : try { ... } catch (...) { ... }
+#contributor : Dylan.Wen <hhkbp2@gmail.com>
+# --
+try {
+    ${1:statement}
+}
+catch (${2:exception}) {
+    ${0:catch-statement}
+}

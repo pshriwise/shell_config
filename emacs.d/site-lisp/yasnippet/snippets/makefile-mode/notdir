@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+#name : $(notdir name...)
+#contributor : Dylan.Wen <hhkbp2@gmail.com>
+# --
+$(notdir ${1:name...})

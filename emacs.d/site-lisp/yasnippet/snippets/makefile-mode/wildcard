@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+#name : $(wildcard pattern...)
+#contributor : Dylan.Wen <hhkbp2@gmail.com>
+# --
+$(wildcard ${1:pattern...})

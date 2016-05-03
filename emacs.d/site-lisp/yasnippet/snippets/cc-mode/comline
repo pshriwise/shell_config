@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+#name : single link comment // ...
+#contributor : Dylan.Wen <hhkbp2@gmail.com>
+# --
+// ${1:comment}

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+#name : if [ ... ]; then ... fi
+#contributor : Dylan.Wen <hhkbp2@gmail.com>
+# --
+if [ ${1:condition} ]; then
+    ${0:statement}
+fi

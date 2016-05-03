@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+#name : $(suffix name...)
+#contributor : Dylan.Wen <hhkbp2@gmail.com>
+# --
+$(suffix ${1:name...})

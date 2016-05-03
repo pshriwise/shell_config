@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+#name : $(word n,text)
+#contributor : Dylan.Wen <hhkbp2@gmail.com>
+# --
+$(word ${1:n},${2:text})
