@@ -58,7 +58,7 @@ alias put='$HOME/.bin/put.sh'
 
 
 alias tunnel='ssh -D8080 vps204419.ovh.net'
-alias pi="ssh -X osmc@10.130.35.96"
+alias pi="ssh -X osmc@192.168.1.5"
 
 ##################
 ##Alias generaux##

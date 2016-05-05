@@ -1,4 +1,4 @@
 {
-  #include "TMatrix"
-  gSystem.Load("$CLASS_lib/libCLASSpkg_root.so"); 
+  //  #include "TMatrix"
+  //gSystem.Load("$CLASS_lib/libCLASSpkg_root.so"); 
 }
