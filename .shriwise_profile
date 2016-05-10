@@ -41,6 +41,7 @@ alias ff='ssh -X serenity'
 alias ta='tmux attach'
 alias clc='clear; l'
 alias ec2='ssh ec2'
+alias ec2p='ssh ec2p'
 
 #Notebook Aliases
 function notebook {
