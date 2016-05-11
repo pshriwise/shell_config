@@ -49,3 +49,70 @@ re-downloaded in order to locate PACKAGE."
 ;; automatically open files ending with .gp or .gnuplot in gnuplot mode
 (setq auto-mode-alist
       (append '(("\\.\\(gp\\|gnuplot\\)$" . gnuplot-mode)) auto-mode-alist))
+
+
+(load "auctex.el" nil t t)
+(load "preview-latex.el" nil t t)
+
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq-default TeX-master nil)
+
+(add-hook 'LaTeX-mode-hook 'visual-line-mode)
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+(setq reftex-plug-into-AUCTeX t)
+(setq font-latex-fontify-script t)
+
+
+(add-hook 'prog-mode-hook 'line-number-mode t)
+(add-hook 'prog-mode-hook 'column-number-mode t)
+
+(add-hook 'text-mode-hook (lambda ()
+                             (turn-on-auto-fill)
+                             (set-fill-column 82)))
+(add-hook 'markdown-mode-hook (lambda ()
+                             (turn-on-auto-fill)
+                             (fci-mode)
+                             (set-fill-column 82)))
+(add-hook 'python-mode-hook (lambda ()
+                             (fci-mode)
+                             (set-fill-column 94)))
+(add-hook 'c-mode-hook (lambda ()
+                             (fci-mode)
+                             (set-fill-column 94)))
+
+(add-hook 'd-mode-hook (lambda ()
+                             (fci-mode)
+                             (set-fill-column 94)))
+
+
+(defvar my-LaTeX-no-autofill-environments
+    '("equation" "equation*" "table" "table*" "figure" "figure*")
+      "A list of LaTeX environment names in which `auto-fill-mode' should be inhibited.")
+
+(defun my-LaTeX-auto-fill-function ()
+    "This function checks whether point is currently inside one of
+  the LaTeX environments listed in
+  `my-LaTeX-no-autofill-environments'. If so, it inhibits automatic
+  filling of the current paragraph."
+    (let ((do-auto-fill t)
+                  (current-environment "")
+                  (level 0))
+          (while (and do-auto-fill (not (string= current-environment "document")))
+            (setq level (1+ level)
+              current-environment (LaTeX-current-environment level)
+                  do-auto-fill (not (member current-environment my-LaTeX-no-autofill-environments))))
+          (when do-auto-fill
+              (do-auto-fill))))
+
+(defun my-LaTeX-setup-auto-fill ()
+    "This function turns on auto-fill-mode and sets the function
+  used to fill a paragraph to `my-LaTeX-auto-fill-function'."
+    (auto-fill-mode)
+      (setq auto-fill-function 'my-LaTeX-auto-fill-function))
+
+(add-hook 'LaTeX-mode-hook 'my-LaTeX-setup-auto-fill)
+
