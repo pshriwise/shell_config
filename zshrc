@@ -11,6 +11,12 @@
 
 source $HOME/.zsh_config/zsh_ohmzsh
 
-source $HOME/.zsh_config/zsh_alias
 source $HOME/.zsh_config/zsh_config
 source $HOME/.zsh_config/zsh_perso
+
+source $HOME/.zsh_config/zsh_alias
+
+if [[ `hostname -s` =~ 'CoffeeBean' || `hostname -s` =~ 'd128104184078' ]]; then
+  source $HOME/.zsh_config/zsh_local
+fi
+  

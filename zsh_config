@@ -14,11 +14,13 @@ export PATH="${PATH}:/usr/sbin:/sbin"
 export PATH="${PATH}:/opt/X11/bin"
 export PATH="${PATH}:/Library/TeX/texbin"
 
-export LANG="en_US.UTF-8"
 
+export LC_ALL='en_US.UTF-8'
+export LANG='en_US.UTF-8'
 ####---------------------------------------------------####
 
 DEFAULT_USER=mouginot
+export hostname=`hostname -s`
 export WORK_PATH="$HOME/work"
 export APP_PATH="${WORK_PATH}/App"
 
@@ -32,7 +34,7 @@ export kermit='kermit.ep.wisc.edu'
 export ovh='vps204419.ovh.net'
 export pi='10.130.35.96'
 export git='git@github.com:Baaaaam/'
-
+export gitlab='git@gitlab.in2p3.fr:baaaaam/'
 
 
 

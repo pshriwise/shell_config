@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+alias emacs='/opt/local/bin/emacs'
+alias sudo='$HOME/.bin/sudo.sh'
+alias py_switch='$HOME/.zsh_config/py_switch'

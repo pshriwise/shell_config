@@ -20,9 +20,6 @@ alias gedit='Xcode'
 alias finder='open -a finder'
 alias root='root -l'
 alias cdw='cd ${WORK_PATH}'
-alias emacs='/opt/local/bin/emacs'
-alias py_switch='$HOME/.zsh_config/py_switch'
-
 alias cyclus_debug='export CYCLUS_NO_CATCH=1'
 
 
@@ -47,7 +44,6 @@ alias QSUB="$HOME/.bin/QSUB.sh"
 
 alias sl1="$HOME/.bin/nanssh.sh nansl1"
 alias kermit="ssh -X kermit.ep.wisc.edu"
-alias mountkernit="source $HOME/.bin/mountkermit.sh"
 
 alias imac="$HOME/.bin/imacssh.sh"
 
@@ -76,5 +72,4 @@ alias umount='sudo umount'
 alias mount='sudo mount'
 alias srm='mv -v \!* $HOME/.Trash/'
 alias mv='mv -v'
-alias sudo='$HOME/.bin/sudo.sh'
 alias ssh='ssh -X'
