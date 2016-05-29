@@ -105,7 +105,7 @@ then
     if [ $? -ne 0 ]; then echo "Mount failed. Removing intended destination directory..."; rmdir ~/mnt/$3; fi
 else
     if [ ! -d ~/mnt/$1 ]; then mkdir -p ~/mnt/$1; fi
-    sshfs $1:/ ~/mnt/$1
+    sshfs -oauto_cache,reconnect,defer_permissions,noappledouble $1:/ ~/mnt/$1
     if [ $? -ne 0 ]; then echo "Mount failed. Removing intended destination directory..."; rmdir ~/mnt/$1; fi
 fi 
 
