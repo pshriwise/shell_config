@@ -112,7 +112,21 @@ fi
  
 }
 
-function remumnt () { fusermount -u ~/mnt/$1 && rmdir ~/mnt/$1 ; }
+function remumnt () {
+    if fusermount -u ~/mnt/$1; then
+	rmdir ~/mnt/$1
+    else
+	if [ "$(ls -A ~/mnt/$1)" ] ; then
+	    echo "Could not unmount. Files exist in directory. Please investigate further."
+	else
+	    read -p "Could not unmount. Directory is empty. Remove dir? [y/n] " -n 1 -r
+	    echo
+	    if [[ $REPLY =~ ^[Yy]$ ]]; then
+		rmdir ~/mnt/$1
+	    fi
+	fi
+    fi
+}
 
 . ~/.bash/bash_completion/remumnt
 
