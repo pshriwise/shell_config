@@ -22,19 +22,24 @@ export LANG='en_US.UTF-8'
 DEFAULT_USER=mouginot
 export hostname=`hostname -s`
 export WORK_PATH="$HOME/work"
-export APP_PATH="${WORK_PATH}/App"
+export APP_PATH="${WORK_PATH}/app"
 
 export PATH="${HOME}/.local/bin:$PATH"
 export WORK_PATH="$HOME/work"
+
 export CYCLUS_PATH="${APP_PATH}/cyclus"
+export SERPENT_DATA="${WORK_PATH}/data"
+
+export GOPATH="${APP_PATH}/go"
+export PATH="${PATH}:${GOPATH}/bin"
 
 ####---------------------------------------------------####
 
 export kermit='kermit.ep.wisc.edu'
 export ovh='vps204419.ovh.net'
-export pi='10.130.35.96'
+export pi='192.168.1.5'
 export git='git@github.com:Baaaaam/'
-export gitlab='git@gitlab.in2p3.fr:baaaaam/'
+export glab='git@gitlab.in2p3.fr:baaaaam/'
 
 
 
@@ -81,7 +86,7 @@ export PATH=${PATH}:${SERPENT_PATH}
 
 export ROOTSYS=$APP_PATH/root/bld
 export PATH=${PATH}:${ROOTSYS}/bin
-export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:$HOME/work/App/root/bld/lib/"
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:$HOME/work/app/root/bld/lib/"
 
 ####---------------------------------------------------####
 

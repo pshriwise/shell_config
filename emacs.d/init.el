@@ -1,7 +1,13 @@
+(setq-default tab-width 4)
+(setq-default indent-tabs-mode nil)
+
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(add-to-list 'package-archives '("site-lisp" . "~/,emacs.d/site-lisp"))
+(add-to-list 'package-archives
+						 '("melpa-stable" . "https://stable.melpa.org/packages/"))
+(add-to-list 'package-archives
+						 '("site-lisp" . "~/,emacs.d/site-lisp"))
 
 
 ;;; from purcell/emacs.d
@@ -10,7 +16,7 @@
 If NO-REFRESH is non-nil, the available package lists will not be
 re-downloaded in order to locate PACKAGE."
   (if (package-installed-p package min-version)
-      t
+			t
     (if (or (assoc package package-archive-contents) no-refresh)
         (package-install package)
       (progn
@@ -116,3 +122,15 @@ re-downloaded in order to locate PACKAGE."
 
 (add-hook 'LaTeX-mode-hook 'my-LaTeX-setup-auto-fill)
 
+(autoload 'markdown-mode "markdown-mode"
+  "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+(autoload 'gfm-mode "gfm-mode"
+  "Major mode for editing GitHub Flavored Markdown files" t)
+(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
+
+
+
+(setq org-use-sub-superscripts '{})
