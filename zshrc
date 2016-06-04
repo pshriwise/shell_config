@@ -9,7 +9,6 @@
 # # Even if there are commands inbetween commands that are the same, still only save the last one
  setopt HIST_IGNORE_ALL_DUPS
 
-source $HOME/.zsh_config/zsh_ohmzsh
 
 source $HOME/.zsh_config/zsh_config
 source $HOME/.zsh_config/zsh_perso
@@ -22,3 +21,5 @@ if [[ `hostname -s` =~ 'CoffeeBean' || `hostname -s` =~ 'd128104184078' ]]; then
 elif [[ `hostname -s` =~ 'submit-3' ]]; then
   source $HOME/.zsh_config/zsh_condor
 fi
+
+source $HOME/.zsh_config/zsh_ohmzsh
