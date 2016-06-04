@@ -1,5 +1,10 @@
 #!/bin/zsh
 
-alias emacs='/opt/local/bin/emacs'
+#alias emacs='/opt/local/bin/emacs'
+alias emacs='vim'
 alias sudo='$HOME/.bin/sudo.sh'
 alias py_switch='$HOME/.zsh_config/py_switch'
+
+alias vim='/opt/local/bin/vim'
+alias vi='/opt/local/bin/vim'
+
