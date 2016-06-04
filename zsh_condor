@@ -1,4 +1,5 @@
 #!/bin/zsh
 
+alias zsh='$HOME/.bin/bin/zsh'
 alias q='condor_q'
 alias sub='condor_submit'
