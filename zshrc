@@ -19,6 +19,6 @@ source $HOME/.zsh_config/zsh_alias
 if [[ `hostname -s` =~ 'CoffeeBean' || `hostname -s` =~ 'd128104184078' ]]; then
   source $HOME/.zsh_config/zsh_local
   test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+elif [[ `hostname -s` =~ 'submit-3' ]]; then
+  source $HOME/.zsh_config/zsh_condor
 fi
-  
-
