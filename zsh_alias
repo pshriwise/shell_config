@@ -19,6 +19,9 @@ alias nedit='open -a Sublime\ Text'
 alias gedit='Xcode'
 alias finder='open -a finder'
 alias root='root -l'
+
+alias vi='vim'
+
 alias cdw='cd ${WORK_PATH}'
 alias cyclus_debug='export CYCLUS_NO_CATCH=1'
 alias cyclist='open /Users/mouginot/work/app/cyclus/cyclist2/deploy/dist/cyclist.jar'
@@ -67,9 +70,10 @@ alias pi="ssh -X osmc@192.168.1.5"
 ##Alias generaux##
 ##################
 alias cp='cp -v'
-alias ls='ls -Gh'
-alias ll='ls -alG'
-alias lf='ls -FG'
+alias ls='ls --color'
+alias ls='ls -Gh --color'
+alias ll='ls -al --color'
+alias lf='ls -FG --color'
 alias xterm='xterm&'
 alias ld='ls -ldG'
 alias xmgr='xmgrace&'

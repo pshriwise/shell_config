@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+alias q='condor_q'
+alias sub='condor_submit'
