@@ -12,7 +12,7 @@ alias cyplot="cyan -db cyclus.sqlite flowgraph -proto | dot -Tpng > flow.png"
 ##Alias Perso/Boulot##
 ######################
 alias ql='quick-look'
-alias clean='rm *~; rm ~\$*'
+alias clean='rm *~; rm ~\$*; rm .*.swp'
 alias texclean='rm *$HOME \$HOME\$* *.log *.aux *.out *.synctex.gz'
 alias Xcode='open -a XCode'
 alias nedit='open -a Sublime\ Text'
@@ -70,10 +70,7 @@ alias pi="ssh -X osmc@192.168.1.5"
 ##Alias generaux##
 ##################
 alias cp='cp -v'
-alias ls='ls --color'
-alias ls='ls -Gh --color'
-alias ll='ls -al --color'
-alias lf='ls -FG --color'
+alias ll='ls -al'
 alias xterm='xterm&'
 alias ld='ls -ldG'
 alias xmgr='xmgrace&'
