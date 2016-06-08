@@ -24,6 +24,12 @@ set expandtab
 " Be smart when using tabs ;)
 set smarttab
 
+set autoindent 
+set smartindent
+
+set number
+set ruler
+
 " 1 tab == 4 spaces
 set shiftwidth=2
 set tabstop=2
