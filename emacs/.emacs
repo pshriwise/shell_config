@@ -17,6 +17,12 @@
 (setq compilation-scroll-output t)
 (savehist-mode 1)
 
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+
+
+
 (defun bury-compile-buffer-if-successful (buffer string)
   "Bury a compilation buffer if succeeded without warnings "
   (if (and
@@ -94,6 +100,17 @@
  ;; If there is more than one, they won't work right.
  )
 
+(set-frame-parameter (selected-frame) 'alpha '(85 . 40))
+(add-to-list 'default-frame-alist '(alpha . (85 . 40)))
+(set-face-attribute 'default nil :background "black"
+		      :foreground "white")
+
+;; Set transparency of emacs
+(defun transparency (value)
+  "Sets the transparency of the frame window. 0=transparent/100=opaque"
+  (interactive "nTransparency Value 0 - 100 opaque:")
+     (set-frame-parameter (selected-frame) 'alpha value))
+
 ;;; CUSTOM MACROS ;;;
 
 (fset 'todays_post
@@ -101,3 +118,4 @@
 
 (fset 'new_post
    (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([134217761 99 100 32 126 47 68 111 99 101 backspace 117 109 101 110 116 115 47 112 101 114 115 111 110 97 108 47 110 111 101 backspace 116 101 98 111 111 107 32 38 33554464 S-backspace 38 33554464 109 97 107 101 32 110 101 119 return] 0 "%d")) arg)))
+(put 'upcase-region 'disabled nil)
