@@ -12,7 +12,7 @@ alias cyplot="cyan -db cyclus.sqlite flowgraph -proto | dot -Tpng > flow.png"
 ##Alias Perso/Boulot##
 ######################
 alias ql='quick-look'
-alias clean='rm *~; rm ~\$*; rm .*.swp'
+alias clean='rm *~; rm ~\$*; rm .*.swp; rm \#*\#'
 alias texclean='rm *$HOME \$HOME\$* *.log *.aux *.out *.synctex.gz'
 alias Xcode='open -a XCode'
 alias nedit='open -a Sublime\ Text'

@@ -1,5 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/Users/mouginot/.oh-my-zsh/plugins/git'
 let g:netrw_dirhist_2='/Users/mouginot/.zsh_config/.git'
 let g:netrw_dirhist_3='/Users/mouginot/work/app/cyclus/cyclus/docker/release-14.04'
+let g:netrw_dirhist_4='/Users/mouginot/.zsh_config/vim/ftplugin/latex-suite'
+let g:netrw_dirhist_5='/Users/mouginot/.zsh_config/vim/vim-latex'
+let g:netrw_dirhist_6='/Users/mouginot/work/app/cyclus/cycamore'

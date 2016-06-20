@@ -13,7 +13,7 @@ function! Tex_SetTexViewerMaps()
 		if has('gui_running')
 			imap <buffer> <silent> <F9> <Plug>Tex_Completion
 		else
-			imap <buffer> <F9> <Plug>Tex_Completion
+			imap <buffer> <Leader>P <Plug>Tex_Completion
 		endif
 	endif
 endfunction

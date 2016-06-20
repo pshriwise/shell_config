@@ -30,11 +30,12 @@ set smartindent
 set number
 set ruler
 
-" 1 tab == 4 spaces
 set shiftwidth=2
+set softtabstop=2
 set tabstop=2
+set tabstop=2 expandtab filetype=python:
 
-" Linebreak on 500 characters
+" Linebreak on 80 characters
 set lbr
 set tw=80
 
@@ -59,7 +60,6 @@ function! VisualFindAndReplaceWithSelection() range
   :noh
 endfunction
 xnoremap <Leader>s :call VisualFindAndReplaceWithSelection()<CR>
-
 
 let g:tex_flavor='latex'
 let g:Tex_DefaultTargetFormat='pdf'
