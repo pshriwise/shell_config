@@ -22,6 +22,9 @@ if [[ `hostname -s` =~ 'CoffeeBean' || `hostname -s` =~ 'd128104185199' ]]; then
 elif [[ `hostname -s` =~ 'submit-3' ]]; then
   echo "Loading HTC config"
   source $HOME/.zsh_config/zsh_condor
+elif [[ `hostname -s` =~ 'kermit' ]]; then
+  echo "Loading kermit config"
+  source $HOME/.zsh_config/zsh_kermit
 fi
 
 source $HOME/.zsh_config/zsh_ohmzsh
