@@ -1,5 +1,5 @@
 Host home
-	HostName 68.190.167.114
+	HostName 24.196.130.129
 	User shriwise
 ForwardAgent yes
 ForwardX11 yes
