@@ -78,7 +78,8 @@
    (global-set-key [(control-c) (c)] 'tags-loop-continue)
    (global-set-key [(control-c) (s)] 'tags-search)
 
-(setq help-char nil)
+;; Commented because it was breaking access to certain built-in macros
+;;(setq help-char nil)
 
 (global-set-key "\C-h"  'backward-kill-word)
 
