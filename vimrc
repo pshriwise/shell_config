@@ -47,6 +47,14 @@ set wrap "Wrap lines
 set hlsearch
 set incsearch
 
+set backspace=indent,eol,start
+
+autocmd FileType python set formatoptions=l
+autocmd FileType gnuplot set formatoptions=l
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Over command plugin: visual search and replace
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <leader>v :OverCommandLine<CR> %s/<C-r><C-w>/
 
 function! VisualFindAndReplace()
@@ -61,6 +69,9 @@ function! VisualFindAndReplaceWithSelection() range
 endfunction
 xnoremap <Leader>s :call VisualFindAndReplaceWithSelection()<CR>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Latex plugin: configureation
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:tex_flavor='latex'
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_CompileRule_pdf='pdflatex -interaction=nonstopmode $*'
@@ -72,6 +83,20 @@ let Tex_FoldedEnvironments=""
 let Tex_FoldedMisc=""
 
 
-set backspace=indent,eol,start
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => clang-format plugin: configureation
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+let g:clang_format#style_options = {
+            \ "AccessModifierOffset" : -4,
+            \ "AllowShortIfStatementsOnASingleLine" : "true",
+            \ "AlwaysBreakTemplateDeclarations" : "true",
+            \ "Standard" : "C++11"}
 
+" map to <Leader>cf in C++ code
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+" if you install vim-operator-user
+autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
+" Toggle auto formatting:
+nmap <Leader>C :ClangFormatAutoToggle<CR>
