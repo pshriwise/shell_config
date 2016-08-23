@@ -20,7 +20,7 @@ if [[ `hostname -s` =~ 'CoffeeBean' || `hostname -s` =~ 'd128104185199' ]]; then
   source $HOME/.zsh_config/zsh_local
   test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 elif [[ `hostname -s` =~ 'submit-3' ]]; then
-  echo "Loading HTC config:
+  echo "Loading HTC config"
   source $HOME/.zsh_config/zsh_condor
 fi
 
