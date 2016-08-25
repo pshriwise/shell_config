@@ -105,7 +105,7 @@ then
     if [ $? -ne 0 ]; then echo "Mount failed. Removing intended destination directory..."; rmdir ~/mnt/$3; fi
 else
     if [ ! -d ~/mnt/$1 ]; then mkdir -p ~/mnt/$1; fi
-    sshfs -oauto_cache,reconnect,defer_permissions,noappledouble $1:/ ~/mnt/$1
+    sshfs $1:/ ~/mnt/$1
     if [ $? -ne 0 ]; then echo "Mount failed. Removing intended destination directory..."; rmdir ~/mnt/$1; fi
 fi 
 
@@ -132,5 +132,37 @@ function remumnt () {
 
 #### End Mount Section ###
 
+
+### Pandora Stuff (relies on pianobar) ###
+function pandora() {
+
+#check to see if a pandora tmux session is already in existence
+
+if [ 0 -eq "$(tmux list-sessions | grep pandora | wc -l )" ] ; then
+    #create a pandora tmux and enter it
+    echo "Creating tmux for pandora..."
+    tmux new -s pandora pianobar
+else
+    echo "Entering pandora..."
+    tmux a -t pandora
+fi
+
+}
+
+function pnext() {
+    tmux send -t pandora n;
+}
+
+function ppause() {
+    tmux send -t pandora p;
+}
+
+function pquit() {
+    tmux send -t pandora q;
+}
+
+function pplay() {
+    tmux send -t pandora p;
+}
 
 export -f remmnt
