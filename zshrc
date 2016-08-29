@@ -10,7 +10,10 @@
  setopt HIST_IGNORE_ALL_DUPS
 
 
-source $HOME/.zsh_config/zsh_config
+if [[ ! `hostname -s` =~ 'submit-3' ]]; then
+  source $HOME/.zsh_config/zsh_config
+fi
+
 source $HOME/.zsh_config/zsh_perso
 
 source $HOME/.zsh_config/zsh_alias
