@@ -5,6 +5,8 @@ alias emacs='vim'
 alias sudo='$HOME/.bin/sudo.sh'
 alias py_switch='$HOME/.zsh_config/py_switch'
 
+alias docker_start='source /Applications/Docker/Docker\ Quickstart\ Terminal.app/Contents/Resources/Scripts/start.sh'
+
 alias vim='/opt/local/bin/vim'
 alias vi='/opt/local/bin/vim'
 

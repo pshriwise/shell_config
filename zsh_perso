@@ -5,3 +5,18 @@ function =
 	echo "$@" | root -l
 }
 alias calcul="="
+
+
+function c_git
+{
+  
+  if [ $# -eq 1 ]; then
+    echo $@
+    curl -u 'Baaaaam' https://api.github.com/user/repos -d '{"name":"'$@'"}'
+  else
+    curl -u 'Baaaaam' https://api.github.com/user/repos -d '{"name":"'${PWD##*/}'"}'
+  fi
+
+
+}
+

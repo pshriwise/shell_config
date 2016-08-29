@@ -12,7 +12,7 @@ alias cyplot="cyan -db cyclus.sqlite flowgraph -proto | dot -Tpng > flow.png"
 ##Alias Perso/Boulot##
 ######################
 alias ql='quick-look'
-alias clean='rm *~; rm ~\$*; rm .*.swp'
+alias clean='rm *~; rm ~\$*; rm .*.swp; rm \#*\#'
 alias texclean='rm *$HOME \$HOME\$* *.log *.aux *.out *.synctex.gz'
 alias Xcode='open -a XCode'
 alias nedit='open -a Sublime\ Text'
@@ -28,7 +28,7 @@ alias cyclist='open /Users/mouginot/work/app/cyclus/cyclist2/deploy/dist/cyclist
 
 ##########################
 ##########################
-alias todo='git -C ~/work/todo fetch origin; git -C ~/work/todo rebase origin master; emacs  ~/work/todo/todo.md; git -C  ~/work/todo commit -am"update";git -C  ~/work/todo push -q'
+alias todo='git -C ~/work/todo fetch origin; git -C ~/work/todo rebase origin master; vi  ~/work/todo/todo.md; git -C  ~/work/todo commit -am"update";git -C  ~/work/todo push -q'
 
 
 
