@@ -29,6 +29,9 @@ elif [[ `hostname -s` =~ 'submit-3' ]]; then
 elif [[ `hostname -s` =~ 'kermit' ]]; then
   echo "Loading kermit config"
   source $HOME/.zsh_config/zsh_kermit
+elif [[ `hostname -s` =~ 'raspberrypi' ]]; then
+  echo "Loading Pi config"
+  source $HOME/.zsh_config/zsh_pi
 fi
 
 source $HOME/.zsh_config/zsh_ohmzsh
