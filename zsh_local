@@ -10,3 +10,6 @@ alias docker_start='source /Applications/Docker/Docker\ Quickstart\ Terminal.app
 alias vim='/opt/local/bin/vim'
 alias vi='/opt/local/bin/vim'
 
+
+export PATH="/Users/mouginot/work/app/cyclus/cymetric/bin:${PATH}"
+export LD_LIBRARY_PATH="/Users/mouginot/work/app/cyclus/cymetric/${HOME}:${LD_LIBRARY_PATH}"
