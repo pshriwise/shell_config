@@ -5,11 +5,14 @@
 (add-to-list 'load-path "~/.bash/emacs/mplayer-mode")
 (add-to-list 'load-path "~/.bash/emacs/bash-completion")
 (add-to-list 'load-path "~/.bash/emacs/cython-mode")
+(add-to-list 'load-path "~/.bash/emacs")
 
 (require 'auto-complete-config)
 (require 'mplayer-mode)
 (require 'bash-completion)
 (require 'cython-mode)
+(require 'web-mode)
+
 (bash-completion-setup)
 (global-auto-complete-mode t)
 
