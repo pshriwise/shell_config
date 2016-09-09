@@ -13,8 +13,10 @@ function c_git
   if [ $# -eq 1 ]; then
     echo $@
     curl -u 'Baaaaam' https://api.github.com/user/repos -d '{"name":"'$@'"}'
+    git clone git@github.com:Baaaaam/${@}.git
   else
     curl -u 'Baaaaam' https://api.github.com/user/repos -d '{"name":"'${PWD##*/}'"}'
+    git remote add origin git@github.com:Baaaaam/${PWD##*/}.git
   fi
 
 
