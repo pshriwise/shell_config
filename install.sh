@@ -2,7 +2,10 @@
 git clone git@github.com:Baaaaam/oh-my-zsh.git oh-my-zsh
 git clone https://github.com/powerline/fonts.git
 
-cd ..
+cd oh-my-zsh/plugins
+git clone http://github.com/zsh-users/zsh-syntax-highlighting.git
+cd 
+
 # Backing-up the existing file
 mv .zshrc .zshrc_bak
 mv .gitconfig .gitconfig_bak
