@@ -67,6 +67,14 @@ alias pi="ssh -X osmc@192.168.1.5"
 ##################
 ##Alias generaux##
 ##################
+
+
+
+
+
+
+
+alias cd='lc'
 alias cp='cp -v'
 alias ll='ls -al'
 alias xterm='xterm&'

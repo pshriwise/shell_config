@@ -2,14 +2,14 @@
 #
 function =
 {
-	echo "$@" | root -l
+  echo "$@" | root -l
 }
 alias calcul="="
 
 
 function c_git
 {
-  
+
   if [ $# -eq 1 ]; then
     curl -u 'Baaaaam' https://api.github.com/user/repos -d '{"name":"'$@'"}'
     git clone git@github.com:Baaaaam/${@}.git
@@ -22,5 +22,13 @@ function c_git
   fi
 
 
+}
+
+function lc () 
+{
+  chdir $1;
+  if [ -d ".git" ]; then
+    git fetch --all -q
+  fi
 }
 
