@@ -44,8 +44,6 @@ alias log="svn log"
 
 
 
-alias cdh="source $HOME/.bin/cdh.sh"
-alias ucdh="$HOME/.bin/UmountAll"
 
 
 alias qstat="ssh -Y nansl1.in2p3.fr ssh -Y nansl3.in2p3.fr qstat"
