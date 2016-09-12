@@ -24,7 +24,7 @@ function c_git
 
 }
 
-function lc () 
+function gitcd () 
 {
   chdir $1;
   if [ -d ".git" ]; then

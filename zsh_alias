@@ -74,7 +74,7 @@ alias pi="ssh -X osmc@192.168.1.5"
 
 
 
-alias cd='lc'
+alias cd='gitcd'
 alias cp='cp -v'
 alias ll='ls -al'
 alias xterm='xterm&'
