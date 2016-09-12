@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-#name : $(join prefix-list,suffix-list)
-#contributor : Dylan.Wen <hhkbp2@gmail.com>
-# --
-$(join ${1:prefix-list},${suffix-list})

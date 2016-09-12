@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-#name : function() { ... }
-#contributor : Dylan.Wen <hhkbp2@gmail.com>
-# --
-${1:function}() {
-    $0
-}

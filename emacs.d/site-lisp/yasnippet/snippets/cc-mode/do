@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-#name : do { ... } while (...)
-#contributor : Dylan.Wen <hhkbp2@gmail.com>
-# --
-do {
-    $0
-} while (${1:condition});

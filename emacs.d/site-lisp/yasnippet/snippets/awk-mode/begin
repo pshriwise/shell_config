@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-#name : BEGIN { ... }
-#contributor : Dylan.Wen <hhkbp2@gmail.com>
-# --
-BEGIN {
-    $0
-}

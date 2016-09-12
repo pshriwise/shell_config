@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-#name : $(dir list...)
-#contributor : Dylan.Wen <hhkbp2@gmail.com>
-# --
-$(dir ${1:list...})

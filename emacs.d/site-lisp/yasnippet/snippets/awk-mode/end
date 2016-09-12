@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-#name : END { ... }
-#contributor : Dylan.Wen <hhkbp2@gmail.com>
-# --
-END {
-    $0
-}

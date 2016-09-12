@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-#name : (defun ...)
-#contributor : Dylan.Wen <hhkbp2@gmail.com>
-# --
-(defun ${1:func} ()
-  "${2:doc}"
-   $0)

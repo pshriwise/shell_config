@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-#name : $(call macro[, param1...])
-#contributor : Dylan.Wen <hhkbp2@gmail.com>
-# --
-$(call ${1:macro[, param1...]})

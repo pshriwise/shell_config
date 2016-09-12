@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-#name : __metaclass__ = type
-#contributor : Dylan.Wen <hhkbp2@gmail.com>
-# --
-__metaclass__ = type

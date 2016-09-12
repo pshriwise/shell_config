@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-#name : if (...) { ... }
-#contributor : Dylan.Wen <hhkbp2@gmail.com>
-# --
-if (${1:condition}) {
-    $0
-}

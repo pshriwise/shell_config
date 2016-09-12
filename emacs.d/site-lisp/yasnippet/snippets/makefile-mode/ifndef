@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-#name : ifndef ... endif
-#contributor : Dylan.Wen <hhkbp2@gmail.com>
-# --
-ifndef ${1:variable}
- $0
-endif

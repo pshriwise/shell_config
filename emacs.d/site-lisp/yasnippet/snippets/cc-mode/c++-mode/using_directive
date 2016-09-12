@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-#name : using directive using namespace ...;
-#contributor : Dylan.Wen <hhkbp2@gmail.com>
-# --
-using namespace ${1:std};

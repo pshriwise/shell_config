@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-#name : $(warning text)
-#contributor : Dylan.Wen <hhkbp2@gmail.com>
-# --
-$(warning ${1:text})
