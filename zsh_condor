@@ -1,6 +1,10 @@
 #!/bin/zsh
 
+export PATH="${PATH}:~/.local/bin/"
+
+
 alias ls='ls --color'
-alias zsh='$HOME/.bin/bin/zsh'
-alias q='condor_q'
+alias zsh='$HOME/.local/bin/zsh'
+alias q='condor_q -nobatch'
 alias sub='condor_submit'
+alias cq='condor_rm'
