@@ -13,6 +13,12 @@ set autoread
 
 syntax on
 
+augroup resCur
+  autocmd!
+  autocmd BufReadPost * call setpos(".", getpos("'\""))
+augroup END
+
+
 
 colorscheme darkmate
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -51,6 +57,9 @@ set backspace=indent,eol,start
 
 autocmd FileType python set formatoptions=l
 autocmd FileType gnuplot set formatoptions=l
+
+autocmd Filetype html,xml,xsl let g:closetag_html_style=1
+autocmd Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Over command plugin: visual search and replace
