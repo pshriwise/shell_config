@@ -12,4 +12,6 @@ alias vi='/opt/local/bin/vim'
 
 
 export PATH="/Users/mouginot/Library/Python/3.5/bin:${PATH}"
+export PATH="/opt/local/Library/Frameworks/Python.framework/Versions/3.5/bin/:${PATH}"
+
 export LD_LIBRARY_PATH="/Users/mouginot/Library/Python/3.5/lib:${LD_LIBRARY_PATH}"
