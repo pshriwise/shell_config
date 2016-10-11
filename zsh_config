@@ -84,9 +84,6 @@ export PATH=${PATH}:${SERPENT_PATH}
 ####---------------------------------------------------####
 # root
 
-export ROOTSYS=$APP_PATH/root/bld
-export PATH=${PATH}:${ROOTSYS}/bin
-export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:$HOME/work/app/root/bld/lib/"
 
 ####---------------------------------------------------####
 
