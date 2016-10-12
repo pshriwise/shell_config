@@ -3,7 +3,9 @@
 #############################
 # variables d'environnement #
 #############################
-export MANPATH="/opt/local/share/man"
+
+export MANPATH="/opt/local/man:/usr/local/man:$MANPATH"
+export MANPATH="/opt/local/share/man:$MANPATH"
 
 
 export PATH="/opt/local/lib"
@@ -83,8 +85,7 @@ export PATH=${PATH}:${SERPENT_PATH}
 
 ####---------------------------------------------------####
 # root
-
-export ROOTSYS=$APP_PATH/root/bld
+export ROOTSYS=$APP_PATH/root-6.04.18/bld
 export PATH=${PATH}:${ROOTSYS}/bin
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:$HOME/work/app/root/bld/lib/"
 

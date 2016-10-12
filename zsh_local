@@ -4,6 +4,8 @@
 alias emacs='vim'
 alias sudo='$HOME/.bin/sudo.sh'
 alias py_switch='$HOME/.zsh_config/py_switch'
+#alias sed='gsed'
+
 
 alias docker_start='source /Applications/Docker/Docker\ Quickstart\ Terminal.app/Contents/Resources/Scripts/start.sh'
 
@@ -15,3 +17,7 @@ export PATH="/Users/mouginot/Library/Python/3.5/bin:${PATH}"
 export PATH="/opt/local/Library/Frameworks/Python.framework/Versions/3.5/bin/:${PATH}"
 
 export LD_LIBRARY_PATH="/Users/mouginot/Library/Python/3.5/lib:${LD_LIBRARY_PATH}"
+
+
+
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:$HOME/work/app/CLASS/lib/"

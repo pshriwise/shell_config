@@ -18,7 +18,7 @@ source $HOME/.zsh_config/zsh_perso
 
 source $HOME/.zsh_config/zsh_alias
 
-if [[ `hostname -s` =~ 'CoffeeBean' || `hostname -s` =~ 'd128104185199' ]]; then
+if [[ `hostname -s` =~ 'CoffeeBean' || `hostname` =~ 'engr.wisc.edu' ]]; then
   echo "Loading local config"
   source $HOME/.zsh_config/zsh_local
   test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
