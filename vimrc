@@ -70,7 +70,7 @@ function! VisualFindAndReplace()
   :OverCommandLine %s/
   :noh
 endfunction
-nnoremap <Leader>s :call VisualFindAndReplace()<CR> 
+nnoremap <Leader>s :call VisualFindAndReplace()<CR>
 
 function! VisualFindAndReplaceWithSelection() range
   :'<,'>OverCommandLine s/
