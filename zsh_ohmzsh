@@ -52,7 +52,7 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to $HOME/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-extras osx cp python docker zsh-syntax-highlighting)
+plugins=(git git-extras osx macports cp python docker zsh-syntax-highlighting)
 
 # User configuration
 

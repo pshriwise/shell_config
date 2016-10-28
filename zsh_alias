@@ -24,7 +24,7 @@ alias vi='vim'
 
 alias cdw='cd ${WORK_PATH}'
 alias cyclus_debug='export CYCLUS_NO_CATCH=1'
-alias cyclist='open /Users/mouginot/work/app/cyclus/cyclist2/deploy/dist/cyclist.jar'
+#alias cyclist='open /Users/mouginot/work/app/cyclus/cyclist2/deploy/dist/cyclist.jar'
 
 ##########################
 ##########################

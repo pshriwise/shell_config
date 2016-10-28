@@ -21,3 +21,7 @@ export LD_LIBRARY_PATH="/Users/mouginot/Library/Python/3.5/lib:${LD_LIBRARY_PATH
 
 
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:$HOME/work/app/CLASS/lib/"
+
+# PyNE Environment Settings
+export PATH="/Users/mouginot/work/app/pyne/bin:${PATH}"
+export LD_LIBRARY_PATH="/Users/mouginot/work/app/pyne/${HOME}:${LD_LIBRARY_PATH}"
