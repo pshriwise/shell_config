@@ -39,7 +39,10 @@ set ruler
 set shiftwidth=2
 set softtabstop=2
 set tabstop=2
+
+" Python tabbing
 set tabstop=2 expandtab filetype=python:
+au FileType python setlocal formatprg=autopep8\ -
 
 " Linebreak on 80 characters
 set lbr
@@ -109,3 +112,4 @@ autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
 " Toggle auto formatting:
 nmap <Leader>C :ClangFormatAutoToggle<CR>
+autocmd FileType c,cpp,ojbc setlocal equalprg=clang-format
