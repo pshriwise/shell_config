@@ -6,3 +6,10 @@ alias emacs='emacs -nw'
 export ROOTSYS=$APP_PATH/root-6.06.02/bld
 export PATH=${PATH}:${ROOTSYS}/bin
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:$ROOTSYS/lib/"
+
+export PATH="/Users/mouginot/work/app/cyclus/pyne/bin:${PATH}"
+export LD_LIBRARY_PATH="/Users/mouginot/work/app/cyclus/pyne/${HOME}:${LD_LIBRARY_PATH}"
+
+
+export PATH="/home/mouginot/.local/lib/bin:${PATH}"
+export LD_LIBRARY_PATH="/home/mouginot/.local/lib/python2.7:${LD_LIBRARY_PATH}"

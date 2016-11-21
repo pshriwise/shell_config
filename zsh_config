@@ -4,17 +4,12 @@
 # variables d'environnement #
 #############################
 
-export MANPATH="/opt/local/man:/usr/local/man:$MANPATH"
-export MANPATH="/opt/local/share/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 
-export PATH="/opt/local/lib"
-export PATH="${PATH}:/opt/local/bin"
 export PATH="${PATH}:/usr/local/bin"
 export PATH="${PATH}:/usr/bin:/bin:"
 export PATH="${PATH}:/usr/sbin:/sbin"
-export PATH="${PATH}:/opt/X11/bin"
-export PATH="${PATH}:/Library/TeX/texbin"
 
 
 export LC_ALL='en_US.UTF-8'
@@ -48,23 +43,6 @@ export glab='git@gitlab.in2p3.fr:baaaaam/'
 ####---------------------------------------------------####
 # Compilation
 
-#export CC=/opt/local/bin/gcc
-#export CXX=/opt/local/bin/g++
-
-export CMAKE_MODULE_PATH=/opt/local/include
-export CMAKE_PREFIX_PATH=/opt/local
-
-
-####---------------------------------------------------####
-
-
-####---------------------------------------------------####
-# HDF5
-
-export HDF5_DIR=/opt/local/lib
-export HDF5_ROOT=/opt/local/
-
-export PATH="$PATH:${HDF5_DIR}"
 
 ####---------------------------------------------------####
 

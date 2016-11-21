@@ -13,6 +13,21 @@ alias vim='/opt/local/bin/vim'
 alias vi='/opt/local/bin/vim'
 
 
+# ENV Variable
+
+
+export MANPATH="/opt/local/man:$MANPATH"
+export MANPATH="/opt/local/share/man:$MANPATH"
+
+
+export PATH="i:${PATH}/opt/local/lib"
+export PATH="${PATH}:/opt/local/bin"
+export PATH="${PATH}:/opt/X11/bin"
+export PATH="${PATH}:/Library/TeX/texbin"
+
+
+
+
 export PATH="/Users/mouginot/Library/Python/3.5/bin:${PATH}"
 export PATH="/opt/local/Library/Frameworks/Python.framework/Versions/3.5/bin/:${PATH}"
 export LD_LIBRARY_PATH="/Users/mouginot/.local/lib/python3.5/site-packages/:${LD_LIBRARY_PATH}"
@@ -26,3 +41,18 @@ export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:$HOME/work/app/CLASS/lib/"
 # PyNE Environment Settings
 export PATH="/Users/mouginot/work/app/pyne/bin:${PATH}"
 export LD_LIBRARY_PATH="/Users/mouginot/work/app/pyne/${HOME}:${LD_LIBRARY_PATH}"
+
+
+
+
+# CMake
+export CMAKE_MODULE_PATH=/opt/local/include
+export CMAKE_PREFIX_PATH=/opt/local
+
+####---------------------------------------------------####
+# HDF5
+
+export HDF5_DIR=/opt/local/lib
+export HDF5_ROOT=/opt/local/
+
+export PATH="$PATH:${HDF5_DIR}"
