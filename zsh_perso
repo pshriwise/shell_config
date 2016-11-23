@@ -13,6 +13,8 @@ function c_git
   if [ $# -eq 1 ]; then
     curl -u 'Baaaaam' https://api.github.com/user/repos -d '{"name":"'$@'"}'
     git clone git@github.com:Baaaaam/${@}.git
+    cd ${@}
+    git-change-url --to-ssh
   else
     if [ ! -d ".git" ]; then
       git init
