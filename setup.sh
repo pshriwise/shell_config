@@ -12,11 +12,17 @@ fi
 #Add the .emacs symbolic link if one does not exist
 if [ -f ~/.emacs ]
 then
-    echo ".emacs file already existst!"
+    echo ".emacs file already exists!"
 else 
     ln -s ~/.bash/emacs/.emacs ~/.emacs
 fi 
 
+if [ -f ~/.tmux.conf ]
+then
+    echo "tmux configuration file already exists!"
+else
+    ln -s ~/.bash/emacs/.tmux.conf ~/.tmux.conf
+fi
 
 #Add the displays setup if the machine's name is serenity
 MACHINE_NAME="$(hostname)"
