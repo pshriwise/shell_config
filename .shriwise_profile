@@ -4,7 +4,14 @@
 
 export GITAWAREPROMPT=~/.bash/
 source $GITAWAREPROMPT/main.sh
-export PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\\[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]:\$ "
+export PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]"
+if [ "$git_dirty" != "" ]; then
+    export PS1=$PS1"\\[$txtred\]"
+else
+    export PS1=$PS1"\\[$txtcyn\]"    
+fi
+
+export PS1=$PS1"\$git_branch\[$txtrst\]:\$ "
 
 # some more ls aliases
 alias ll='ls -lh'
