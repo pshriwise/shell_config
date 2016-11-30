@@ -1,3 +1,5 @@
+source $GITAWAREPROMPT/colors.sh
+
 find_git_branch() {
   # Based on: http://stackoverflow.com/a/13003854/170413
   local branch
@@ -14,13 +16,23 @@ find_git_branch() {
 find_git_dirty() {
   local status=$(git status --porcelain 2> /dev/null)
   if [[ "$status" != "" ]]; then
-    git_dirty='*'
+      git_dirty='*'
   else
-    git_dirty=''
+      git_dirty=''
   fi
 }
 
-PROMPT_COMMAND="find_git_branch; find_git_dirty; $PROMPT_COMMAND"
+branch_color() {
+  local status=$(git status --porcelain 2> /dev/null)
+  if [[ "$status" != "" ]]; then
+      echo "\["$txtred"\]"
+  else
+      echo "\["$txtcyn"\]"
+  fi
+}
+
+ps1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]"
+PROMPT_COMMAND="find_git_branch; find_git_dirty; PS1=\"${ps1}\$(branch_color)\$git_branch\[$txtrst\]:\$\"; $PROMPT_COMMAND"
 
 # Default Git enabled prompt with dirty state
 # export PS1="\u@\h \w \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
