@@ -23,12 +23,21 @@ find_git_dirty() {
 }
 
 branch_color() {
-  local status=$(git status --porcelain 2> /dev/null)
-  if [[ "$status" != "" ]]; then
-      echo "\["$txtred"\]"
-  else
-      echo "\["$txtcyn"\]"
-  fi
+    #start color as red in case one of these conditions is wrong
+    branch_color=$txtred
+    #check for a clean repo
+    local status=$(git status --porcelain 2> /dev/null)
+    if [[ "$status" == "" ]]; then
+	branch_color=$txtcyn
+    fi
+
+    #check for staged changes
+    local status=$(git diff --cached HEAD 2> /dev/null)
+    if [[ "$status" != "" ]]; then
+	branch_color=$txtylw
+    fi
+    
+    echo "\["$branch_color"\]"
 }
 
 ps1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]"
