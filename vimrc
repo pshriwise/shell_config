@@ -40,9 +40,6 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 
-" Python tabbing
-set tabstop=2 expandtab filetype=python:
-au FileType python setlocal formatprg=autopep8\ -
 
 " Linebreak on 80 characters
 set lbr
@@ -58,7 +55,6 @@ set incsearch
 
 set backspace=indent,eol,start
 
-autocmd FileType python set formatoptions=l
 autocmd FileType gnuplot set formatoptions=l
 
 autocmd Filetype html,xml,xsl let g:closetag_html_style=1
