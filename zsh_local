@@ -20,11 +20,10 @@ export MANPATH="/opt/local/man:$MANPATH"
 export MANPATH="/opt/local/share/man:$MANPATH"
 
 
-export PATH="i:${PATH}/opt/local/lib"
+export PATH="${PATH}/opt/local/lib"
 export PATH="${PATH}:/opt/local/bin"
 export PATH="${PATH}:/opt/X11/bin"
 export PATH="${PATH}:/Library/TeX/texbin"
-
 
 
 
