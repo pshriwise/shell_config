@@ -42,3 +42,16 @@ function cyclus_release()
   export CYMETRIC_DIR=$CYCLUS_PATH/cymetric
 }
 
+
+
+function scp_movies
+{
+
+  if [ ! $# -eq 1 ]; then
+    echo "please provide a movies name"
+  else
+    scp ${@} pi:/mnt/usbstorage/Videos/Movies/
+  fi
+
+
+}

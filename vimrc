@@ -60,6 +60,8 @@ autocmd FileType gnuplot set formatoptions=l
 autocmd Filetype html,xml,xsl let g:closetag_html_style=1
 autocmd Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
 
+au FileType python setlocal formatprg=autopep8\ -
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Over command plugin: visual search and replace
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
