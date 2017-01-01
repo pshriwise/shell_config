@@ -41,6 +41,14 @@ ForwardAgent yes
 ForwardX11 yes
 ForwardX11Trusted yes
 
+Host ben-ubuntu
+     HostName 47.41.164.49
+     User pat
+     Port 22
+ForwardAgent yes
+ForwardX11 yes
+ForwardX11Trusted yes
+
 Host serenity
        HostName serenity.ep.wisc.edu
        User shriwise
