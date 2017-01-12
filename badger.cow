@@ -1,0 +1,19 @@
+# Badger
+#
+# based on badger from - http://ascii.co.uk/art/badger
+$the_cow = <<EOC ;
+       $thoughts
+        $thoughts
+                       ___,,___                
+           _..,,__.--"`-  -= -='=-,_           
+        .=" - =-   -       - -  \ \\;-,        
+      .`\=-== -  =   -   -     -    \\\',      
+  |\=` _.,,_=.= - ==   = - .'    =  \ \\\|     
+  //  b/\MMHHMDdn, = - -  /    -   -    \\\    
+ |'  LMMQY`_.,,(MM\ -  = /\ \        \ \ - ',  
+ |  /0"` .:-""#KKKMdWWnw|H\\\ \ \ \ \ mkK^=,_> 
+ / </ .--'   /MMKKMHW""/MMMWnmmmmmkQ""`        
+(@<_-`    .,bMHW``    <<<-`  '""`              
+        .`MMQ"`                                
+        <<<`                                   
+EOC
