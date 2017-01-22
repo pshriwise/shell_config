@@ -111,3 +111,12 @@ autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
 " Toggle auto formatting:
 nmap <Leader>C :ClangFormatAutoToggle<CR>
 autocmd FileType c,cpp,ojbc setlocal formatprg=clang-format\ -
+
+
+
+let g:cpp_class_scope_highlight = 1
+"let g:cpp_experimental_simple_template_highlight = 1
+"let g:cpp_experimental_template_highlight = 1
+
+"let g:cpp_concepts_highlight = 1
+
