@@ -69,7 +69,7 @@
    (global-set-key [f5] 'query-replace)
    (global-set-key [f6] 'tags-search)
    (global-set-key [f7] 'tags-query-replace)
-   (global-set-key [f8] 'flyspell-mode)
+   (global-set-key [f8] 'tags-loop-continue)
 ;;;
    (global-set-key [f9] 'start-kbd-macro)
    (global-set-key [f10] 'end-kbd-macro)
