@@ -35,4 +35,24 @@ else
     ln -s ~/.bash/display_settings/serenity_displays.sh ~/.config/displays.sh
 fi
 
+# Link programs
+if [ -d ~/.local/bin/ ]
+then
+    # Pandora
+    if [ -f ~/.local/bin/pandora ]
+    then
+	echo "Pandora program already in place"
+    else
+	ln -s ~/.bash/pandora ~/.local/bin/pandora
+    fi
+    # GroupMe
+    if [ -f ~/.local/bin/grpme ] && [ -d ~/opt/groupme/groupmecli ]
+    then
+	ln -s ~/.bash/groupme ~/.local/bin/groupme
+    else
+	echo "Necessary files for GroupMe are not in place."
+    fi
+fi
 
+       
+    
