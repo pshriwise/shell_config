@@ -1,8 +1,8 @@
 #!/bin/zsh
 
-export PATH="${PATH}:~/.local/bin/"
+export PATH="${PATH}:$HOME/.local/bin/"
 
-
+alias monitor='~/.local/bin/monitor'
 alias ls='ls --color'
 alias zsh='$HOME/.local/bin/zsh'
 alias q='condor_q -nobatch'
