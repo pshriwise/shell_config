@@ -36,9 +36,9 @@ set smartindent
 set number
 set ruler
 
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
 
 
 " Linebreak on 80 characters
@@ -97,26 +97,26 @@ let Tex_FoldedMisc=""
 " => clang-format plugin: configureation
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let g:clang_format#style_options = {
-            \ "AccessModifierOffset" : -4,
-            \ "AllowShortIfStatementsOnASingleLine" : "true",
-            \ "AlwaysBreakTemplateDeclarations" : "true",
-            \ "Standard" : "C++11"}
-
-" map to <Leader>cf in C++ code
-autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
-autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
-" if you install vim-operator-user
-autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
-" Toggle auto formatting:
-nmap <Leader>C :ClangFormatAutoToggle<CR>
-autocmd FileType c,cpp,ojbc setlocal formatprg=clang-format\ -
-
-
-
-let g:cpp_class_scope_highlight = 1
-"let g:cpp_experimental_simple_template_highlight = 1
-"let g:cpp_experimental_template_highlight = 1
-
-"let g:cpp_concepts_highlight = 1
+"let g:clang_format#style_options = {
+"            \ "AccessModifierOffset" : -4,
+"            \ "AllowShortIfStatementsOnASingleLine" : "true",
+"            \ "AlwaysBreakTemplateDeclarations" : "true",
+"            \ "Standard" : "C++11"}
+"
+"" map to <Leader>cf in C++ code
+"autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+"autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+"" if you install vim-operator-user
+"autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
+"" Toggle auto formatting:
+"nmap <Leader>C :ClangFormatAutoToggle<CR>
+"autocmd FileType c,cpp,ojbc setlocal formatprg=clang-format\ -
+"
+"
+"
+"let g:cpp_class_scope_highlight = 1
+""let g:cpp_experimental_simple_template_highlight = 1
+""let g:cpp_experimental_template_highlight = 1
+"
+""let g:cpp_concepts_highlight = 1
 
