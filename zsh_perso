@@ -11,14 +11,17 @@ function c_git
 {
 
   if [ $# -eq 1 ]; then
-    curl -u 'Baaaaam' https://api.github.com/user/repos -d '{"name":"'$@'"}'
-    git clone git@github.com:Baaaaam/${@}.git
+    curl -u 'bam241' https://api.github.com/user/repos -d '{"name":"'$@'"}'
+    git clone git@github.com:bam241/${@}.git
+    cd ${@}
+    git-change-url --to-ssh
   else
     if [ ! -d ".git" ]; then
       git init
     fi
-    curl -u 'Baaaaam' https://api.github.com/user/repos -d '{"name":"'${PWD##*/}'"}'
-    git remote add origin git@github.com:Baaaaam/${PWD##*/}.git
+    curl -u 'bam241' https://api.github.com/user/repos -d '{"name":"'${PWD##*/}'"}'
+    git remote add origin git@github.com:bam241/${PWD##*/}.git
+    git-change-url --to-ssh
   fi
 
 
@@ -40,3 +43,16 @@ function cyclus_release()
   export CYMETRIC_DIR=$CYCLUS_PATH/cymetric
 }
 
+
+
+function scp_movies
+{
+
+  if [ ! $# -eq 1 ]; then
+    echo "please provide a movies name"
+  else
+    scp ${@} pi:/mnt/usbstorage/Videos/Movies/
+  fi
+
+
+}

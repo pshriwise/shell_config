@@ -40,9 +40,6 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 
-" Python tabbing
-set tabstop=4 expandtab filetype=python
-au FileType python setlocal formatprg=autopep8\ -
 
 " Linebreak on 80 characters
 set lbr
@@ -58,11 +55,12 @@ set incsearch
 
 set backspace=indent,eol,start
 
-autocmd FileType python set formatoptions=l
 autocmd FileType gnuplot set formatoptions=l
 
 autocmd Filetype html,xml,xsl let g:closetag_html_style=1
 autocmd Filetype html,xml,xsl source ~/.vim/scripts/closetag.vim
+
+au FileType python setlocal formatprg=autopep8\ -
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Over command plugin: visual search and replace
@@ -112,4 +110,13 @@ autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
 " Toggle auto formatting:
 nmap <Leader>C :ClangFormatAutoToggle<CR>
-autocmd FileType c,cpp,ojbc setlocal equalprg=clang-format
+autocmd FileType c,cpp,ojbc setlocal formatprg=clang-format\ -
+
+
+
+let g:cpp_class_scope_highlight = 1
+"let g:cpp_experimental_simple_template_highlight = 1
+"let g:cpp_experimental_template_highlight = 1
+
+"let g:cpp_concepts_highlight = 1
+

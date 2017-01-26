@@ -35,8 +35,8 @@ export PATH="${PATH}:${GOPATH}/bin"
 export kermit='kermit.ep.wisc.edu'
 export ovh='vps204419.ovh.net'
 export pi='192.168.1.5'
-export git='git@github.com:Baaaaam/'
-export glab='git@gitlab.in2p3.fr:baaaaam/'
+export git='git@github.com:bam241/'
+export glab='git@gitlab.in2p3.fr:bam/'
 
 
 
