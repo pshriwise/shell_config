@@ -24,7 +24,7 @@ alias vi='vim'
 
 alias cdw='cd ${WORK_PATH}'
 alias cyclus_debug='export CYCLUS_NO_CATCH=1'
-alias cyclist='open /Users/mouginot/work/app/cyclus/cyclist2/deploy/dist/cyclist.jar'
+#alias cyclist='open /Users/mouginot/work/app/cyclus/cyclist2/deploy/dist/cyclist.jar'
 
 ##########################
 ##########################
@@ -61,7 +61,7 @@ alias put='$HOME/.bin/put.sh'
 
 
 
-alias tunnel='open http://www.deezer.com/playlist/88970191 -a Firefox && ssh -D8080 vps204419.ovh.net'
+alias tunnel='open http://www.deezer.com/playlist/88970191 -a Firefox && ssh -D6060 vps204419.ovh.net'
 alias pi="ssh -X osmc@192.168.1.5"
 
 ##################

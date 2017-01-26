@@ -3,16 +3,13 @@
 #############################
 # variables d'environnement #
 #############################
-export MANPATH="/opt/local/share/man"
+
+export MANPATH="/usr/local/man:$MANPATH"
 
 
-export PATH="/opt/local/lib"
-export PATH="${PATH}:/opt/local/bin"
 export PATH="${PATH}:/usr/local/bin"
 export PATH="${PATH}:/usr/bin:/bin:"
 export PATH="${PATH}:/usr/sbin:/sbin"
-export PATH="${PATH}:/opt/X11/bin"
-export PATH="${PATH}:/Library/TeX/texbin"
 
 
 export LC_ALL='en_US.UTF-8'
@@ -38,31 +35,14 @@ export PATH="${PATH}:${GOPATH}/bin"
 export kermit='kermit.ep.wisc.edu'
 export ovh='vps204419.ovh.net'
 export pi='192.168.1.5'
-export git='git@github.com:Baaaaam/'
-export glab='git@gitlab.in2p3.fr:baaaaam/'
+export git='git@github.com:bam241/'
+export glab='git@gitlab.in2p3.fr:bam/'
 
 
 
 ####---------------------------------------------------####
 # Compilation
 
-#export CC=/opt/local/bin/gcc
-#export CXX=/opt/local/bin/g++
-
-export CMAKE_MODULE_PATH=/opt/local/include
-export CMAKE_PREFIX_PATH=/opt/local
-
-
-####---------------------------------------------------####
-
-
-####---------------------------------------------------####
-# HDF5
-
-export HDF5_DIR=/opt/local/lib
-export HDF5_ROOT=/opt/local/
-
-export PATH="$PATH:${HDF5_DIR}"
 
 ####---------------------------------------------------####
 
@@ -83,10 +63,6 @@ export PATH=${PATH}:${SERPENT_PATH}
 
 ####---------------------------------------------------####
 # root
-
-export ROOTSYS=$APP_PATH/root/bld
-export PATH=${PATH}:${ROOTSYS}/bin
-export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:$HOME/work/app/root/bld/lib/"
 
 ####---------------------------------------------------####
 

@@ -6,7 +6,9 @@ act_py=`ls -al $py_loc | cut -d">" -f2 | sed -e s'/\// /'g | awk '{print $NF}' |
 if [[ $act_py == '2.7' ]]; then
   echo "switching to python 3.5"
   sudo port select --set python python35
+  sudo port select --set python3 python35
   sudo port select --set pip pip35
+  sudo port select --set cython cython35
   sudo port select --set nosetests nosetests35
   sudo port select --set sphinx py35-sphinx
   py_loc=`which python`
@@ -15,7 +17,9 @@ if [[ $act_py == '2.7' ]]; then
 elif [[ $act_py == '3.5' ]]; then
   echo "switching to python 2.7"
   sudo port select --set python python27
+  sudo port select --set python2 python27
   sudo port select --set pip pip27
+  sudo port select --set cython cython27
   sudo port select --set nosetests nosetests27
   sudo port select --set sphinx py27-sphinx
   py_loc=`which python`

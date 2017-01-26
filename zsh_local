@@ -1,9 +1,11 @@
 #!/bin/zsh
 
 #alias emacs='/opt/local/bin/emacs'
-alias emacs='vim'
-alias sudo='$HOME/.bin/sudo.sh'
-alias py_switch='$HOME/.zsh_config/py_switch'
+alias emacs="vim"
+alias sudo="$HOME/.bin/sudo.sh"
+alias py_switch="$HOME/.zsh_config/py_switch"
+#alias sed='gsed'
+
 
 alias docker_start='source /Applications/Docker/Docker\ Quickstart\ Terminal.app/Contents/Resources/Scripts/start.sh'
 
@@ -11,7 +13,43 @@ alias vim='/opt/local/bin/vim'
 alias vi='/opt/local/bin/vim'
 
 
+# ENV Variable
+
+
+export MANPATH="/opt/local/man:$MANPATH"
+export MANPATH="/opt/local/share/man:$MANPATH"
+
+
+export PATH="/opt/local/lib:/opt/local/bin:/opt/local/sbin:/opt/X11/bin:/Library/TeX/texbin:$PATH"
+
+
+
 export PATH="/Users/mouginot/Library/Python/3.5/bin:${PATH}"
 export PATH="/opt/local/Library/Frameworks/Python.framework/Versions/3.5/bin/:${PATH}"
+export LD_LIBRARY_PATH="/Users/mouginot/.local/lib/python3.5/site-packages/:${LD_LIBRARY_PATH}"
 
 export LD_LIBRARY_PATH="/Users/mouginot/Library/Python/3.5/lib:${LD_LIBRARY_PATH}"
+
+
+
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:$HOME/work/app/CLASS/lib/"
+
+# PyNE Environment Settings
+export PATH="/Users/mouginot/work/app/pyne/bin:${PATH}"
+export LD_LIBRARY_PATH="/Users/mouginot/work/app/pyne/${HOME}:${LD_LIBRARY_PATH}"
+
+export PYTHONPATH="$HOME/.local/lib/python3.5/site-packages"
+
+
+
+# CMake
+export CMAKE_MODULE_PATH=/opt/local/include
+export CMAKE_PREFIX_PATH=/opt/local
+
+####---------------------------------------------------####
+# HDF5
+
+export HDF5_DIR=/opt/local/lib
+export HDF5_ROOT=/opt/local/
+
+export PATH="$PATH:${HDF5_DIR}"

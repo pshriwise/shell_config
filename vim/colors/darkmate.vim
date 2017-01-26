@@ -29,7 +29,7 @@ hi Visual             guifg=#FFFFFF ctermfg=15    guibg=#555753 ctermbg=240 gui=
 hi String             guifg=#96ff00 ctermfg=118                             gui=none
 hi Delimiter          guifg=#96ff00 ctermfg=118                             gui=none
 hi Boolean            guifg=#ff44cc ctermfg=206                             gui=none
-hi Constant           guifg=#FFFFFF ctermfg=15                              gui=none
+hi Constant           guifg=#ffff00  ctermfg=11                              gui=none
 hi Number             guifg=#00c99b ctermfg=42                              gui=none
 hi Statement          guifg=#FF9900 ctermfg=208                             gui=none
 hi Character          guifg=#FF9900 ctermfg=208                             gui=none
@@ -39,7 +39,7 @@ hi Type               guifg=#009cff ctermfg=39                              gui=
 hi Label              guifg=#FF9900 ctermfg=208                             gui=none
 hi Conditional        guifg=#FF9900 ctermfg=208                             gui=none
 hi Exception          guifg=#FF9900 ctermfg=208                             gui=none
-hi Function           guifg=#FFFFFF ctermfg=15                              gui=none
+hi Function           guifg=#8787ff ctermfg=105                             gui=none
 hi Define             guifg=#FF9900 ctermfg=208                             gui=none
 hi LineNr             guifg=#FFFFFF ctermfg=15                              gui=none
 hi CursorLine         guibg=#000000 ctermbg=0                               gui=none
