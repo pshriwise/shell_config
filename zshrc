@@ -18,20 +18,20 @@ source $HOME/.zsh_config/zsh_perso
 
 source $HOME/.zsh_config/zsh_alias
 
+
+
 if [[ `hostname -s` =~ 'CoffeeBean' || `hostname` =~ 'engr.wisc.edu' ]]; then
-  echo "Loading local config"
+  export COMP='mbp'
   source $HOME/.zsh_config/zsh_local
   test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-elif [[ `hostname -s` =~ 'kermit' ]]; then
-  source $HOME/.zsh_config/zsh_kermit
 elif [[ `hostname -s` =~ 'submit-3' ]]; then
-  echo "Loading HTC config"
+  export COMP='htc'
   source $HOME/.zsh_config/zsh_condor
 elif [[ `hostname -s` =~ 'kermit' ]]; then
-  echo "Loading kermit config"
+  export COMP='kermit'
   source $HOME/.zsh_config/zsh_kermit
 elif [[ `hostname -s` =~ 'raspberrypi' ]]; then
-  echo "Loading Pi config"
+  export COMP='rπ3'
   source $HOME/.zsh_config/zsh_pi
 fi
 
