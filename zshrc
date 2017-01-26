@@ -10,6 +10,7 @@ setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_ALL_DUPS
 
 
+DEFAULT_USER=mouginot
 if [[ ! `hostname -s` =~ 'submit-3' ]]; then
   source $HOME/.zsh_config/zsh_config
 fi
