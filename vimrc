@@ -41,7 +41,7 @@ set softtabstop=2
 set tabstop=2
 
 " Python tabbing
-set tabstop=2 expandtab filetype=python:
+set tabstop=4 expandtab filetype=python
 au FileType python setlocal formatprg=autopep8\ -
 
 " Linebreak on 80 characters
