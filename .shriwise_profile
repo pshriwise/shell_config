@@ -48,7 +48,7 @@ function notebook {
 	have_jekyll=$(which jekyll | wc -l)
 	if [ $have_jekyll != 0 ]; then
 #	    tmux start-server
-	    tmux new-session -d 'cd ~/Documents/personal/notebook/ && jekyll serve -u'
+	    tmux new-session -s notebook -d 'cd ~/Documents/personal/notebook/ && jekyll serve -u'
 	    echo "Notebook server started."
 	    return 0
 	else
