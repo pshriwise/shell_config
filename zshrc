@@ -10,6 +10,7 @@ setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_ALL_DUPS
 
 
+DEFAULT_USER=mouginot
 if [[ ! `hostname -s` =~ 'submit-3' ]]; then
   source $HOME/.zsh_config/zsh_config
 fi
@@ -25,7 +26,7 @@ if [[ `hostname -s` =~ 'CoffeeBean' || `hostname` =~ 'engr.wisc.edu' ]]; then
   source $HOME/.zsh_config/zsh_local
   test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 elif [[ `hostname -s` =~ 'submit-3' ]]; then
-  export COMP='htc'
+  export COMP='HTC'
   source $HOME/.zsh_config/zsh_condor
 elif [[ `hostname -s` =~ 'kermit' ]]; then
   export COMP='kermit'

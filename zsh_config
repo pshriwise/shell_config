@@ -16,7 +16,6 @@ export LC_ALL='en_US.UTF-8'
 export LANG='en_US.UTF-8'
 ####---------------------------------------------------####
 
-DEFAULT_USER=mouginot
 export hostname=`hostname -s`
 export WORK_PATH="$HOME/work"
 export APP_PATH="${WORK_PATH}/app"
