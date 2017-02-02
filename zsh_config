@@ -51,14 +51,18 @@ export glab='git@gitlab.in2p3.fr:bam/'
 
 export MCNP_PATH=${APP_PATH}/MCNP
 
-export PATH=$MCNP_PATH/MCNP_CODE/MCNP6/bin/:${PATH}
+export PATH="$MCNP_PATH/MCNP_CODE/MCNP6/bin/:${PATH}"
 #export DATAPATH ="$MYHOME/base/MCNP_DATA"
+# Increase the stacksize 
+limit stacksize unlimited
 
+# DATAPATH for MCNP cross-section data
+export DATAPATH="$HOME/work/data/mcnp_data"
 
 ####---------------------------------------------------####
 # SERPENT
 export SERPENT_PATH="${APP_PATH}/Serpent/"
-export PATH=${PATH}:${SERPENT_PATH}
+export PATH="${PATH}:${SERPENT_PATH}"
 
 ####---------------------------------------------------####
 # root
