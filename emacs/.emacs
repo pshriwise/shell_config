@@ -60,6 +60,7 @@
    (setq auto-mode-alist (cons (cons "\\akefile$" 'makefile-mode) auto-mode-alist))
    (setq calendar-latitude 52)
    (setq calendar-longitude -122)
+   (setq-default fill-column 80)
 
    (global-set-key [f1] 'goto-line)
    (global-set-key [f2] 'compile)
