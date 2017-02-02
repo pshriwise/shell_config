@@ -13,3 +13,24 @@ export LD_LIBRARY_PATH="/Users/mouginot/work/app/cyclus/pyne/${HOME}:${LD_LIBRAR
 
 export PATH="/home/mouginot/.local/lib/bin:${PATH}"
 export LD_LIBRARY_PATH="/home/mouginot/.local/lib/python2.7:${LD_LIBRARY_PATH}"
+
+
+
+
+# PATH for MCNP executables
+export MCNP_PATH=${APP_PATH}/MCNP
+export PATH=$MCNP_PATH/MCNP_CODE/MCNP6/bin/:${PATH}
+# Increase the stacksize 
+limit stacksize unlimited
+
+# DATAPATH for MCNP cross-section data
+export DATAPATH="$MYHOME/base/MCNP_DATA"
+
+# MURE Package Libraries
+export MURE_PATH=${APP_PATH}/MURE
+export DATADIR=${MURE_PATH}/data
+export MURE_include=${MURE_PATH}/source/include
+export MURE_ExternalPkg=${MURE_PATH}/source/external
+export MURE_lib=${MURE_PATH}/lib
+
+
