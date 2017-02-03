@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Getting Omzsh & fonts for iterm
 git clone https://github.com/bam241/oh-my-zsh.git oh-my-zsh
 git clone https://github.com/powerline/fonts.git
