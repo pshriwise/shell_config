@@ -31,7 +31,20 @@ alias cyclus_debug='export CYCLUS_NO_CATCH=1'
 alias todo='git -C ~/work/todo fetch origin; git -C ~/work/todo rebase origin master; vi  ~/work/todo/todo.md; git -C  ~/work/todo commit -am"update";git -C  ~/work/todo push -q'
 
 
+##########################
+######### Docker #########
+##########################
+# Kill all running containers.
+alias dockerkillall='docker kill $(docker ps -q)'
 
+# Delete all stopped containers.
+alias dockercleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
+
+# Delete all untagged images.
+alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
+
+# Delete all stopped containers and untagged images.
+alias dockerclean='dockercleanc || true && dockercleani'
 
 #######################
 ######### SVN #########
