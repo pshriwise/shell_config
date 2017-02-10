@@ -44,15 +44,3 @@ function cyclus_release()
 }
 
 
-
-function scp_movies
-{
-
-  if [ ! $# -eq 1 ]; then
-    echo "please provide a movies name"
-  else
-    scp ${@} pi:/mnt/usbstorage/Videos/Movies/
-  fi
-
-
-}
