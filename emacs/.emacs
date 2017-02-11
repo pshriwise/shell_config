@@ -20,10 +20,9 @@
 (setq compilation-scroll-output t)
 (savehist-mode 1)
 
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
 
+(if (fboundp tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp menu-bar-mode) (menu-bar-mode -1))
 
 
 (defun bury-compile-buffer-if-successful (buffer string)
