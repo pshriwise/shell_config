@@ -1,1 +1,0 @@
-../vim-latex/ftplugin/bib_latexSuite.vim

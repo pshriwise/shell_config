@@ -1,1 +1,0 @@
-../vim-latex/plugin/imaps.vim

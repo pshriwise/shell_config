@@ -1,1 +1,0 @@
-../vim-clang-format/doc/clang-format.txt
