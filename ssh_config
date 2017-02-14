@@ -55,7 +55,7 @@ Host serenity
 ForwardAgent yes
 ForwardX11 yes
 ForwardX11Trusted yes
-
+LocalForward localhost:5053 fti421-mariott:5053
 Host aci-compile
      HostName aci-service-2.chtc.wisc.edu
      User shriwise
