@@ -36,4 +36,5 @@ elif [[ `hostname -s` =~ 'raspberrypi' ]]; then
   source $HOME/.zsh_config/zsh_pi
 fi
 
+source $HOME/.zsh_config/.commonrc
 source $HOME/.zsh_config/zsh_ohmzsh
