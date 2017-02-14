@@ -1,0 +1,92 @@
+#!/bin/zsh
+
+#############################
+# variables d'environnement #
+#############################
+
+export MANPATH="/usr/local/man:$MANPATH"
+
+
+export PATH="${PATH}:/usr/local/bin"
+export PATH="${PATH}:/usr/bin:/bin:"
+export PATH="${PATH}:/usr/sbin:/sbin"
+
+
+export LC_ALL='en_US.UTF-8'
+export LANG='en_US.UTF-8'
+####---------------------------------------------------####
+
+export hostname=`hostname -s`
+export WORK_PATH="$HOME/work"
+export APP_PATH="${WORK_PATH}/app"
+
+export PATH="${HOME}/.local/bin:$PATH"
+export WORK_PATH="$HOME/work"
+
+export CYCLUS_PATH="${APP_PATH}/cyclus"
+export SERPENT_DATA="${WORK_PATH}/data"
+
+export GOPATH="${APP_PATH}/go"
+export PATH="${PATH}:${GOPATH}/bin"
+
+####---------------------------------------------------####
+
+export kermit='kermit.ep.wisc.edu'
+export ovh='vps204419.ovh.net'
+export pi='192.168.1.5'
+export git='git@github.com:bam241/'
+export glab='git@gitlab.in2p3.fr:bam/'
+
+
+
+####---------------------------------------------------####
+# Compilation
+
+
+####---------------------------------------------------####
+
+
+####---------------------------------------------------####
+# MCNP
+
+export MCNP_PATH=${APP_PATH}/MCNP
+
+export PATH="$MCNP_PATH/MCNP_CODE/MCNP6/bin/:${PATH}"
+#export DATAPATH ="$MYHOME/base/MCNP_DATA"
+# Increase the stacksize 
+#limit stacksize unlimited
+
+# DATAPATH for MCNP cross-section data
+export DATAPATH="$HOME/work/data/mcnp_data"
+
+####---------------------------------------------------####
+# SERPENT
+export SERPENT_PATH="${APP_PATH}/Serpent/"
+export PATH="${PATH}:${SERPENT_PATH}"
+
+####---------------------------------------------------####
+# root
+
+####---------------------------------------------------####
+
+
+####---------------------------------------------------####
+# CLASS package libraries
+
+export CLASS_PATH=${APP_PATH}/CLASS
+export CLASS_include=${CLASS_PATH}/source/include
+export CLASS_DB=${CLASS_PATH}/Database
+export CLASS_lib=${CLASS_PATH}/lib
+export PATH=${PATH}:${CLASS_PATH}/gui/bin
+
+####---------------------------------------------------####
+
+
+
+
+
+
+
+
+
+

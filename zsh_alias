@@ -1,0 +1,102 @@
+#!/bin/zsh
+
+
+alias source_zshrc="source $HOME/.zshrc"
+alias source_alias="source $HOME/.zsh_config/zsh_alias"
+alias source_config="source $HOME/.zsh_config/zsh_config"
+
+
+alias cyplot="cyan -db cyclus.sqlite flowgraph -proto | dot -Tpng > flow.png"
+
+######################
+##Alias Perso/Boulot##
+######################
+alias ql='quick-look'
+alias clean='rm *~; rm ~\$*; rm .*.swp; rm \#*\#'
+alias texclean='rm *$HOME \$HOME\$* *.log *.aux *.out *.synctex.gz'
+alias Xcode='open -a XCode'
+alias nedit='open -a Sublime\ Text'
+alias gedit='Xcode'
+alias finder='open -a finder'
+alias root='root -l'
+
+alias vi='vim'
+
+alias cdw='cd ${WORK_PATH}'
+alias cyclus_debug='export CYCLUS_NO_CATCH=1'
+#alias cyclist='open /Users/mouginot/work/app/cyclus/cyclist2/deploy/dist/cyclist.jar'
+
+##########################
+##########################
+alias todo='git -C ~/work/todo fetch origin; git -C ~/work/todo rebase origin master; vi  ~/work/todo/todo.md; git -C  ~/work/todo commit -am"update";git -C  ~/work/todo push -q'
+
+
+##########################
+######### Docker #########
+##########################
+# Kill all running containers.
+alias dockerkillall='docker kill $(docker ps -q)'
+
+# Delete all stopped containers.
+alias dockercleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q)'
+
+# Delete all untagged images.
+alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(docker images -q -f dangling=true)'
+
+# Delete all stopped containers and untagged images.
+alias dockerclean='dockercleanc || true && dockercleani'
+
+#######################
+######### SVN #########
+#######################
+alias co="svn co svn+ssh://r17187.ovh.net/home/mouginot/Baptiste-svn-depot/PhD PhD"
+alias ci="svn ci"
+alias status="svn status"
+alias up="svn up"
+alias log="svn log"
+
+
+
+
+
+alias qstat="ssh -Y nansl1.in2p3.fr ssh -Y nansl3.in2p3.fr qstat"
+alias qdel="ssh nansl1.in2p3.fr qdel"
+alias QSUB="$HOME/.bin/QSUB.sh"
+
+alias sl1="$HOME/.bin/nanssh.sh nansl1"
+alias kermit="ssh -X kermit.ep.wisc.edu"
+
+alias imac="$HOME/.bin/imacssh.sh"
+
+alias sync='$HOME/.bin/sync.sh'
+alias get='$HOME/.bin/get.sh'
+alias put='$HOME/.bin/put.sh'
+
+
+
+alias tunnel='open http://www.deezer.com/playlist/88970191 -a Firefox && ssh -D6060 vps204419.ovh.net'
+alias pi="ssh -X osmc@192.168.1.5"
+
+##################
+##Alias generaux##
+##################
+
+
+
+
+
+
+
+#alias cd='gitcd'
+alias cp='cp -v'
+alias ll='ls -al'
+alias xterm='xterm&'
+alias ld='ls -ldG'
+alias xmgr='xmgrace&'
+alias gimp='gimp&'
+alias opof="openoffice"
+alias umount='sudo umount'
+alias mount='sudo mount'
+alias srm='mv -v \!* $HOME/.Trash/'
+alias mv='mv -v'
+alias ssh='ssh -X'

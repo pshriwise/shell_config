@@ -88,3 +88,4 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 [3]: http://techblog.floorplanner.com/2008/12/14/working-with-git-branches/
 [4]: http://www.intridea.com/2009/2/2/git-status-in-your-prompt
 [5]: http://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html
+

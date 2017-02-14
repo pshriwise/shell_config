@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+
+# Utility to change the connection method for a git repo.
+
+# === Colour Definitions ===
+red='\x1B[0;31m'
+green='\x1B[0;32m'
+purple='\x1B[0;35m'
+orange='\x1B[0;33m'
+# No Color, i.e. turn off color
+nc='\x1B[0m'
+
+# https://github.com/foo/bar.git
+# git@github.com:foo/bar.git
+
+# git@gist.github.com:a9713f03f27ee35f0ee6.git
+# https://gist.github.com/1ed86a70d4140bdf0e5c.git
+
+# ssh url pattern   : git@<website>:<gitpath>
+# https url pattern : https://<website>/<gitpath>
+
+function print_usage(){
+    echo -e ${red}Usage:${nc} $0 --to-ssh   ${orange}# converts https url to ssh url${nc}
+    echo -e "     " $0 --to-https ${orange}# converts ssh url to https url${nc}
+}
+
+function in_gitdir(){
+    # check if in a git repo directory
+    git branch &>/dev/null
+
+    if (( $? == 0 ))
+    then
+	return 0
+    else
+	return 1
+    fi
+}
+
+function convert_to_ssh(){
+    gsed -r -i 's:https\:\/\/github\.com\/:git\@github.com\::g' $(git rev-parse --git-dir)/config
+}
+
+function convert_to_https(){
+    gsed -r -i 's:git\@github.com\::https\:\/\/github\.com\/:g' $(git rev-parse --git-dir)/config
+}
+
+function main(){
+    if [ in_gitdir ]
+    then
+        if [[ "$1" == "to-ssh" ]]
+	      then
+	        convert_to_ssh
+	      else
+	        convert_to_https
+	      fi
+    else
+        print_usage
+	      exit 3
+    fi
+}
+
+if [ -z "$1" ]
+then
+    print_usage
+    exit 1
+elif [[ "$1" == "--to-ssh" ]]
+then
+    main "to-ssh"
+elif [[ "$1" == "--to-https" ]]
+then
+    main "to-https"
+else
+    print_usage
+    exit 2
+fi
+
