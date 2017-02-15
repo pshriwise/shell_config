@@ -19,8 +19,6 @@ source $HOME/.zsh_config/zsh_perso
 
 source $HOME/.zsh_config/zsh_alias
 
-
-
 if [[ `hostname -s` =~ 'CoffeeBean' || `hostname` =~ 'engr.wisc.edu' ]]; then
   export COMP='mbp'
   source $HOME/.zsh_config/zsh_local
