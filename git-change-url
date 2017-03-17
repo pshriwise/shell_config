@@ -37,11 +37,11 @@ function in_gitdir(){
 }
 
 function convert_to_ssh(){
-    gsed -r -i 's:https\:\/\/github\.com\/:git\@github.com\::g' $(git rev-parse --git-dir)/config
+    sed -r -i 's:https\:\/\/github\.com\/:git\@github.com\::g' $(git rev-parse --git-dir)/config
 }
 
 function convert_to_https(){
-    gsed -r -i 's:git\@github.com\::https\:\/\/github\.com\/:g' $(git rev-parse --git-dir)/config
+    sed -r -i 's:git\@github.com\::https\:\/\/github\.com\/:g' $(git rev-parse --git-dir)/config
 }
 
 function main(){

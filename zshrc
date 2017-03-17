@@ -36,3 +36,6 @@ fi
 
 source $HOME/.zsh_config/.commonrc
 source $HOME/.zsh_config/zsh_ohmzsh
+
+export PYTHONPATH=/home/shriwise/.local/lib/python2.7/site-packages/:/home/shriwise/opt/slackbot/:/opt/Trelis-16.0/bin/:/home/shriwise/.local/bin/
+export COWPATH=/home/shriwise/.bash/:/usr/share/cowsay/cows/
