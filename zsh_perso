@@ -4,6 +4,7 @@ function =
 {
   echo "$@" | root -l
 }
+
 alias calcul="="
 
 

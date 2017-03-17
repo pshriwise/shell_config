@@ -15,16 +15,6 @@ alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(
 # Delete all stopped containers and untagged images.
 alias dockerclean='dockercleanc || true && dockercleani'
 
-#######################
-######### SVN #########
-#######################
-alias co="svn co svn+ssh://r17187.ovh.net/home/mouginot/Baptiste-svn-depot/PhD PhD"
-alias ci="svn ci"
-alias status="svn status"
-alias up="svn up"
-alias log="svn log"
-
-#alias cd='gitcd'
 alias cp='cp -v'
 alias xterm='xterm&'
 alias ld='ls -ldG'
