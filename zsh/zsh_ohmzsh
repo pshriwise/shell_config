@@ -2,7 +2,8 @@
 
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.zsh_config/oh-my-zsh
+#export ZSH=$HOME/zsh_config/zsh/oh-my-zsh
+export ZSH=$HOME/.bash/zsh/zsh_config/zsh/oh-my-zsh
 
 # Set name of the theme to load.
 # Look in $HOME/.oh-my-zsh/themes/
@@ -52,7 +53,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $HOME/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=( $plugins git git-extras cp python docker zsh-syntax-highlighting)
+plugins=( $plugins git git-extras cp zsh-syntax-highlighting)
 
 # User configuration
 
