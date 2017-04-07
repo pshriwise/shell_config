@@ -14,5 +14,11 @@ source $HOME/.bash/zsh/zsh_alias
 source $HOME/.bash//zsh/zsh_ohmzsh
 source $HOME/.bash/commonrc
 
-export PYTHONPATH=/home/shriwise/.local/lib/python2.7/site-packages/:/home/shriwise/opt/slackbot/:/opt/Trelis-16.0/bin/:/home/shriwise/.local/bin/
-export COWPATH=/home/shriwise/.bash/:/usr/share/cowsay/cows/
+export PYTHONPATH=$HOME/.local/lib/python2.7/site-packages/:$HOME/opt/slackbot/:/opt/Trelis-16.0/bin/:$HOME/.local/bin/
+export COWPATH=$HOME/.bash/:/usr/share/cowsay/cows/
+
+export LD_LIBRARY_PATH=$HOME/MOAB/lib:$HOME/DAGMC/lib:$HOME/dagmc_blds/hdf5/lib/
+
+export DATAPATH=$HOME/opt/LANL/mcnp_data/
+
+export PATH=$HOME/.local/bin:$PATH
