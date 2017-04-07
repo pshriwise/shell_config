@@ -11,8 +11,8 @@ setopt HIST_IGNORE_ALL_DUPS
 
 source $HOME/.bash/zsh/zsh_perso
 source $HOME/.bash/zsh/zsh_alias
-source $HOME/.bash/commonrc
 source $HOME/.bash//zsh/zsh_ohmzsh
+source $HOME/.bash/commonrc
 
 export PYTHONPATH=/home/shriwise/.local/lib/python2.7/site-packages/:/home/shriwise/opt/slackbot/:/opt/Trelis-16.0/bin/:/home/shriwise/.local/bin/
 export COWPATH=/home/shriwise/.bash/:/usr/share/cowsay/cows/
