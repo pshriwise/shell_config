@@ -7,9 +7,6 @@
 [submodule "emacs/emacs-bash-completion"]
 	path = emacs/bash-completion
 	url = https://github.com/szermatt/emacs-bash-completion.git
-[submodule "oh-my-zsh"]
-	path = oh-my-zsh
-	url = https://github.com/pshriwise/oh-my-zsh
 [submodule "fonts"]
 	path = fonts
 	url = https://github.com/powerline/fonts
