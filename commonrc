@@ -30,6 +30,9 @@ alias clc='clear; l'
 alias ec2='ssh ec2'
 alias ec2p='ssh ec2p'
 
+# program aliases #
+alias maple='$HOME/opt/maple2016/bin/xmaple'
+
 # git Aliases #
 list_authors='git log --format='%aN' | sort -u'
 alias gs='git status'
