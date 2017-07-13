@@ -16,6 +16,7 @@ ForwardX11Trusted yes
 LocalForward localhost:2222 serenity.ep.wisc.edu:22
 LocalForward localhost:2223 tux-c1.cae.wisc.edu:22
 LocalForward localhost:8000 serenity.ep.wisc.edu:4001
+LocalForward localhost:8001 serenity.ep.wisc.edu:4002
 
 Host ec2
      HostName 52.7.194.101
