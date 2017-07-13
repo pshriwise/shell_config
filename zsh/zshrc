@@ -15,9 +15,10 @@ source $HOME/.bash//zsh/zsh_ohmzsh
 source $HOME/.bash/commonrc
 
 export PYTHONPATH=$HOME/.local/lib/python2.7/site-packages/:$HOME/opt/slackbot/:/opt/Trelis-16.0/bin/:$HOME/.local/bin/
+
 export COWPATH=$HOME/.bash/:/usr/share/cowsay/cows/
 
-export LD_LIBRARY_PATH=$HOME/MOAB/lib:$HOME/DAGMC/lib:$HOME/dagmc_blds/hdf5/lib/
+export LD_LIBRARY_PATH=$HOME/opt/MOAB/lib:$HOME/opt/DAGMC/lib:$HOME/dagmc_blds/hdf5/lib/
 
 export DATAPATH=$HOME/opt/LANL/mcnp_data/
 
