@@ -32,10 +32,14 @@ alias ec2p='ssh ec2p'
 
 # program aliases #
 alias maple='$HOME/opt/maple2016/bin/xmaple'
+alias visit='$HOME/opt/visit/visit2_11_0.linux-x86_64/bin/visit'
 
 # git Aliases #
 list_authors='git log --format='%aN' | sort -u'
 alias gs='git status'
+
+# external ip alias #
+alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 
 #Notebook Aliases
 function notebook {
@@ -44,7 +48,7 @@ function notebook {
 	have_jekyll=$(which jekyll | wc -l)
 	if [ $have_jekyll != 0 ]; then
 #	    tmux start-server
-	    tmux new-session -s notebook -d 'cd ~/Documents/personal/notebook/ && jekyll serve -u'
+	    tmux new-session -s notebook -d 'cd ~/Documents/personal/notebook/ && jekyll serve -u --host $(wanip) --port 4002'
 	    echo "Notebook server started."
 	    return 0
 	else
