@@ -133,6 +133,22 @@ fi
 
 }
 
+### mps-youtube Stuff (relies on pianobar) ###
+function ytube() {
+
+#check to see if a mpsyt tmux session is already in existence
+
+if [ 0 -eq "$(tmux list-sessions | grep ytube | wc -l )" ] ; then
+    #create a mpsyt tmux and enter it
+    echo "Creating tmux for mpsyt..."
+    tmux new -s ytube "PYTHONPATH=/home/shriwise/.local/lib/python3.3/site-packages:$PYTHONPATH mpsyt"
+else
+    echo "Entering mpsyt..."
+    tmux a -t ytube
+fi
+
+}
+
 function pnext() {
     tmux send -t pandora n;
 }
