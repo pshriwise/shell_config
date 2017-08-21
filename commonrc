@@ -14,7 +14,7 @@ mkcd () { mkdir $1 ;  cd $1 ; }
 rmdir () { rm -rf "$@"; }
 
 
-alias cch='make clean && make -j 32 && make -j 8 check'
+alias cch='make clean && make -j 8 && make -j 8 check'
 alias ch='make -j 8 check'
 
 
