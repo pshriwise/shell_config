@@ -151,18 +151,25 @@ fi
 
 function pnext() {
     tmux send -t pandora n;
+    tmux send -t ytube "Enter";
 }
 
 function ppause() {
     tmux send -t pandora p;
+    tmux send -t ytube p;
 }
 
 function pquit() {
     tmux send -t pandora q;
+    tmux send -t ytube "q";
+    tmux send -t ytube "exit"; 
+    tmux send -t ytube "Enter"; 
+    
 }
 
 function pplay() {
     tmux send -t pandora p;
+    tmux send -t ytube p;
 }
 
 
