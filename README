@@ -8,8 +8,9 @@ arbitrary linux machine for ease of use.
 To configure a machine:
 
   1. clone this repository into the directory `$HOME/.bash`
-  2. initialize all submodules using `git submodule init --update`
-  2. run the `setup.sh` script in the top level of this repository
+  2. initialize all submodules using `git submodule init`
+  3. checkout all modules using `git submodule update`
+  4. run the `setup.sh` script in the top level of this repository
 
 ### Shell Environments
 
