@@ -34,10 +34,7 @@ if [ "$TERM" == "xterm" ]; then
     bind '"\C-H":backward-kill-word'
 fi
 
-export -f remmnt
-
 ##############################
 # IMPORT ALL COMMON SETTINGS #
 ##############################
 source $HOME/.bash/commonrc
-
