@@ -1,34 +1,26 @@
 #!/bin/bash
 
-
 # some more ls aliases
 alias ll='ls -lh'
 alias la='ls -A'
 alias l='ls -CF'
 alias emacs='emacs -nw'
-
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
 
 ### Filesystem Aliases ###
+mkcd() { mkdir $1 ;  cd $1 ; }
+rmdir  () { rm -rf "$@" ;       }
+follow () { cp $1 $2 ; cd $2 ;  }
 
-mkcd () { mkdir $1 ;  cd $1 ; }
-rmdir () { rm -rf "$@"; }
-
-
-alias cch='make clean && make -j 8 && make -j 8 check'
-alias ch='make -j 8 check'
-
-
-follow () { cp $1 $2 ; cd $2 ; }
-
-# ssh Aliases #
-alias tux='ssh -X cae'
-alias tower='ssh -X home'
-alias hova='ssh -X hova'
-alias ff='ssh -X serenity'
+# tmux aliases
 alias ta='tmux attach'
-alias clc='clear; l'
-alias ec2='ssh ec2'
-alias ec2p='ssh ec2p'
 
 # program aliases #
 alias maple='$HOME/opt/maple2016/bin/xmaple'
@@ -45,57 +37,42 @@ alias gfu='git fetch upstream'
 # external ip alias #
 alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 
-#Notebook Aliases
-function notebook {
+# make system aliases #
+alias cb='make clean; make -j8'
+alias cbi='make clean; make -j8 && make install'
+alias cch='make clean && make -j 8 && make -j 8 check'
+alias ch='make -j 8 check'
 
-    if [ -d ~/Documents/personal/notebook/ ]; then 
-	have_jekyll=$(which jekyll | wc -l)
-	if [ $have_jekyll != 0 ]; then
-#	    tmux start-server
-	    tmux new-session -s notebook -d 'cd ~/Documents/personal/notebook/ && jekyll serve -u --host $(dig +short myip.opendns.com @resolver1.opendns.com) --port 4002'
-	    echo "Notebook server started."
-	    return 0
-	else
-	    echo "Please install jekyll."
-	    return 1
-	fi
-    else
-	echo "Could not locate notebook directory"
-	return 1
-	fi
-}
-   
+#########################################
 ### Mount/UnMount remote directories ####
-
+#########################################
 function remmnt {
 
-if [ "$#" -eq 2 -o "$#" -gt 3 ]
-then 
-    echo "Function is designed for 1 or 3 arguments."
-    return 1
-fi
-
-if [ "$#" -gt 2 ]
-then
-    if [ "$2" != "as" ] 
+    if [ "$#" -eq 2 -o "$#" -gt 3 ]
     then 
-	echo "Please use the following format to set remote filesystems: "
-	echo "remmnt <hostname> as <desired_name>"
+	echo "Function is designed for 1 or 3 arguments."
 	return 1
     fi
-    echo "Using third argument to set directory name."
-    if [ ! -d ~/mnt/$3 ]; then mkdir -p ~/mnt/$3; fi
-    if [ "$(ls -A ~/mnt/$3)" ]; then echo "Destination directory is not empty. Exiting..." ; exit 1; fi 
-    sshfs -oauto_cache,reconnect $1:/ ~/mnt/$3
-    if [ $? -ne 0 ]; then echo "Mount failed. Removing intended destination directory..."; rmdir ~/mnt/$3; fi
-else
-    if [ ! -d ~/mnt/$1 ]; then mkdir -p ~/mnt/$1; fi
-    if [ "$(ls -A ~/mnt/$1)" ]; then echo "Destination directory is not empty. Exiting..." ; exit 1; fi 
-    sshfs -oauto_cache,reconnect $1:/ ~/mnt/$1
-    if [ $? -ne 0 ]; then echo "Mount failed. Removing intended destination directory..."; rmdir ~/mnt/$1; fi
-fi 
-
- 
+    
+    if [ "$#" -gt 2 ]
+    then
+	if [ "$2" != "as" ] 
+	then 
+	    echo "Please use the following format to set remote filesystems: "
+	    echo "remmnt <hostname> as <desired_name>"
+	    return 1
+	fi
+	echo "Using third argument to set directory name."
+	if [ ! -d ~/mnt/$3 ]; then mkdir -p ~/mnt/$3; fi
+	if [ "$(ls -A ~/mnt/$3)" ]; then echo "Destination directory is not empty. Exiting..." ; exit 1; fi 
+	sshfs -oauto_cache,reconnect $1:/ ~/mnt/$3
+	if [ $? -ne 0 ]; then echo "Mount failed. Removing intended destination directory..."; rmdir ~/mnt/$3; fi
+    else
+	if [ ! -d ~/mnt/$1 ]; then mkdir -p ~/mnt/$1; fi
+	if [ "$(ls -A ~/mnt/$1)" ]; then echo "Destination directory is not empty. Exiting..." ; exit 1; fi 
+	sshfs -oauto_cache,reconnect $1:/ ~/mnt/$1
+	if [ $? -ne 0 ]; then echo "Mount failed. Removing intended destination directory..."; rmdir ~/mnt/$1; fi
+    fi 
 }
 
 function remumnt () {
@@ -116,12 +93,14 @@ function remumnt () {
 
 #### End Mount Section ###
 
+#########
+# MEDIA #
+#########
 
 ### Pandora Stuff (relies on pianobar) ###
 function pandora() {
 
 #check to see if a pandora tmux session is already in existence
-
 if [ 0 -eq "$(tmux list-sessions | grep pandora | wc -l )" ] ; then
     #create a pandora tmux and enter it
     echo "Creating tmux for pandora..."
@@ -137,7 +116,6 @@ fi
 function ytube() {
 
 #check to see if a mpsyt tmux session is already in existence
-
 if [ 0 -eq "$(tmux list-sessions | grep ytube | wc -l )" ] ; then
     #create a mpsyt tmux and enter it
     echo "Creating tmux for mpsyt..."
@@ -149,27 +127,21 @@ fi
 
 }
 
-function pnext() {
-    tmux send -t pandora n;
-    tmux send -t ytube "Enter";
-}
+function pnext () { tmux send -t pandora n; tmux send -t ytube "Enter"; }
 
-function ppause() {
-    tmux send -t pandora p;
-    tmux send -t ytube p;
-}
+function ppause() { tmux send -t pandora p; tmux send -t ytube p; }
 
-function pquit() {
-    tmux send -t pandora q;
-    tmux send -t ytube "q";
-    tmux send -t ytube "exit"; 
-    tmux send -t ytube "Enter"; 
-    
-}
+function pquit () { tmux send -t pandora q; tmux send -t ytube "q";
+		    tmux send -t ytube "exit"; tmux send -t ytube "Enter"; }
 
-function pplay() {
-    tmux send -t pandora p;
-    tmux send -t ytube p;
-}
+function pplay () { tmux send -t pandora p; tmux send -t ytube p; }
 
+#######################
+### ADD SSH ALIASES ###
+#######################
+source $HOME/.bash/ssh_aliases
 
+###################################
+# MACHINE SPECIFIC CONFIGURATIONS #
+###################################
+source $HOME/.bash/machines/machinesrc

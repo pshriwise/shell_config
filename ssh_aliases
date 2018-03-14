@@ -1,0 +1,18 @@
+#!/bin/bash
+
+###############
+# SSH ALIASES #
+###############
+alias c1='ssh shriwise@tux-c1.cae.wisc.edu'
+alias c2='ssh shriwise@tux-c2.cae.wisc.edu'
+# personal ec2 machine
+alias ec2p='ssh ec2p'
+# production ec2 machine
+if [ -f ~/.ssh/pshriwise.pem ]; then
+    alias ec2='ssh -i ~/.ssh/pshriwise.pem ubuntu@52.7.194.101'
+fi
+
+alias tux='ssh -X cae'
+alias tower='ssh -X home'
+alias ff='ssh -X serenity'
+

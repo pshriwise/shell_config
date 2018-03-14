@@ -1,0 +1,187 @@
+
+
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+
+# If not running interactively, don't do anything
+#case $- in
+#      *i*) ;;
+#      *) return;;
+#esac
+
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+#shopt -s globstar
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#force_color_prompt=yes
+
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+# unset color_prompt force_color_prompt
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
+# PATH
+function common_path {
+    # standard system paths
+    PATH=$PATH:/usr/local/bin/:/bin/:/usr/bin/
+    # embree (Intel ray tracer) programs
+    PATH=/home/shriwise/opt/embree/:$PATH
+    # Intel compiler
+    PATH=/home/shriwise/opt/ispc/:$PATH
+    # games
+    PATH=/usr/games/:$PATH
+    # locally installed python probrams
+    PATH="/home/shriwise/.local/bin:${PATH}"
+    # hpc tookit (profiler from RICE)
+    PATH=/home/shriwise/opt/rice/hpc-viewers/hpc-viewer/bin/:$PATH
+    PATH=/home/shriwise/opt/rice/hpc-viewers/hpc-trace-viewer/bin/:$PATH
+}
+
+function production_sigma {
+
+DAGMC_PATH=$HOME/opt/DAGMC/
+
+#TRELIS
+TRELIS_PATH=/opt/Trelis-16.0/
+LD_LIBRARY_PATH=$TRELIS_PATH/bin
+
+alias trelis='$TRELIS_PATH/bin/trelix -nojournal'
+
+#HDF5
+export HDF5_ROOT=$HOME/dagmc_blds/hdf5/
+LD_LIBRARY_PATH=$HDF5_ROOT:$LD_LIBRARY_PATH
+
+
+
+#MOAB
+LD_LIBRARY_PATH=$DAGMC_PATH/moab/lib/:$LD_LIBRARY_PATH
+export CMAKE_INCLUDE_PATH=$DAGMC_PATH/moab/include/
+export CPLUS_INCLUDE_PATH=$DAGMC_PATH/moab/include/
+export MOAB_MAKE=$DAGMC_PATH/moab/lib/moab.make
+
+#MESHKIT 
+### Not currently built, set null env var ###
+unset MK_MAKE
+
+#DAGMC
+LD_LIBRARY_PATH=$DAGMC_PATH/dagmc/lib/:$LD_LIBRARY_PATH
+
+#DATAPATH FOR XSDIR
+export DATAPATH=/home/shriwise/opt/LANL/mcnp_data/
+
+mbsize () { $DAGMC_PATH/moab/bin/mbsize $@ ; }
+mbconvert () { $DAGMC_PATH/moab/bin/mbconvert $@ ; }
+dagmc_preproc () { $DAGMC_PATH/moab/bin/dagmc_preproc $@ ; }
+make_watertight () { $DAGMC_PATH/moab_tools/make_watertight/make_watertight $@ ; }
+check_watertight () { $DAGMC_PATH/moab_tools/make_watertight/check_watertight $@ ; }
+
+#setup the usual paths for the LD_LIBRARY_PATH env var
+common_ld_libs
+common_path
+
+export LD_LIBRARY_PATH
+export PATH
+
+echo "Environment set for production SIGMA tools."
+
+}
+
+
+# ALIASES
+visit () { /home/shriwise/opt/visit/visit2_11_0.linux-x86_64/bin/visit $@ ; }
+h5ls () { /home/shriwise/dagmc_blds/hdf5/bin/h5ls $@ ; }
+matlab () { /usr/local/bin/matlab $@ ; }
+zo () { /home/shriwise/opt/zo/zo.py $@ ; }
+
+notify () { $@; paplay /usr/share/sounds/gnome/default/alerts/bark.ogg; notify-send "$1 is complete"; }
+
+export PYTHONPATH=/home/shriwise/.local/lib/python2.7/site-packages/:/home/shriwise/opt/slackbot/:/opt/Trelis-16.0/bin/:/home/shriwise/.local/bin/
+export COWPATH=/home/shriwise/.bash/:/usr/share/cowsay/cows/
+
+####################################
+### START NOTEBOOK JEKYLL SERVER ###
+####################################
+function notebook {
+
+    if [ -d ~/Documents/personal/notebook/ ]; then 
+	have_jekyll=$(which jekyll | wc -l)
+	if [ $have_jekyll != 0 ]; then
+	    tmux new-session -s notebook -d 'cd ~/Documents/personal/notebook/ && jekyll serve -u --host $(dig +short myip.opendns.com @resolver1.opendns.com) --port 4002'
+	    echo "Notebook server started."
+	    return 0
+	else
+	    echo "Please install jekyll."
+	    return 1
+	fi
+    else
+	echo "Could not locate notebook directory"
+	return 1
+	fi
+}
+
+###########################################
+### ENVIRONMENTS FOR OTHER APPLICATIONS ###
+###########################################
+function env_openmc() {
+    # EXECUTABLES
+    export PATH=/home/shriwise/opt/openmc/bin/:$PATH
+
+    # SHARED LIBRARIES
+    export LD_LIBRARY_PATH=$HOME/opt/openmc/lib:$LD_LIBRARY_PATH
+    
+    # DATA
+    export OPENMC_MULTIPOLE_LIBRARY=/home/shriwise/opt/openmc/xs/wmp_lib/multipole_lib/
+    export OPENMC_CROSS_SECTIONS=/home/shriwise/opt/openmc/xs/nndc_hdf5/cross_sections.xml
+    export OPENMC_ENDF_SECTIONS=/home/shriwise/opt/openmc/xs/endf-b-vii.1/
+
+    # PYTHON MODULE
+    export PYTHONPATH=$HOME/.local/lib/python3.5/site-packages/:$PYTHONPATH
+}
+
+
+
+################################
+### SET STANDARD ENVIRONMENT ###
+################################
+production_sigma

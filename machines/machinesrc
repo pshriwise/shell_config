@@ -1,0 +1,12 @@
+#!/bin/bash
+
+###################################
+# MACHINE SPECIFIC CONFIGURATIONS #
+###################################
+
+# serenity - work machine
+if [ "$HOST" = "serenity" ]
+then
+    source $HOME/.bash/machines/serenity;
+fi
+
