@@ -8,7 +8,6 @@ else
     ln -s ~/.bash/ssh_config ~/.ssh/config
 fi
 
-
 #Add the .emacs symbolic link if one does not exist
 if [ -f ~/.emacs ]
 then
@@ -35,6 +34,21 @@ else
     ln -s ~/.bash/display_settings/serenity_displays.sh ~/.config/displays.sh
 fi
 
+
+if [ -f ~/.bashrc ]
+then
+    echo ".bashrc file already exists!"
+else
+    ln -s ~/.bash/bash/bashrc ~/.bashrc
+fi
+
+if [ -f ~/.zshrc ]
+then
+    echo ".zshrc file already exists!"
+else
+    ln -s ~/.bash/zsh/zshrc ~/.zshrc
+fi
+
 # Link programs
 if [ -d ~/.local/bin/ ]
 then
@@ -53,6 +67,3 @@ then
 	echo "Necessary files for GroupMe are not in place."
     fi
 fi
-
-       
-    

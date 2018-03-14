@@ -34,6 +34,11 @@ if [ "$TERM" == "xterm" ]; then
     bind '"\C-H":backward-kill-word'
 fi
 
+###############################
+# OTHER BASH-SPECIFIC DETAILS #
+###############################
+source $HOME/.bash/bash/details
+
 ##############################
 # IMPORT ALL COMMON SETTINGS #
 ##############################

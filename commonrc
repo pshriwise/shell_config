@@ -22,10 +22,6 @@ follow () { cp $1 $2 ; cd $2 ;  }
 # tmux aliases
 alias ta='tmux attach'
 
-# program aliases #
-alias maple='$HOME/opt/maple2016/bin/xmaple'
-alias visit='$HOME/opt/visit/visit2_11_0.linux-x86_64/bin/visit'
-
 # git Aliases #
 list_authors='git log --format='%aN' | sort -u'
 alias gs='git status'

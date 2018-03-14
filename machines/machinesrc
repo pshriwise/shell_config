@@ -5,8 +5,9 @@
 ###################################
 
 # serenity - work machine
-if [ "$HOST" = "serenity" ]
+if [ "$HOST" = "serenity" -o "$HOSTNAME" = "serenity" ]
 then
+    echo "Importing configuration for Serenity"
     source $HOME/.bash/machines/serenity;
 fi
 
