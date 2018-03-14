@@ -7,9 +7,11 @@
 # serenity - work machine
 MACHINE_NAME="$(hostname)"
 
-if [ $MACHINE_NAME = "serenity" ]
+if [ -f $HOME/.bash/machines/$MACHINE_NAME ]
 then
-    echo "Importing configuration for Serenity"
-    source $HOME/.bash/machines/serenity;
+    echo "Importing configuration for $MACHINE_NAME"
+    source $HOME/.bash/machines/$MACHINE_NAME;
+else
+    echo "No specific configuration found for $MACHINE_NAME"
 fi
 
