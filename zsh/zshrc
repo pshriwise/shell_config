@@ -12,18 +12,9 @@ setopt HIST_IGNORE_ALL_DUPS
 source $HOME/.bash/zsh/zsh_perso
 source $HOME/.bash/zsh/zsh_alias
 source $HOME/.bash//zsh/zsh_ohmzsh
+
+
+##############################
+# IMPORT ALL COMMON SETTINGS #
+##############################
 source $HOME/.bash/commonrc
-
-export PYTHONPATH=$HOME/.local/lib/python2.7/site-packages/:$HOME/opt/slackbot/:/opt/Trelis-16.0/bin/:$HOME/.local/bin/
-
-export COWPATH=$HOME/.bash/:/usr/share/cowsay/cows/
-
-export LD_LIBRARY_PATH=$HOME/opt/MOAB/lib:$HOME/opt/DAGMC/lib:$HOME/dagmc_blds/hdf5/lib/
-
-export DATAPATH=$HOME/opt/LANL/mcnp_data/
-
-export PATH=/usr/bin:$HOME/.local/bin:$PATH
-
-export PATH=/home/shriwise/opt/rice/hpc-viewers/hpc-viewer/bin/:$PATH
-export PATH=/home/shriwise/opt/rice/hpc-viewers/hpc-trace-viewer/bin/:$PATH
-export PATH=/home/shriwise/opt/rice/hpc-toolkit/src/bin/:$PATH

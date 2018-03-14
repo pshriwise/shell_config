@@ -56,6 +56,7 @@ function common_path {
     # hpc tookit (profiler from RICE)
     PATH=/home/shriwise/opt/rice/hpc-viewers/hpc-viewer/bin/:$PATH
     PATH=/home/shriwise/opt/rice/hpc-viewers/hpc-trace-viewer/bin/:$PATH
+    PATH=/home/shriwise/opt/rice/hpc-toolkit/src/bin/:$PATH
 }
 
 # STANDARD LD_LIBRARY_PATH VARIABLE (nothing for now)
