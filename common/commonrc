@@ -135,7 +135,7 @@ function pplay () { tmux send -t pandora p; tmux send -t ytube p; }
 #######################
 ### ADD SSH ALIASES ###
 #######################
-source $HOME/.bash/ssh_aliases
+source $HOME/.bash/ssh/ssh_aliases
 
 ###################################
 # MACHINE SPECIFIC CONFIGURATIONS #
