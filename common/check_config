@@ -13,7 +13,7 @@ function check_config_uptodate {
 	cd ~/.bash/
 
 	# fetch remotes
-	var=$(git fetch --all | tail -n +2)
+	var=$(git fetch --all 2> /dev/null | tail -n +2)
 	if [ $? -ne 0 ]; then
 	    echo "Could not update configuration repo. Check internet connection?"
 	    return
