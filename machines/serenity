@@ -97,9 +97,9 @@ function production_sigma {
     export HDF5_ROOT=$HOME/dagmc_blds/hdf5/
     LD_LIBRARY_PATH=$HDF5_ROOT/lib/:$LD_LIBRARY_PATH
     #MOAB
-    LD_LIBRARY_PATH=$DAGMC_PATH/moab/lib/:$LD_LIBRARY_PATH
+    LD_LIBRARY_PATH=$HOME/opt/MOAB/lib/:$LD_LIBRARY_PATH
     #DAGMC
-    LD_LIBRARY_PATH=$DAGMC_PATH/dagmc/lib/:$LD_LIBRARY_PATH
+    LD_LIBRARY_PATH=$HOME/opt/DAGMC/lib/:$LD_LIBRARY_PATH
 
     #DATAPATH FOR XSDIR
     export DATAPATH=/home/shriwise/opt/LANL/mcnp_data/
