@@ -24,6 +24,8 @@ function check_config_uptodate {
 	    echo "Shell configuration is behind. Please update."
 	    return
 	fi
+	# return to previous directory
+	cd - &> /dev/null
     fi
 }
 
