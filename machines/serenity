@@ -62,7 +62,8 @@ function common_path {
 # STANDARD LD_LIBRARY_PATH VARIABLE (nothing for now)
 function common_ld_library_path {
     unset LD_LIBRARY_PATH
-    LD_LIBRARY_PATH=$LD_LIBRARY_PATH
+    HDF5_ROOT=$HOME/dagmc_blds/hdf5/
+    LD_LIBRARY_PATH=$HOME/dagmc_blds/hdf5/lib:$LD_LIBRARY_PATH
 }
 
 function common_pythonpath {
@@ -74,18 +75,23 @@ function common_pythonpath {
     
 }
 
+function set_common_paths {
+    common_path
+    common_ld_library_path
+    common_pythonpath
+}
+
 # convenience for exporting environment variables together 
 function export_environment_vars() {
     export PATH
     export LD_LIBRARY_PATH
+    export HDF5_ROOT
     export PYTHONPATH
 }
 
 function production_sigma {
-    #setup the usual paths for the LD_LIBRARY_PATH env var
-    common_ld_library_path
-    common_path
-    common_pythonpath
+    #setup the usual paths for the PATH/LD_LIBRARY_PATH
+    set_common_paths
     
     # path to DAGMC install
     DAGMC_PATH=$HOME/opt/DAGMC
@@ -93,22 +99,15 @@ function production_sigma {
     
     alias trelis='$TRELIS_PATH/trelis -nojournal'
 
-    #HDF5
-    export HDF5_ROOT=$HOME/dagmc_blds/hdf5/
-    LD_LIBRARY_PATH=$HDF5_ROOT/lib/:$LD_LIBRARY_PATH
     #MOAB
+    PATH=$HOME/opt/MOAB/bin:$PATH
     LD_LIBRARY_PATH=$HOME/opt/MOAB/lib/:$LD_LIBRARY_PATH
     #DAGMC
+    PATH=$HOME/opt/DAGMC/bin:$HOME/opt/DAGMC/tools:$PATH
     LD_LIBRARY_PATH=$HOME/opt/DAGMC/lib/:$LD_LIBRARY_PATH
 
     #DATAPATH FOR XSDIR
     export DATAPATH=/home/shriwise/opt/LANL/mcnp_data/
-
-    mbsize () { $DAGMC_PATH/moab/bin/mbsize $@ ; }
-    mbconvert () { $DAGMC_PATH/moab/bin/mbconvert $@ ; }
-    dagmc_preproc () { $DAGMC_PATH/moab/bin/dagmc_preproc $@ ; }
-    make_watertight () { $DAGMC_PATH/moab_tools/make_watertight/make_watertight $@ ; }
-    check_watertight () { $DAGMC_PATH/moab_tools/make_watertight/check_watertight $@ ; }
 
     # export variables
     export_environment_vars
@@ -119,22 +118,46 @@ function production_sigma {
 ###########################################
 ### ENVIRONMENTS FOR OTHER APPLICATIONS ###
 ###########################################
-function env_openmc() {
+function env_openmc() {    
     # EXECUTABLES
-    export PATH=/home/shriwise/opt/openmc/bin/:$PATH
+    PATH=/home/shriwise/opt/openmc/bin/:$PATH
 
     # SHARED LIBRARIES
-    export LD_LIBRARY_PATH=$HOME/opt/openmc/lib:$LD_LIBRARY_PATH
-    
+    LD_LIBRARY_PATH=$HOME/opt/openmc/lib:$LD_LIBRARY_PATH 
+   
     # DATA
     export OPENMC_MULTIPOLE_LIBRARY=/home/shriwise/opt/openmc/xs/wmp_lib/multipole_lib/
     export OPENMC_CROSS_SECTIONS=/home/shriwise/opt/openmc/xs/nndc_hdf5/cross_sections.xml
     export OPENMC_ENDF_SECTIONS=/home/shriwise/opt/openmc/xs/endf-b-vii.1/
 
     # PYTHON MODULE
-    export PYTHONPATH=$HOME/.local/lib/python3.5/site-packages/:$PYTHONPATH
+    PYTHONPATH=$HOME/.local/lib/python3.5/site-packages/:$PYTHONPATH
+
+    # export environment varialbers
+    export_environment_vars
+    
+    echo "Adding OpenMC to environment"
 }
 
+function simd_dagmc() {
+    # start with standard variable settings
+    set_common_paths
+    
+    # EXECUTABLES
+    # DAGMC
+    PATH=$HOME/DAGMC/bin/:$HOME/opt/DAGMC/tools:$PATH
+    # SIMD BVH
+    PATH=$HOME/opt/MBVH/tools/:$PATH
+
+    # SHARED LIBRARIES
+    LD_LIBRARY_PATH=$HOME/opt/MOAB/lib/:$HOME/DAGMC/lib/:$HOME/opt/MBVH/lib:$LD_LIBRARY_PATH
+
+    # export environment varialbers
+    export_environment_vars
+
+    echo "Environment set for SIMD BVH DAGMC"
+}
+    
 ################################
 ### SET STANDARD ENVIRONMENT ###
 ################################
