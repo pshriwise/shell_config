@@ -5,11 +5,13 @@
 ###############
 alias c1='ssh shriwise@tux-c1.cae.wisc.edu'
 alias c2='ssh shriwise@tux-c2.cae.wisc.edu'
-# personal ec2 machine
-alias ec2p='ssh ec2p'
-# production ec2 machine
+
+# AWS ec2 aliases
 if [ -f ~/.ssh/pshriwise.pem ]; then
-    alias ec2='ssh -i ~/.ssh/pshriwise.pem ubuntu@52.7.194.101'
+    # production ec2 machine
+    alias ec2='ssh -i ~/.ssh/pshriwise.pem ec2'
+    # personal ec2 machine
+    alias ec2p='ssh -i ~/.ssh/pshriwise.pem ec2p'
 fi
 
 alias tux='ssh -X cae'
