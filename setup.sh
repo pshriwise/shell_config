@@ -5,7 +5,7 @@ if [ -f ~/.ssh/config ]
 then 
     echo "ssh configure file already exists!"
 else
-    ln -s ~/.bash/ssh_config ~/.ssh/config
+    ln -s ~/.bash/ssh/ssh_config ~/.ssh/config
 fi
 
 #Add the .emacs symbolic link if one does not exist
@@ -20,7 +20,7 @@ if [ -f ~/.tmux.conf ]
 then
     echo "tmux configuration file already exists!"
 else
-    ln -s ~/.bash/emacs/.tmux.conf ~/.tmux.conf
+    ln -s ~/.bash/config/.tmux.conf ~/.tmux.conf
 fi
 
 #Add the displays setup if the machine's name is serenity

@@ -42,4 +42,4 @@ source $HOME/.bash/bash/details
 ##############################
 # IMPORT ALL COMMON SETTINGS #
 ##############################
-source $HOME/.bash/commonrc
+source $HOME/.bash/common/commonrc
