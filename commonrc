@@ -142,29 +142,7 @@ source $HOME/.bash/ssh_aliases
 ###################################
 source $HOME/.bash/machines/machinesrc
 
-# if git exists check for new commits to this repo
-function check_config_uptodate {
-    # check for git
-    eval type git &> /dev/null
-    if [ $? -ne 0 ];
-    then
-	echo "It doesn't seem git is installed. What is wrong with you?"
-	exit
-    else
-	# move into expected repo location
-	cd ~/.bash/
-
-	# fetch remotes
-	var=$(git fetch --all | tail -n +2)
-	if [ $? -ne 0 ]; then
-	    echo "Could not update configuration repo. Check internet connection?"
-	    exit
-	fi
-	# check for updates
-	if [ $var ]; then
-	    echo "Shell configuration is behind. Please update."
-	    exit
-	fi
-    fi
-}
-check_config_uptodate
+##################################
+# CHECK CONFIGURATION UP TO DATE #
+##################################
+source $HOME/.bash/check_config
