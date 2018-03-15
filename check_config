@@ -7,7 +7,7 @@ function check_config_uptodate {
     if [ $? -ne 0 ];
     then
 	echo "It doesn't seem git is installed. What is wrong with you?"
-	exit
+	return
     else
 	# move into expected repo location
 	cd ~/.bash/
@@ -16,12 +16,13 @@ function check_config_uptodate {
 	var=$(git fetch --all | tail -n +2)
 	if [ $? -ne 0 ]; then
 	    echo "Could not update configuration repo. Check internet connection?"
-	    exit
+	    return
 	fi
 	# check for updates
+	var=$(git fetch --all | tail -n +2)
 	if [ $var ]; then
 	    echo "Shell configuration is behind. Please update."
-	    exit
+	    return
 	fi
     fi
 }

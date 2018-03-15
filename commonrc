@@ -142,6 +142,7 @@ source $HOME/.bash/ssh_aliases
 ###################################
 source $HOME/.bash/machines/machinesrc
 
+<<<<<<< HEAD
 ##################################
 # CHECK CONFIGURATION UP TO DATE #
 ##################################
