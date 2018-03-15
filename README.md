@@ -19,7 +19,7 @@ This script will create symlinks in the proper locations to support both `bash`
 file). Both of these configurations come with a set of common aliases which can
 be found in `commonrc`.
 
-#### Machine-Specific Configuration
+#### Machine-Specific Configurations
 
 The config file `machinesrc` is always included via the `commonrc` file during
 configuration. This file will search for a file in the `/machines` diretory
