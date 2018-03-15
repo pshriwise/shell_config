@@ -13,3 +13,6 @@
 [submodule "zsh/zsh_config"]
 	path = zsh/zsh_config
 	url = https://github.com/pshriwise/zsh_config/
+[submodule "zsh/oh-my-zsh"]
+	path = zsh/oh-my-zsh
+	url = https://github.com/pshriwise/oh-my-zsh
