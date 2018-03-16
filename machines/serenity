@@ -145,7 +145,7 @@ function simd_dagmc() {
     
     # EXECUTABLES
     # DAGMC
-    PATH=$HOME/DAGMC/bin/:$HOME/opt/DAGMC/tools:$PATH
+    PATH=$HOME/DAGMC/bin/:$HOME/DAGMC/tools:$PATH
     # SIMD BVH
     PATH=$HOME/opt/MBVH/tools/:$PATH
 
