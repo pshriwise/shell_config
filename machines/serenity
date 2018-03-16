@@ -4,6 +4,7 @@
 ### SERENITY ALIASES ###
 ########################
 
+tilemill () { /home/shriwise/opt/tilemill/tilemill/index.js $@ ; }
 visit () { /home/shriwise/opt/visit/visit2_11_0.linux-x86_64/bin/visit $@ ; }
 maple () { /home/shriwiwse/opt/maple2016/bin/xmaple $@ ; }
 h5ls () { /home/shriwise/dagmc_blds/hdf5/bin/h5ls $@ ; }
