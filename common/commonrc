@@ -36,7 +36,8 @@ alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 # make system aliases #
 alias cb='make clean; make -j8'
 alias cbi='make clean; make -j8 && make install'
-alias cch='make clean && make -j 8 && make -j 8 check'
+alias cbc='make clean && make -j 8 && make -j 8 check'
+alias cbt='make clean && make -j 8 && make test'
 alias ch='make -j 8 check'
 
 #########################################
