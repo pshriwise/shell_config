@@ -48,6 +48,7 @@ function common_path {
     PATH=$PATH:/usr/local/bin/:/bin/:/usr/bin/
     # embree (Intel ray tracer) programs
     PATH=/home/shriwise/opt/embree/:$PATH
+    PATH=/home/shriwise/opt/embree3/:$PATH
     # Intel compiler
     PATH=/home/shriwise/opt/ispc/:$PATH
     # games
