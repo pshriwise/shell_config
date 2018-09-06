@@ -1,3 +1,4 @@
 
 # Visit
-export PATH=/home/shriwise/opt/visit2_13_0.linux-x86_64/bin:$PATH
+export PATH=/home/shriwise/opt/visit2_13_0.linux-x86_64/bin:/home/shriwise/opt/MOAB/bin/:$PATH
+export LD_LIBRARY_PATH=/home/shriwise/opt/MOAB/lib/:$LD_LIBRARY_PATH
