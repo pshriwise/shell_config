@@ -39,6 +39,8 @@ alias cbi='make clean; make -j8 && make install'
 alias cbc='make clean && make -j 8 && make -j 8 check'
 alias cbt='make clean && make -j 8 && make test'
 alias ch='make -j 8 check'
+alias bci='make -j8 check && make -j8 install'
+alias bi='make -j8 install'
 
 #########################################
 ### Mount/UnMount remote directories ####
