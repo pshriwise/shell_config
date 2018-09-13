@@ -159,7 +159,43 @@ function simd_dagmc() {
 
     echo "Environment set for SIMD BVH DAGMC"
 }
+
+function pyne_dev() {
+    # start with standard environment settings
+    set_common_paths
+
+    # EXECUTABLES
+    PATH=/home/shriwise/opt/pyne_MOAB/bin/:$PATH
     
+    # SHARED LIBRARIES
+    LD_LIBRARY_PATH=/home/shriwise/opt/pyne_MOAB/lib/:$LD_LIBRARY_PATH
+
+    # PYTHON
+    PYTHONPATH=/home/shriwise/.local/lib/python2.7/site-packages/:$PYTHONPATH
+    
+    # set environment vars
+    export_environment_vars
+}
+
+function pyne_pymaob() {
+    # start with standard environment settings
+    set_common_paths
+
+    # EXECUTABLES
+    PATH=/home/shriwise/opt/pymoab_MOAB/bin/:$PATH
+    
+    # SHARED LIBRARIES
+    LD_LIBRARY_PATH=/home/shriwise/opt/pymoab_MOAB/lib:$LD_LIBRARY_PATH
+    LD_LIBRARY_PATH=/home/shriwise/opt/pymoab_DAGMC/lib:$LD_LIBRARY_PATH
+
+    # PYTHON
+    PYTHONPATH=/home/shriwise/.local/lib/python2.7/site-packages/:$PYTHONPATH
+    PYTHONPATH=/home/shriwise/opt/pymoab_MOAB/lib/python2.7/site-packages:$PTYHONPATH
+    
+    # set environment vars
+    export_environment_vars
+}
+
 ################################
 ### SET STANDARD ENVIRONMENT ###
 ################################
