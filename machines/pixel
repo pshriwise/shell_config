@@ -29,6 +29,22 @@ function env_openmc() {
     echo "Adding OpenMC to environment"
 }
 
+function env_pyne() {
+    # EXECUTABLES
+    PATH=$HOME/.local/bin/:$PATH
+
+    # SHARED LIBRARIES
+    LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
+    LD_LIBRARY_PATH=$HOME/opt/dagmc/lib:$LD_LIBRARY_PATH
+    
+    # export environment varialbers
+    export_environment_vars
+
+    echo "Environment set for PyNE development"
+}
+
+
+
 # convenience for exporting environment variables together
 function export_environment_vars() {
     export PATH
