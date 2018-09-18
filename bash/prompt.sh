@@ -40,7 +40,7 @@ branch_color() {
     echo "\["$branch_color"\]"
 }
 
-ps1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]"
+ps1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]"
 PROMPT_COMMAND="find_git_branch; find_git_dirty; PS1=\"${ps1}\$(branch_color)\$git_branch\[$txtrst\]:\$\"; $PROMPT_COMMAND"
 
 # Default Git enabled prompt with dirty state
