@@ -1,6 +1,10 @@
 git
 emacs
 ssh
+make
+autotools
+cmake
+cmake-curses-gui
 gcc
 g++
 gfortran
