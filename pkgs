@@ -1,3 +1,9 @@
 git
 emacs
 ssh
+gcc
+g++
+gfortran
+libhdf5
+libhdf5-dev
+libhdf5-serial-dev
