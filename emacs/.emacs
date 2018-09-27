@@ -20,6 +20,7 @@
 (setq compilation-scroll-output t)
 (savehist-mode 1)
 
+(setq-default indent-tabs-mode nil)
 
 (if (boundp tool-bar-mode) (tool-bar-mode -1))
 (if (boundp menu-bar-mode) (menu-bar-mode -1))
