@@ -10,4 +10,10 @@ g++
 gfortran
 libhdf5
 libhdf5-dev
-libhdf5-serial-dev
+libhdf5-serial-devnet-tools
+autoconf
+autogen
+libtool
+libblas-dev
+liblapack-dev
+sshfs
