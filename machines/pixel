@@ -35,6 +35,8 @@ function env_pyne() {
     # EXECUTABLES
     PATH=$HOME/.local/bin/:$PATH
 
+    pyenv shell 2.7
+    
     # SHARED LIBRARIES
     LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
     LD_LIBRARY_PATH=$HOME/opt/dagmc/lib:$LD_LIBRARY_PATH
