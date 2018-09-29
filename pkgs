@@ -31,4 +31,6 @@ libncursesw5-dev
 xz-utils
 tk-dev
 libffi-dev
-liblzma-dev
+liblzma-devlibssl1.0-dev
+ libxml2-dev
+libxslt1-dev
