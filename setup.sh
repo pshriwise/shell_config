@@ -1,8 +1,11 @@
 
 
+# make sure submodules are all there
+cd ~/.bash && git submodule init && git submodule update --recursive
+
 #Replace original ssh config w/ symbolic link if one does not already exist
 if [ -f ~/.ssh/config ]
-then 
+then
     echo "ssh configure file already exists!"
 else
     ln -s ~/.bash/ssh/ssh_config ~/.ssh/config
@@ -12,9 +15,9 @@ fi
 if [ -f ~/.emacs ]
 then
     echo ".emacs file already exists!"
-else 
+else
     ln -s ~/.bash/emacs/.emacs ~/.emacs
-fi 
+fi
 
 if [ -f ~/.tmux.conf ]
 then
@@ -37,7 +40,9 @@ fi
 
 if [ -f ~/.bashrc ]
 then
-    echo ".bashrc file already exists!"
+    echo "A .bashrc file already exists!"
+    echo "Appending source of commonrc to existing .bashrc..."
+    echo "source ~/.bash/common/commonrc" >> ~/.bashrc
 else
     ln -s ~/.bash/bash/bashrc ~/.bashrc
 fi
@@ -45,6 +50,8 @@ fi
 if [ -f ~/.zshrc ]
 then
     echo ".zshrc file already exists!"
+    echo "Appending source of commonrc to existing .zshrc..."
+    echo "source ~/.bash/common/commonrc" >> ~/.zshrc
 else
     ln -s ~/.bash/zsh/zshrc ~/.zshrc
 fi
