@@ -24,6 +24,7 @@ function env_openmc() {
     export OPENMC_MULTIPOLE_LIBRARY=$HOME/opt/openmc/xs/wmp_lib/multipole_lib/
     export OPENMC_CROSS_SECTIONS=$HOME/opt/openmc/xs/nndc_hdf5/cross_sections.xml
     export OPENMC_ENDF_DATA=$HOME/opt/openmc/xs/endf-b-vii.1/
+    export DAGMC='y'
 
     # export environment varialbers
     export_environment_vars
@@ -35,13 +36,13 @@ function env_pyne() {
     # EXECUTABLES
     PATH=$HOME/.local/bin/:$PATH
 
-    pyenv shell 2.7
+    pyenv shell 3.5.0
     
     # SHARED LIBRARIES
     LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
     LD_LIBRARY_PATH=$HOME/opt/dagmc/lib:$LD_LIBRARY_PATH
 
-    PYTHONPATH=$HOME/opt/moab/lib/python2.7/site-packages/:$PYTHONPATH
+    PYTHONPATH=$HOME/opt/moab/lib/python3.5/site-packages/:$PYTHONPATH
     
     # export environment varialbers
     export_environment_vars
