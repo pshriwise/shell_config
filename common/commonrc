@@ -135,6 +135,8 @@ function pquit () { tmux send -t pandora q; tmux send -t ytube "q";
 
 function pplay () { tmux send -t pandora p; tmux send -t ytube p; }
 
+export TRAVIS_TOKEN=AZto9_eZf3lNw28shUfaGw
+
 #######################
 ### ADD SSH ALIASES ###
 #######################
