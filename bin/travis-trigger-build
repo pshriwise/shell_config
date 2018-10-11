@@ -24,10 +24,20 @@ body="{
 }"
 
 echo "Triggering build of $repo_slug branch $branch on Travis."
-curl -X POST \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json" \
-    -H "Travis-API-Version: 3" \
-    -H "Authorization: token $TRAVIS_TOKEN" \
-    -d "${body//\'/\"}" \
-    https://api.travis-ci.org/repo/${repo_slug/\//%2F}/requests
+sc=$(curl -X POST \
+          -H "Content-Type: application/json" \
+          -H "Accept: application/json" \
+          -H "Travis-API-Version: 3" \
+          -H "Authorization: token $TRAVIS_TOKEN" \
+          -d "${body//\'/\"}" \
+          --output /dev/null \
+          --write-out "%{http_code}" \
+          --silent \
+          https://api.travis-ci.org/repo/${repo_slug/\//%2F}/requests)
+
+echo $sc
+if test "$sc" -lt "300"; then
+    echo "SUCCESS"
+else
+    echo "ERROR"
+fi
