@@ -58,7 +58,6 @@ CODE=$(curl -X POST \
 
 # some output to user about status
 if test "$CODE" -lt "300"; then
-    echo "Triggered by successful build of $TRAVIS_REPO_SLUG"
     echo "RET CODE: $CODE"    
     echo "SUCCESS"
 else
