@@ -13,8 +13,32 @@
 
 message="Triggered by successful build of $TRAVIS_REPO_SLUG"
 
-repo_slug=$(repo-slug)
-branch=${1:-master}
+remote="origin"
+
+help_text="Script used to trigger travis builds for the current repository."
+usage="Usage: travis-trigger-build [remote=origin] branch"
+
+if [[ "$1" == "-h" ]]; then
+    echo $help_text
+    echo $usage
+    exit 0
+fi
+
+if [[ "$1" == "--help" ]]; then
+    echo $help_text
+    echo $usage
+    exit 0
+fi
+
+if [[ "$#" -gt 1 ]]; then
+    remote=$1
+    branch=${2:-master}
+else
+    branch=${1:-master}
+fi
+
+repo_slug=$(repo-slug ${remote})
+
 
 body="{
   'request': {

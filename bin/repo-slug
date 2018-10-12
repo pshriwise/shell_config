@@ -1,9 +1,11 @@
 #!/bin/bash
 
-remote="origin"
-
-if [ "$#" -ge 0 ]; then
-    remote=$1
+if [[ "$#" -lt 1 ]]; then
+    >&2 echo "Please provide a an existing remote name."
+    exit 1
 fi
+
+remote=$1
+
 
 git remote -v | grep "$remote" | head -n 1 | rev| sed 's![/:\t]! !g' | sed 's!  ! !g' | cut -d" " --fields=2,3 | rev | sed 's! !/!g'
