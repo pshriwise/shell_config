@@ -13,8 +13,8 @@
 
 message="Triggered by successful build of $TRAVIS_REPO_SLUG"
 
-repo_slug=$1
-branch=${2:-master}
+repo_slug=$(repo-slug)
+branch=${1:-master}
 
 body="{
   'request': {
