@@ -21,3 +21,9 @@ source $HOME/.bash/common/commonrc
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+compdef _travis_trigger_build travis-trigger-build
+
+function _travis_trigger_build() {
+    _arguments '1:profiles:($(git branch -la | sed "s![*/]! !g" | rev | cut -d" " -f1 | rev))'
+}
