@@ -9,6 +9,8 @@ eval "$(pyenv init -)"
 alias visit='~/opt/visit/visit2_13_2.linux-x86_64/bin/visit'
 alias h5sh='~/opt/h5sh'
 
+alias bear-n-winter='sudo echo "Hibernating..." && gnome-screensaver-command -l && sudo pm-hibernate'
+
 ###########################################
 ### ENVIRONMENTS FOR OTHER APPLICATIONS ###
 ###########################################
