@@ -7,6 +7,13 @@
 (add-to-list 'load-path "~/.bash/emacs/cython-mode")
 (add-to-list 'load-path "~/.bash/emacs")
 
+;; Define + active modification to compile that locally sets
+;; shell-command-switch to "-ic".
+(defadvice compile (around use-bashrc activate)
+  "Load .bashrc in any calls to bash (e.g. so we can use aliases)"
+  (let ((shell-command-switch "-ic"))
+    ad-do-it))
+
 (require 'auto-complete-config)
 (require 'mplayer-mode)
 (require 'bash-completion)
