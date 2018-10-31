@@ -40,6 +40,24 @@ function env_openmc() {
     echo "Adding OpenMC to environment"
 }
 
+function env_dbldwn() {
+    # EXECUTABLES
+    PATH=$HOME/opt/moab/bin:$PATH
+    PATH=$HOME/opt/dagmc/bin/:$HOME/opt/dagmc/tools/:$PATH
+    
+    pyenv shell 3.5.2
+    
+    # SHARED LIBRARIES
+    LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
+    LD_LIBRARY_PATH=$HOME/opt/dagmc/lib:$LD_LIBRARY_PATH
+
+    # export environment varialbers
+    export_environment_vars
+
+    echo "Adding Embree/Double-Down to environment"
+}
+
+
 function env_pyne2.7() {
     # EXECUTABLES
     PATH=$HOME/.local/bin/:$PATH
@@ -55,7 +73,7 @@ function env_pyne2.7() {
     # export environment varialbers
     export_environment_vars
 
-    echo "Environment set for PyNE development"
+    echo "Environment set for PyNE Python2.7 development"
 }
 
 
@@ -74,7 +92,7 @@ function env_pyne3.4() {
     # export environment varialbers
     export_environment_vars
 
-    echo "Environment set for PyNE development"
+    echo "Environment set for PyNE Python3.4 development"
 }
 
 # convenience for exporting environment variables together
