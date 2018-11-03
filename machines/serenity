@@ -7,7 +7,7 @@ export PATH=$PYENV_ROOT/bin:$PATH
 eval "$(pyenv init -)"
 
 alias visit='~/opt/visit/visit2_13_1.linux-x86_64/bin/visit'
-alias h5sh='~/opt/h5sh'
+alias h5sh='~/opt/h5sh/h5sh'
 
 alias bear-in-winter='sudo echo "Hibernating..." && gnome-screensaver-command -l && sudo pm-hibernate'
 
@@ -44,13 +44,15 @@ function env_dbldwn() {
     # EXECUTABLES
     PATH=$HOME/opt/moab/bin:$PATH
     PATH=$HOME/opt/dagmc/bin/:$HOME/opt/dagmc/tools/:$PATH
+    PATH=$HOME/opt/embree/bin/embree2:$PATH
     
     pyenv shell 3.5.2
     
     # SHARED LIBRARIES
     LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
     LD_LIBRARY_PATH=$HOME/opt/dagmc/lib:$LD_LIBRARY_PATH
-
+    LD_LIBRARY_PATH=$HOME/opt/embree/lib/:$LD_LIBRARY_PATH
+    
     # export environment varialbers
     export_environment_vars
 
@@ -77,22 +79,22 @@ function env_pyne2.7() {
 }
 
 
-function env_pyne3.4() {
+function env_pyne3.3() {
     # EXECUTABLES
     PATH=$HOME/.local/bin/:$PATH
 
-    pyenv shell 3.4.0
+    pyenv shell 3.3.4
     
     # SHARED LIBRARIES
     LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
     LD_LIBRARY_PATH=$HOME/opt/dagmc/lib:$LD_LIBRARY_PATH
 
-    PYTHONPATH=$HOME/opt/moab/lib/python3.4/site-packages/:$PYTHONPATH
+    PYTHONPATH=$HOME/opt/moab/lib/python3.3/site-packages/:$PYTHONPATH
     
     # export environment varialbers
     export_environment_vars
 
-    echo "Environment set for PyNE Python3.4 development"
+    echo "Environment set for PyNE Python3.3 development"
 }
 
 # convenience for exporting environment variables together
