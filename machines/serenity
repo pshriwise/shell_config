@@ -23,7 +23,7 @@ function env_openmc() {
     PATH=$HOME/opt/openmc/openmc/scripts/:$PATH
     PATH=$HOME/opt/njoy/njoy/build:$PATH
     
-    pyenv shell 3.5.2
+    pyenv shell 3.6.6
     
     # SHARED LIBRARIES
     LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
