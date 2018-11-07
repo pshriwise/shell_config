@@ -22,9 +22,9 @@ function env_openmc() {
     PATH=$HOME/opt/openmc/bin/:$HOME/.local/bin:$PATH
     PATH=$HOME/opt/openmc/openmc/scripts/:$PATH
     PATH=$HOME/opt/njoy/njoy/build:$PATH
-    
+
     pyenv shell 3.6.6
-    
+
     # SHARED LIBRARIES
     LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
     LD_LIBRARY_PATH=$HOME/opt/dagmc/lib:$LD_LIBRARY_PATH
@@ -46,14 +46,14 @@ function env_dbldwn() {
     PATH=$HOME/opt/moab/bin:$PATH
     PATH=$HOME/opt/dagmc/bin/:$HOME/opt/dagmc/tools/:$PATH
     PATH=$HOME/opt/embree/bin/embree2:$PATH
-    
+
     pyenv shell 3.5.2
-    
+
     # SHARED LIBRARIES
     LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
     LD_LIBRARY_PATH=$HOME/opt/dagmc/lib:$LD_LIBRARY_PATH
     LD_LIBRARY_PATH=$HOME/opt/embree/lib/:$LD_LIBRARY_PATH
-    
+
     # export environment varialbers
     export_environment_vars
 
@@ -66,13 +66,13 @@ function env_pyne2.7() {
     PATH=$HOME/.local/bin/:$PATH
 
     pyenv shell 2.7.10
-    
+
     # SHARED LIBRARIES
     LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
     LD_LIBRARY_PATH=$HOME/opt/dagmc/lib:$LD_LIBRARY_PATH
 
     PYTHONPATH=$HOME/opt/moab/lib/python2.7/site-packages/:$PYTHONPATH
-    
+
     # export environment varialbers
     export_environment_vars
 
@@ -85,17 +85,33 @@ function env_pyne3.3() {
     PATH=$HOME/.local/bin/:$PATH
 
     pyenv shell 3.3.4
-    
+
     # SHARED LIBRARIES
     LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
     LD_LIBRARY_PATH=$HOME/opt/dagmc/lib:$LD_LIBRARY_PATH
 
     PYTHONPATH=$HOME/opt/moab/lib/python3.3/site-packages/:$PYTHONPATH
-    
+
     # export environment varialbers
     export_environment_vars
 
     echo "Environment set for PyNE Python3.3 development"
+}
+
+function env_plugin() {
+     # EXECUTABLES
+    PATH=$HOME/opt/trelis-plugin/moab/bin:$PATH
+    PATH=$HOME/opt/trelis-plugin/dagmc/bin/:$PATH
+    PATH=$HOME/opt/trelis-plugin/dagmc/tools/:$PATH
+
+    # SHARED LIBRARIES
+    LD_LIBRARY_PATH=$HOME/opt/trelis-plugin/moab/lib:$LD_LIBRARY_PATH
+    LD_LIBRARY_PATH=$HOME/opt/trelis-plugin/dagmc/lib:$LD_LIBRARY_PATH
+
+    # export environment varialbers
+    export_environment_vars
+
+    echo "Environment Set for Trelis plugin development."
 }
 
 # convenience for exporting environment variables together
