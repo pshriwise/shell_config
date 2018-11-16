@@ -79,6 +79,25 @@ function env_pyne2.7() {
     echo "Environment set for PyNE Python2.7 development"
 }
 
+function env_dagviz() {
+    # EXECUTABLES
+    PATH=$HOME/.local/bin/:$PATH
+
+    pyenv shell 2.7.10
+
+    # SHARED LIBRARIES
+    LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
+    LD_LIBRARY_PATH=$HOME/opt/dagmc/lib:$LD_LIBRARY_PATH
+
+    PYTHONPATH=$HOME/opt/moab/lib/python2.7/site-packages/:$PYTHONPATH
+    PYTHONPATH=$HOME/opt/visit/visit2_13_1.linux-x86_64/2.13.1/linux-x86_64/lib/site-packages:$PYTHONPATH
+
+    PATH=$HOME/opt/visit/visit2_13_1.linux-x86_64/bin:$PATH
+    # export environment varialbers
+    export_environment_vars
+
+    echo "Environment set for PyNE Python2.7 development"
+}
 
 function env_pyne3.3() {
     # EXECUTABLES
