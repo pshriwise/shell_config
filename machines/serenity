@@ -35,6 +35,9 @@ function env_openmc() {
     export OPENMC_CROSS_SECTIONS=$HOME/opt/openmc/xs/nndc_hdf5/cross_sections.xml
     export OPENMC_ENDF_DATA=$HOME/opt/openmc/xs/endf-b-vii.1/
 
+    # for testing
+    export OMP_NUM_THREADS = 2
+    
     # export environment varialbers
     export_environment_vars
 
