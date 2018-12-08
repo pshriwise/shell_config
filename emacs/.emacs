@@ -17,6 +17,8 @@
 (add-hook 'python-mode-hook 'fci-mode)
 (add-hook 'python-mode-hook 'highlight-indentation-mode)
 
+(add-hook 'overwrite-mode-hook 'overwrite-mode)
+
 ;; Define + active modification to compile that locally sets
 ;; shell-command-switch to "-ic".
 (defadvice compile (around use-bashrc activate)
@@ -103,6 +105,12 @@
    (global-set-key [(control-c) (q)] 'tags-query-replace)
    (global-set-key [(control-c) (c)] 'tags-loop-continue)
    (global-set-key [(control-c) (s)] 'tags-search)
+
+
+
+
+(define-key isearch-mode-map (kbd "<left>") 'isearch-repeat-backward)
+(define-key isearch-mode-map (kbd "<right>") 'isearch-repeat-forward)
 
 ;; Commented because it was breaking access to certain built-in macros
 ;;(setq help-char nil)
