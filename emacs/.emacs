@@ -33,6 +33,7 @@
 (require 'web-mode)
 
 (set-face-background 'highlight-indentation-face "#7e7e7e")
+(set-variable 'highlight-indentation-blank-lines "t")
 
 (bash-completion-setup)
 (global-auto-complete-mode t)
