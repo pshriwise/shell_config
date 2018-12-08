@@ -7,6 +7,16 @@
 (add-to-list 'load-path "~/.bash/emacs/cython-mode")
 (add-to-list 'load-path "~/.bash/emacs")
 
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; file-type hooks
+(add-hook 'c++-mode-hook 'fci-mode)
+(add-hook 'c++-mode-hook 'highlight-indentation-mode)
+(add-hook 'c-mode-hook 'fci-mode)
+(add-hook 'c-mode-hook 'highlight-indentation-mode)
+(add-hook 'python-mode-hook 'fci-mode)
+(add-hook 'python-mode-hook 'highlight-indentation-mode)
+
 ;; Define + active modification to compile that locally sets
 ;; shell-command-switch to "-ic".
 (defadvice compile (around use-bashrc activate)
@@ -14,11 +24,15 @@
   (let ((shell-command-switch "-ic"))
     ad-do-it))
 
+(require 'highlight-indentation)
+(require 'fill-column-indicator)
 (require 'auto-complete-config)
 (require 'mplayer-mode)
 (require 'bash-completion)
 (require 'cython-mode)
 (require 'web-mode)
+
+(set-face-background 'highlight-indentation-face "#7e7e7e")
 
 (bash-completion-setup)
 (global-auto-complete-mode t)
@@ -50,7 +64,7 @@
 (defun compile-in-new-window ()
   "Always does compilation in a new window, so old buffers aren't buried."
   (interactive)
-  (progn 
+  (progn
     (if (not (get-buffer "*compilation*"))
 	  (progn
 	    (split-window-vertically)))))
