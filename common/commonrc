@@ -19,6 +19,8 @@ mkcd() { mkdir $1 ;  cd $1 ; }
 rmdir  () { rm -rf "$@" ;       }
 follow () { cp $1 $2 ; cd $2 ;  }
 
+grepall (){ grep -rn $1 ./* --color=always}
+
 # tmux aliases
 alias ta='tmux attach'
 
@@ -49,30 +51,30 @@ alias bi='make -j8 install'
 function remmnt {
 
     if [ "$#" -eq 2 -o "$#" -gt 3 ]
-    then 
+    then
 	echo "Function is designed for 1 or 3 arguments."
 	return 1
     fi
-    
+
     if [ "$#" -gt 2 ]
     then
-	if [ "$2" != "as" ] 
-	then 
+	if [ "$2" != "as" ]
+	then
 	    echo "Please use the following format to set remote filesystems: "
 	    echo "remmnt <hostname> as <desired_name>"
 	    return 1
 	fi
 	echo "Using third argument to set directory name."
 	if [ ! -d ~/mnt/$3 ]; then mkdir -p ~/mnt/$3; fi
-	if [ "$(ls -A ~/mnt/$3)" ]; then echo "Destination directory is not empty. Exiting..." ; exit 1; fi 
+	if [ "$(ls -A ~/mnt/$3)" ]; then echo "Destination directory is not empty. Exiting..." ; exit 1; fi
 	sshfs -oauto_cache,reconnect $1:/ ~/mnt/$3
 	if [ $? -ne 0 ]; then echo "Mount failed. Removing intended destination directory..."; rmdir ~/mnt/$3; fi
     else
 	if [ ! -d ~/mnt/$1 ]; then mkdir -p ~/mnt/$1; fi
-	if [ "$(ls -A ~/mnt/$1)" ]; then echo "Destination directory is not empty. Exiting..." ; exit 1; fi 
+	if [ "$(ls -A ~/mnt/$1)" ]; then echo "Destination directory is not empty. Exiting..." ; exit 1; fi
 	sshfs -oauto_cache,reconnect $1:/ ~/mnt/$1
 	if [ $? -ne 0 ]; then echo "Mount failed. Removing intended destination directory..."; rmdir ~/mnt/$1; fi
-    fi 
+    fi
 }
 
 function remumnt () {
