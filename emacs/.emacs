@@ -106,12 +106,6 @@
    (global-set-key [(control-c) (c)] 'tags-loop-continue)
    (global-set-key [(control-c) (s)] 'tags-search)
 
-
-
-
-(define-key isearch-mode-map (kbd "<left>") 'isearch-repeat-backward)
-(define-key isearch-mode-map (kbd "<right>") 'isearch-repeat-forward)
-
 ;; Commented because it was breaking access to certain built-in macros
 ;;(setq help-char nil)
 
