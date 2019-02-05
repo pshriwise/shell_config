@@ -12,6 +12,21 @@ alias trelis='/opt/Trelis-16.3/bin/trelis -nojournal'
 
 alias bear-in-winter='sudo echo "Hibernating..." && gnome-screensaver-command -l && sudo pm-hibernate'
 
+
+function docker-run-img() {
+    docker run -it --net=host -e DISPLAY=$DISPLAY -e XAUTHORITY=$XAUTHORITY -v /tmp/.X11-unix:/tmp/.X11-unix -v /home/shriwise/Downloads:/home/shriwise/Downloads -v $XAUTHORITY $1 /bin/bash
+}
+
+function _docker-run-img {
+  local state
+
+  _arguments -C \
+    '1:images:($(docker images --format "{{.Repository}}:{{.Tag}}" | grep -v "<none>"))' \
+    '*::arg->args'
+}
+
+compdef _docker-run-img docker-run-img
+
 ###########################################
 ### ENVIRONMENTS FOR OTHER APPLICATIONS ###
 ###########################################
@@ -37,7 +52,7 @@ function env_openmc() {
 
     # for testing
     export OMP_NUM_THREADS=2
-    
+
     # export environment varialbers
     export_environment_vars
 
@@ -63,7 +78,7 @@ function env_stream() {
     export OPENMC_MULTIPOLE_LIBRARY=$HOME/opt/openmc/xs/WMP_Library
     export OPENMC_CROSS_SECTIONS=$HOME/opt/openmc/xs/jeff-3.2-hdf5/cross_sections.xml
     export OPENMC_ENDF_DATA=$HOME/opt/openmc/xs/endf-b-vii.1/
-    
+
     # export environment varialbers
     export_environment_vars
 
@@ -170,3 +185,5 @@ function export_environment_vars() {
     export HDF5_ROOT
     export PYTHONPATH
 }
+
+alias swc_run='docker run -it --net=host -e DISPLAY=:0 -v /tmp/.X11-unix:/tmp/.X11-unix -v /home/shriwise/Downloads:/home/shriwise/Downloads swc_python:latest /bin/bash'
