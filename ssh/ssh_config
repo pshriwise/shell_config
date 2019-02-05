@@ -22,10 +22,14 @@ Host ec2
      HostName 52.7.194.101
      User ubuntu
 
+Host mcs
+     HostName login.mcs.anl.gov
+     DynamicForward 32000
+
 Host ec2p
      HostName 52.202.110.50
      User ubuntu
-     
+
 Host local
      HostName localhost
      User shriwise
