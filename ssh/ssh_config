@@ -26,6 +26,10 @@ Host mcs
      HostName login.mcs.anl.gov
      DynamicForward 32000
 
+Host ne-anl
+     HostName wiley.ne.anl.gov
+     User pshriwise
+
 Host ec2p
      HostName 52.202.110.50
      User ubuntu
