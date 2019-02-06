@@ -19,7 +19,7 @@ mkcd() { mkdir $1 ;  cd $1 ; }
 rmdir  () { rm -rf "$@" ;       }
 follow () { cp $1 $2 ; cd $2 ;  }
 
-grepall (){ grep -rn $1 ./* --color=always}
+grepall (){ grep -rn $1 ./* --color=always; }
 
 # tmux aliases
 alias ta='tmux attach'

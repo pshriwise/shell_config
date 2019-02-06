@@ -12,20 +12,21 @@ alias trelis='/opt/Trelis-16.3/bin/trelis -nojournal'
 
 alias bear-in-winter='sudo echo "Hibernating..." && gnome-screensaver-command -l && sudo pm-hibernate'
 
+if [ "/bin/bash" != "$BASH" ]; then
+    function docker-run-img() {
+        docker run -it --net=host -e DISPLAY=$DISPLAY -e XAUTHORITY=$XAUTHORITY -v /tmp/.X11-unix:/tmp/.X11-unix -v /home/shriwise/Downloads:/home/shriwise/Downloads -v $XAUTHORITY $1 /bin/bash
+    }
 
-function docker-run-img() {
-    docker run -it --net=host -e DISPLAY=$DISPLAY -e XAUTHORITY=$XAUTHORITY -v /tmp/.X11-unix:/tmp/.X11-unix -v /home/shriwise/Downloads:/home/shriwise/Downloads -v $XAUTHORITY $1 /bin/bash
-}
+    function _docker-run-img {
+        local state
 
-function _docker-run-img {
-  local state
+        _arguments -C \
+                   '1:images:($(docker images --format "{{.Repository}}:{{.Tag}}" | grep -v "<none>"))' \
+                   '*::arg->args'
+    }
 
-  _arguments -C \
-    '1:images:($(docker images --format "{{.Repository}}:{{.Tag}}" | grep -v "<none>"))' \
-    '*::arg->args'
-}
-
-compdef _docker-run-img docker-run-img
+    compdef _docker-run-img docker-run-img
+fi
 
 ###########################################
 ### ENVIRONMENTS FOR OTHER APPLICATIONS ###
