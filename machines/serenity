@@ -188,3 +188,9 @@ function export_environment_vars() {
 }
 
 alias swc_run='docker run -it --net=host -e DISPLAY=:0 -v /tmp/.X11-unix:/tmp/.X11-unix -v /home/shriwise/Downloads:/home/shriwise/Downloads swc_python:latest /bin/bash'
+
+###############
+# SSH Aliases #
+###############
+alias ssh-jack='ssh -t wiley "ssh jack"'
+alias ssh-wiley='ssh wiley'
