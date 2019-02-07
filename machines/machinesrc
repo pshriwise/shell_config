@@ -14,7 +14,7 @@ then
 elif [ -d $HOME/.machine/ ]
 then
     MACHINE_NAME="$(ls ~/.machine/)"
-    if [ $MACHINE_NAME == "none" ]
+    if [ "$MACHINE_NAME" == "none" ]
     then
         break
     fi
