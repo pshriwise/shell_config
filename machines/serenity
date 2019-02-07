@@ -60,6 +60,12 @@ function env_openmc() {
     echo "Adding OpenMC to environment"
 }
 
+function env_holos () {
+
+    env_openmc
+    export OPENMC_CROSS_SECTIONS=$HOME/opt/openmc/xs/mcnp_endfb70/cross_sections.xml
+}
+
 function env_stream() {
     # EXECUTABLES
     PATH=$HOME/opt/moab/bin:$PATH
