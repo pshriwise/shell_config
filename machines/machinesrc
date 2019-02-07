@@ -14,10 +14,13 @@ then
 elif [ -d $HOME/.machine/ ]
 then
     MACHINE_NAME="$(ls ~/.machine/)"
+    if [ $MACHINE_NAME == "none" ]
+    then
+        break
+    fi
     echo "Found dir-based machine name..."
     echo "Importing configuration for $MACHINE_NAME"
     source $HOME/.bash/machines/$MACHINE_NAME;
 else
     echo "No specific configuration found for $MACHINE_NAME"
 fi
-
