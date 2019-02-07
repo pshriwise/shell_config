@@ -7,20 +7,19 @@
 # serenity - work machine
 MACHINE_NAME="$(hostname)"
 
-if [ -f $HOME/.bash/machines/$MACHINE_NAME ]
+if [ "$NO_MACHINE_CONFIG" != "true" ]
 then
-    echo "Importing configuration for $MACHINE_NAME"
-    source $HOME/.bash/machines/$MACHINE_NAME;
-elif [ -d $HOME/.machine/ ]
-then
-    MACHINE_NAME="$(ls ~/.machine/)"
-    if [ "$MACHINE_NAME" == "none" ]
+    if [ -f $HOME/.bash/machines/$MACHINE_NAME ]
     then
-        break
-    fi
+        echo "Importing configuration for $MACHINE_NAME"
+        source $HOME/.bash/machines/$MACHINE_NAME;
+    elif [ -d $HOME/.machine/ ]
+    then
+    MACHINE_NAME="$(ls ~/.machine/)"
     echo "Found dir-based machine name..."
     echo "Importing configuration for $MACHINE_NAME"
     source $HOME/.bash/machines/$MACHINE_NAME;
-else
-    echo "No specific configuration found for $MACHINE_NAME"
+    else
+        echo "No specific configuration found for $MACHINE_NAME"
+    fi
 fi
