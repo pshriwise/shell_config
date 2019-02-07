@@ -1,0 +1,11 @@
+[user]
+	name = Patrick Shriwise
+	email = pshriwise@gmail.com
+[core]
+	editor = /usr/bin/emacs -nw
+[push]
+	default = current
+[pager]
+	log = true
+[alias]
+        tree = log --graph --decorate --pretty=oneline --abbrev-commit

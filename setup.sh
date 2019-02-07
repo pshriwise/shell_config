@@ -87,3 +87,6 @@ while true; do
         * ) echo "Please enter y or n.";;
     esac
 done
+
+## git aliases
+cat ~/.bash/git/gitconfig >> ~/.gitconfig
