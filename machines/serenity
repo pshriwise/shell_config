@@ -63,6 +63,8 @@ function env_openmc() {
 function env_holos () {
 
     env_openmc
+    # override num threads for testing
+    export OMP_NUM_THREADS=6
     export OPENMC_CROSS_SECTIONS=$HOME/opt/openmc/xs/mcnp_endfb70/cross_sections.xml
 }
 
