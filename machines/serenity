@@ -95,7 +95,7 @@ function env_stream() {
 }
 
 
-function env_dbldwn() {
+function env_dd() {
     # EXECUTABLES
     PATH=$HOME/opt/moab/bin:$PATH
     PATH=$HOME/opt/dagmc/bin/:$HOME/opt/dagmc/tools/:$PATH
