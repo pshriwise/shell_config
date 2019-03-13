@@ -1,5 +1,3 @@
-
-
 (add-to-list 'load-path "~/.bash/emacs/popup-el")
 (add-to-list 'load-path "~/.bash/emacs/ac")
 (add-to-list 'load-path "~/.bash/emacs/mplayer-mode")
@@ -17,7 +15,6 @@
 (add-hook 'python-mode-hook 'fci-mode)
 (add-hook 'python-mode-hook 'highlight-indentation-mode)
 
-(add-hook 'overwrite-mode-hook 'overwrite-mode)
 
 ;; Define + active modification to compile that locally sets
 ;; shell-command-switch to "-ic".
@@ -49,7 +46,6 @@
 (if (boundp tool-bar-mode) (tool-bar-mode -1))
 (if (boundp menu-bar-mode) (menu-bar-mode -1))
 
-
 (defun bury-compile-buffer-if-successful (buffer string)
   "Bury a compilation buffer if succeeded without warnings "
   (if (and
@@ -72,10 +68,8 @@
 	  (progn
 	    (split-window-vertically)))))
 
-
 (fset 'plusone
    (lambda (&optional arg) "Keyboard macro." (interactive "p") (kmacro-exec-ring-item (quote ([23 24 42 113 49 43 25 return 25] 0 "%d")) arg)))
-
 
 (global-set-key [hpDeleteChar] 'delete-char)
    (setq line-number-mode t)
@@ -105,6 +99,8 @@
    (global-set-key [(control-c) (q)] 'tags-query-replace)
    (global-set-key [(control-c) (c)] 'tags-loop-continue)
    (global-set-key [(control-c) (s)] 'tags-search)
+
+   (global-set-key [insertchar] nil)
 
 ;; Commented because it was breaking access to certain built-in macros
 ;;(setq help-char nil)
