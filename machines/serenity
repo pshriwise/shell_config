@@ -60,6 +60,36 @@ function env_openmc() {
     echo "Adding OpenMC to environment"
 }
 
+function env_openmc2() {
+    # EXECUTABLES
+    PATH=$HOME/opt/moab/bin:$PATH
+    PATH=$HOME/opt/dagmc/bin/:$HOME/opt/dagmc/tools/:$PATH
+    PATH=$HOME/opt/openmc2/bin/:$HOME/.local/bin:$PATH
+    PATH=$HOME/opt/openmc2/openmc/scripts/:$PATH
+    PATH=$HOME/opt/njoy/njoy/build:$PATH
+
+    pyenv shell 3.6.7
+
+    # SHARED LIBRARIES
+    LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
+    LD_LIBRARY_PATH=$HOME/opt/dagmc/lib:$LD_LIBRARY_PATH
+    LD_LIBRARY_PATH=$HOME/opt/openmc2/lib:$LD_LIBRARY_PATH
+
+    # DATA
+    export OPENMC_MULTIPOLE_LIBRARY=$HOME/opt/openmc/xs/WMP_Library
+    export OPENMC_CROSS_SECTIONS=$HOME/opt/openmc/xs/nndc_hdf5/cross_sections.xml
+    export OPENMC_ENDF_DATA=$HOME/opt/openmc/xs/endf-b-vii.1/
+
+    # for testing
+    export OMP_NUM_THREADS=2
+
+    # export environment varialbers
+    export_environment_vars
+
+    echo "Adding OpenMC2 to environment"
+}
+
+
 function env_holos () {
 
     env_openmc
