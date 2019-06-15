@@ -18,9 +18,9 @@ function env_openmc() {
     PATH=$HOME/opt/dagmc/bin/:$HOME/opt/dagmc/tools/:$PATH
     PATH=$HOME/opt/openmc/bin/:$HOME/.local/bin:$PATH
     PATH=$HOME/opt/openmc/openmc/scripts/:$PATH
-    
-    pyenv shell 3.5.2
-    
+
+    pyenv shell 3.6.6
+
     # SHARED LIBRARIES
     LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
     LD_LIBRARY_PATH=$HOME/opt/dagmc/lib:$LD_LIBRARY_PATH
@@ -43,13 +43,13 @@ function env_pyne() {
     PATH=$HOME/.local/bin/:$PATH
 
     pyenv shell 2.7.10
-    
+
     # SHARED LIBRARIES
     LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
     LD_LIBRARY_PATH=$HOME/opt/dagmc/lib:$LD_LIBRARY_PATH
 
     PYTHONPATH=$HOME/opt/moab/lib/python2.7/site-packages/:$PYTHONPATH
-    
+
     # export environment varialbers
     export_environment_vars
 
