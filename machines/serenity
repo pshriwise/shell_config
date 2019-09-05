@@ -37,9 +37,10 @@ function env_openmc() {
     PATH=$HOME/opt/dagmc/bin/:$HOME/opt/dagmc/tools/:$PATH
     PATH=$HOME/opt/openmc/bin/:$HOME/.local/bin:$PATH
     PATH=$HOME/opt/openmc/openmc/scripts/:$PATH
-    PATH=$HOME/opt/njoy/njoy/build:$PATH
+    PATH=$HOME/opt/njoy/src/build:$PATH
+    PATH=$HOME/opt/openmc-plotgui:$PATH
 
-    pyenv shell 3.6.6
+    pyenv shell 3.7.3
 
     # SHARED LIBRARIES
     LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
@@ -66,9 +67,9 @@ function env_openmc2() {
     PATH=$HOME/opt/dagmc/bin/:$HOME/opt/dagmc/tools/:$PATH
     PATH=$HOME/opt/openmc2/bin/:$HOME/.local/bin:$PATH
     PATH=$HOME/opt/openmc2/openmc/scripts/:$PATH
-    PATH=$HOME/opt/njoy/njoy/build:$PATH
+    PATH=$HOME/opt/njoy/src/build:$PATH
 
-    pyenv shell 3.6.7
+    pyenv shell 3.7.3
 
     # SHARED LIBRARIES
     LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
@@ -104,7 +105,7 @@ function env_stream() {
     PATH=$HOME/opt/dagmc/bin/:$HOME/opt/dagmc/tools/:$PATH
     PATH=$HOME/opt/openmc/bin/:$HOME/.local/bin:$PATH
     PATH=$HOME/opt/openmc/openmc/scripts/:$PATH
-    PATH=$HOME/opt/njoy/njoy/build:$PATH
+    PATH=$HOME/opt/njoy/src/build:$PATH
 
     pyenv shell 3.6.6
 
