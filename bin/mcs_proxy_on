@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -e
+
+gsettings set org.gnome.system.proxy mode 'manual'
+tmux new -d -s 'mcs' "ssh mcs"
