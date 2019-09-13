@@ -3,7 +3,7 @@
 import os
 
 import googlemaps
-from datetime import datetime
+from datetime import datetime, timedelta
 
 def get_api_key():
     keys_file = open(os.path.dirname(__file__) + "/.keys", 'r')
@@ -18,15 +18,17 @@ def get_api_key():
 
     return GOOGLE_API_KEY
 
-
 gmaps = googlemaps.Client(key=get_api_key())
 
 home_coord = 41.904303, -87.689720
 work_coord = 41.718360, -87.978558
 
-def get_drive_time(start_coord, end_coord):
+def get_drive_time(start_coord, end_coord, time_shift=None):
 
     now = datetime.now()
+
+    if time_shift is not None:
+        now = now + timedelta(minutes=time_shift)
 
     coord = "{}, {}"
 
@@ -38,5 +40,9 @@ def get_drive_time(start_coord, end_coord):
 
     return directions_result[0]['legs'][0]['duration']['text']
 
-print("Home to work: {}".format(get_drive_time(work_coord, work_coord)))
-print("Work to home: {}".format(get_drive_time(work_coord, home_coord)))
+print("Home to work:")
+print("\tNow: {}.".format(get_drive_time(home_coord, work_coord)))
+print("\tIn 20m: {}".format(get_drive_time(home_coord, work_coord, 20)))
+print("Work to home:")
+print("\tNow: {}.".format(get_drive_time(work_coord, home_coord)))
+print("\tIn 20m: {}".format(get_drive_time(work_coord, home_coord, 20)))
