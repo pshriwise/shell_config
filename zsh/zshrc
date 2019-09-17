@@ -13,15 +13,16 @@ source $HOME/.bash/zsh/zsh_perso
 source $HOME/.bash/zsh/zsh_alias
 source $HOME/.bash//zsh/zsh_ohmzsh
 
+alias reset_env='. ~/.zshrc'
 
 ##############################
 # IMPORT ALL COMMON SETTINGS #
 ##############################
 source $HOME/.bash/common/commonrc
+
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
-
 
 ########################
 # COMPLETION FUNCTIONS #
@@ -32,7 +33,7 @@ compdef _travis_trigger_build travis-trigger-build
 
 function _travis_trigger_build() {
     local state
-    
+
     _arguments -C \
         '1:branches:($(git branch -la 2> /dev/null | sed "s![*/]! !g" | rev | cut -d" " -f1 | rev ))' \
         '2:branches:($(git branch -la 2> /dev/null | sed "s![*/]! !g" | rev | cut -d" " -f1 | rev ))' \

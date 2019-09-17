@@ -57,41 +57,13 @@ function env_openmc() {
     # for testing
     export OMP_NUM_THREADS=2
 
+    PYTHONPATH=/home/shriwise/opt/moab/lib/python3.7/site-packages:$PYTHONPATH
+
     # export environment varialbers
     export_environment_vars
 
     echo "Adding OpenMC to environment"
 }
-
-function env_openmc2() {
-    # EXECUTABLES
-    PATH=$HOME/opt/moab/bin:$PATH
-    PATH=$HOME/opt/dagmc/bin/:$HOME/opt/dagmc/tools/:$PATH
-    PATH=$HOME/opt/openmc2/bin/:$HOME/.local/bin:$PATH
-    PATH=$HOME/opt/openmc2/openmc/scripts/:$PATH
-    PATH=$HOME/opt/njoy/src/build:$PATH
-
-    pyenv shell 3.7.3
-
-    # SHARED LIBRARIES
-    LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
-    LD_LIBRARY_PATH=$HOME/opt/dagmc/lib:$LD_LIBRARY_PATH
-    LD_LIBRARY_PATH=$HOME/opt/openmc2/lib:$LD_LIBRARY_PATH
-
-    # DATA
-    export OPENMC_MULTIPOLE_LIBRARY=$HOME/opt/openmc/xs/WMP_Library
-    export OPENMC_CROSS_SECTIONS=$HOME/opt/openmc/xs/nndc_hdf5/cross_sections.xml
-    export OPENMC_ENDF_DATA=$HOME/opt/openmc/xs/endf-b-vii.1/
-
-    # for testing
-    export OMP_NUM_THREADS=2
-
-    # export environment varialbers
-    export_environment_vars
-
-    echo "Adding OpenMC2 to environment"
-}
-
 
 function env_holos () {
 
@@ -166,58 +138,17 @@ function env_pyne2.7() {
     echo "Environment set for PyNE Python2.7 development"
 }
 
-function env_dagviz() {
-    # EXECUTABLES
-    PATH=$HOME/.local/bin/:$PATH
+function env_trelis() {
 
-    pyenv shell 2.7.10
+    # EXECUTABLES
+    PATH=$HOME/opt/moab/bin:$PATH
+    PATH=$HOME/opt/dagmc/bin/:$HOME/opt/dagmc/tools/:$PATH
 
     # SHARED LIBRARIES
     LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
     LD_LIBRARY_PATH=$HOME/opt/dagmc/lib:$LD_LIBRARY_PATH
 
-    PYTHONPATH=$HOME/opt/moab/lib/python2.7/site-packages/:$PYTHONPATH
-    PYTHONPATH=$HOME/opt/visit/visit2_13_1.linux-x86_64/2.13.1/linux-x86_64/lib/site-packages:$PYTHONPATH
-
-    PATH=$HOME/opt/visit/visit2_13_1.linux-x86_64/bin:$PATH
-    # export environment varialbers
-    export_environment_vars
-
-    echo "Environment set for PyNE Python2.7 development"
-}
-
-function env_pyne3.3() {
-    # EXECUTABLES
-    PATH=$HOME/.local/bin/:$PATH
-
-    pyenv shell 3.3.4
-
-    # SHARED LIBRARIES
-    LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
-    LD_LIBRARY_PATH=$HOME/opt/dagmc/lib:$LD_LIBRARY_PATH
-
-    PYTHONPATH=$HOME/opt/moab/lib/python3.3/site-packages/:$PYTHONPATH
-
-    # export environment varialbers
-    export_environment_vars
-
-    echo "Environment set for PyNE Python3.3 development"
-}
-
-function env_plugin() {
-     # EXECUTABLES
-    PATH=$HOME/opt/trelis-plugin/moab/bin:$PATH
-    PATH=$HOME/opt/trelis-plugin/dagmc/bin/:$PATH
-    PATH=$HOME/opt/trelis-plugin/dagmc/tools/:$PATH
-
-    # SHARED LIBRARIES
-    LD_LIBRARY_PATH=$HOME/opt/trelis-plugin/moab/lib:$LD_LIBRARY_PATH
-    LD_LIBRARY_PATH=$HOME/opt/trelis-plugin/dagmc/lib:$LD_LIBRARY_PATH
-
-    # export environment varialbers
-    export_environment_vars
-
-    echo "Environment Set for Trelis plugin development."
+    PYTHONPATH=/opt/Trelis-16.5/bin/:$PYTHONPATH
 }
 
 # convenience for exporting environment variables together
