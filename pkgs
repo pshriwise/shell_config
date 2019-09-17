@@ -16,6 +16,7 @@ autogen
 libtool
 libblas-dev
 liblapack-dev
+libeiegn3-dev
 sshfs
 build-essential
 libssl-dev
