@@ -156,4 +156,4 @@ source $HOME/.bash/machines/machinesrc
 ##################################
 # CHECK CONFIGURATION UP TO DATE #
 ##################################
-source $HOME/.bash/common/check_config
+($HOME/.bash/common/check_config &)

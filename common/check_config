@@ -1,32 +1,25 @@
-
+#! /bin/bash
+set -e
 
 # if git exists check for new commits to this repo
-function check_config_uptodate {
     # check for git
-    eval type git &> /dev/null
-    if [ $? -ne 0 ];
-    then
-	echo "It doesn't seem git is installed. What is wrong with you?"
-	return
-    else
-	# move into expected repo location
-	cd ~/.bash/
+eval type git &> /dev/null
+if [ $? -ne 0 ];
+then
+    echo "It doesn't seem git is installed. What is wrong with you?"
+    return
+else
+    # move into expected repo location
+    cd ~/.bash/
 
-	# fetch remotes
-	var=$(git fetch --all 2> /dev/null | tail -n +2)
-	if [ $? -ne 0 ]; then
-	    echo "Could not update configuration repo. Check internet connection?"
-	    return
-	fi
-	# check for updates
-	var=$(git log master..origin/master --oneline)
-	if [ $var ]; then
-	    echo "Shell configuration is behind. Please update."
-	    return
-	fi
-	# return to previous directory
-	cd - &> /dev/null
+    # fetch remotes
+    var=$(git fetch --all 2> /dev/null | tail -n +2)
+    if [ $? -ne 0 ]; then
+	echo "Could not update configuration repo. Check internet connection?"
     fi
-}
-
-check_config_uptodate
+    # check for updates
+    var=$(git log master..origin/master --oneline)
+    if [ "${var}" != "" ]; then
+	echo "Shell configuration is behind. Please update."
+    fi
+fi
