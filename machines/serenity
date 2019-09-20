@@ -105,8 +105,9 @@ function env_dd() {
     PATH=$HOME/opt/moab/bin:$PATH
     PATH=$HOME/opt/dagmc/bin/:$HOME/opt/dagmc/tools/:$PATH
     PATH=$HOME/opt/embree/bin/embree2:$PATH
-
-    pyenv shell 3.5.2
+    PATH=$HOME/opt/embree/bin/embree3:$PATH
+    
+    pyenv shell 3.7.3
 
     # SHARED LIBRARIES
     LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
