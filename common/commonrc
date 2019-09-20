@@ -139,6 +139,12 @@ function pquit () { tmux send -t pandora q; tmux send -t ytube "q";
 
 function pplay () { tmux send -t pandora p; tmux send -t ytube p; }
 
+
+function set-title() {
+  TITLE="\033];$*\007"
+  echo -e ${TITLE}
+}
+
 export TRAVIS_TOKEN=AZto9_eZf3lNw28shUfaGw
 
 export PATH=$HOME/.bash/bin:$PATH
