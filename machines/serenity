@@ -4,6 +4,8 @@
 
 export PYENV_ROOT=$HOME/.pyenv/
 export PATH=$PYENV_ROOT/bin:$PATH
+export PATH=$HOME/opt/paraview/ParaView-5.7.0-RC4-MPI-Linux-Python3.7-64bit/bin:$PATH
+
 eval "$(pyenv init -)"
 
 pyenv shell 3.6.6
@@ -103,17 +105,17 @@ function env_stream() {
 function env_dd() {
     # EXECUTABLES
     PATH=$HOME/opt/moab/bin:$PATH
-    PATH=$HOME/opt/dagmc/bin/:$HOME/opt/dagmc/tools/:$PATH
+    PATH=$HOME/opt/dagmc_dd/bin/:$HOME/opt/dagmc_dd/tools/:$PATH
     PATH=$HOME/opt/embree/bin/embree2:$PATH
     PATH=$HOME/opt/embree/bin/embree3:$PATH
-    
+
     pyenv shell 3.7.3
 
     # SHARED LIBRARIES
     LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
-    LD_LIBRARY_PATH=$HOME/opt/dagmc/lib:$LD_LIBRARY_PATH
+    LD_LIBRARY_PATH=$HOME/opt/dagmc_dd/lib:$LD_LIBRARY_PATH
     LD_LIBRARY_PATH=$HOME/opt/embree/lib/:$LD_LIBRARY_PATH
-    LD_LIBRARY_PATH=$HOME/opt/dbldown/lib:$LD_LIBRARY_PATH
+    LD_LIBRARY_PATH=$HOME/opt/double-down/lib:$LD_LIBRARY_PATH
     # export environment varialbers
     export_environment_vars
 
