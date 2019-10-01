@@ -22,12 +22,18 @@ Host ec2
      HostName 52.7.194.101
      User ubuntu
 
+Host ulam
+     HostName ulam.cels.anl.gov
+     ProxyJump login.mcs.anl.gov
+     User pshriwise
+
 Host mcs
      HostName login.mcs.anl.gov
      DynamicForward 32000
 
 Host wiley
      HostName wiley.ne.anl.gov
+     ProxyJump login.mcs.anl.gov
      User pshriwise
 
 Host ec2p
