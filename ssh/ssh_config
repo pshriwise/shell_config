@@ -36,6 +36,10 @@ Host wiley
      ProxyJump login.mcs.anl.gov
      User pshriwise
 
+Host jlse
+     HostName login.jlse.anl.gov
+     User pshriwise
+
 Host ec2p
      HostName 52.202.110.50
      User ubuntu
