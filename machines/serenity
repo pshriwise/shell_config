@@ -101,6 +101,10 @@ function env_stream() {
     echo "Adding OpenMC to environment"
 }
 
+function env_mcnp() {
+    env_openmc
+    export DATAPATH=/home/shriwise/storage/mcnp6.2/Disc1/MCNP_DATA_620/xsdir
+}
 
 function env_dd() {
     # EXECUTABLES
