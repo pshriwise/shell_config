@@ -67,6 +67,38 @@ function env_openmc() {
     echo "Adding OpenMC to environment"
 }
 
+function env_yt() {
+    # EXECUTABLES
+    PATH=$HOME/opt/moab/bin:$PATH
+    PATH=$HOME/opt/dagmc/bin/:$HOME/opt/dagmc/tools/:$PATH
+    PATH=$HOME/opt/openmc/bin/:$HOME/.local/bin:$PATH
+    PATH=$HOME/opt/openmc/openmc/scripts/:$PATH
+    PATH=$HOME/opt/njoy/src/build:$PATH
+    PATH=$HOME/opt/openmc-plotgui:$PATH
+
+    pyenv shell 3.7.3
+
+    # SHARED LIBRARIES
+    LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
+    LD_LIBRARY_PATH=$HOME/opt/dagmc/lib:$LD_LIBRARY_PATH
+    LD_LIBRARY_PATH=$HOME/opt/openmc/lib:$LD_LIBRARY_PATH
+
+    # DATA
+    export OPENMC_MULTIPOLE_LIBRARY=$HOME/opt/openmc/xs/WMP_Library
+    export OPENMC_CROSS_SECTIONS=$HOME/opt/openmc/xs/nndc_hdf5/cross_sections.xml
+    export OPENMC_ENDF_DATA=$HOME/opt/openmc/xs/endf-b-vii.1/
+
+    # for testing
+    export OMP_NUM_THREADS=2
+
+    PYTHONPATH=/home/shriwise/opt/moab/lib/python3.7/site-packages:$PYTHONPATH
+
+    # export environment varialbers
+    export_environment_vars
+
+    echo "Adding OpenMC to environment"
+}
+
 function env_holos () {
 
     env_openmc
@@ -127,11 +159,11 @@ function env_dd() {
 }
 
 
-function env_pyne2.7() {
+function env_pyne() {
     # EXECUTABLES
     PATH=$HOME/.local/bin/:$PATH
 
-    pyenv shell 2.7.10
+    pyenv shell 3.6.6
 
     # SHARED LIBRARIES
     LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
@@ -142,7 +174,7 @@ function env_pyne2.7() {
     # export environment varialbers
     export_environment_vars
 
-    echo "Environment set for PyNE Python2.7 development"
+    echo "Environment set for PyNE development"
 }
 
 function env_trelis() {
