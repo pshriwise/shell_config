@@ -13,7 +13,17 @@ source $HOME/.bash/zsh/zsh_perso
 source $HOME/.bash/zsh/zsh_alias
 source $HOME/.bash//zsh/zsh_ohmzsh
 
-alias reset_env='. ~/.zshrc'
+export ORIG_PATH=$PATH
+
+fucntion reset_env() {
+
+  echo "Resetting environment"
+  export LD_LIBRARY_PATH=''
+  export PATH=$ORIG_PATH
+  export HDF5_ROOT=''
+
+  . ~/.zshrc
+}
 
 ##############################
 # IMPORT ALL COMMON SETTINGS #
