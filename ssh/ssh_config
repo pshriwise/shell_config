@@ -38,6 +38,7 @@ Host wiley
 
 Host jlse
      HostName login.jlse.anl.gov
+     ProxyJump login.mcs.anl.gov
      User pshriwise
 
 Host ec2p
