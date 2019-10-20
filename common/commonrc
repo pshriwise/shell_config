@@ -145,6 +145,8 @@ function set-title() {
   echo -e ${TITLE}
 }
 
+export EDITOR='emacs -nw'
+
 export TRAVIS_TOKEN=AZto9_eZf3lNw28shUfaGw
 
 export PATH=$HOME/.bash/bin:$PATH
