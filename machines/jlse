@@ -1,0 +1,75 @@
+
+alias clean_qsub='rm *.cobaltlog *.error *.output'
+
+function env_arrc() {
+
+export FC=/soft/compilers/gcc/8.2.0/linux-rhel7-x86_64/bin/gfortran
+export CC=/soft/compilers/gcc/8.2.0/linux-rhel7-x86_64/bin/gcc
+export CXX=/soft/compilers/gcc/8.2.0/linux-rhel7-x86_64/bin/g++
+
+export PATH=/soft/compilers/gcc/8.2.0/linux-rhel7-x86_64/bin/:$PATH
+
+export PATH=/soft/buildtools/cmake-3.13.3/bin:$PATH
+
+export LD_LIBRARY_PATH=/home/pshriwise/arrc/opt/lapack/lib64:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/home/pshriwise/arrc/opt/moab/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/home/pshriwise/arrc/opt/dagmc/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/home/pshriwise/arrc/opt/hdf5/lib:$LD_LIBRARY_PATH
+
+}
+
+function env_openmc() {
+
+pyenv shell 3.7.3
+
+export FC=/soft/compilers/gcc/8.2.0/linux-rhel7-x86_64/bin/gfortran
+export CC=/soft/compilers/gcc/8.2.0/linux-rhel7-x86_64/bin/gcc
+export CXX=/soft/compilers/gcc/8.2.0/linux-rhel7-x86_64/bin/g++
+
+export PATH=/soft/compilers/gcc/8.2.0/linux-rhel7-x86_64/bin/:$PATH
+export PATH=/soft/buildtools/cmake-3.13.3/bin:$PATH
+export PATH=/home/pshriwise/arrc/opt/openmc/bin:$PATH
+
+
+export LD_LIBRARY_PATH=/home/pshriwise/arrc/opt/lapack/lib64:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/home/pshriwise/arrc/opt/moab/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/home/pshriwise/arrc/opt/dagmc/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/home/pshriwise/arrc/opt/hdf5/lib:$LD_LIBRARY_PATH
+
+export OPENMC_CROSS_SECTIONS=/home/pshriwise/arrc/opt/openmc/xs/nndc_hdf5/cross_sections.xml
+export OPENMC_ENDF_DATA=/home/pshriwise/arrc/opt/openmc/xs/endf-b-vii.1/
+export OMP_NUM_THREADS=2
+
+export HDF5_DISABLE_VERSION_CHECK=2
+}
+
+function env_dd() {
+
+pyenv shell 3.6.6
+
+export FC=/soft/compilers/gcc/8.2.0/linux-rhel7-x86_64/bin/gfortran
+export CC=/soft/compilers/gcc/8.2.0/linux-rhel7-x86_64/bin/gcc
+export CXX=/soft/compilers/gcc/8.2.0/linux-rhel7-x86_64/bin/g++
+
+export PATH=/soft/compilers/gcc/8.2.0/linux-rhel7-x86_64/bin/:$PATH
+
+export PATH=/soft/buildtools/cmake-3.13.3/bin:$PATH
+
+export PATH=/home/pshriwise/double-down/opt/openmc/bin/:$PATH
+
+export LD_LIBRARY_PATH=/home/pshriwise/double-down/opt/lapack/lib64:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/home/pshriwise/double-down/opt/hdf5/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/home/pshriwise/double-down/opt/moab/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/home/pshriwise/double-down/opt/dagmc/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/home/pshriwise/double-down/opt/embree/lib64:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/home/pshriwise/double-down/opt/double-down/lib:$LD_LIBRARY_PATH
+
+export TBB_INSTALL_DIR=/home/pshriwise/double-down/opt/tbb/src/build/linux_intel64_gcc_cc8.2.0_libc2.17_kernel3.10.0_release/
+
+export OPENMC_CROSS_SECTIONS=/home/pshriwise/double-down/opt/openmc/xs/nndc_hdf5/cross_sections.xml
+export OPENMC_ENDF_DATA=/home/pshriwise/double-down/opt/openmc/xs/endf-b-vii.1/
+export OMP_NUM_THREADS=2
+
+export HDF5_DISABLE_VERSION_CHECK=2
+
+}
