@@ -1,8 +1,16 @@
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (add-to-list 'load-path "~/.bash/emacs/popup-el")
 (add-to-list 'load-path "~/.bash/emacs/ac")
 (add-to-list 'load-path "~/.bash/emacs/mplayer-mode")
 (add-to-list 'load-path "~/.bash/emacs/bash-completion")
 (add-to-list 'load-path "~/.bash/emacs/cython-mode")
+(add-to-list 'load-path "~/.bash/emacs/move-text")
 (add-to-list 'load-path "~/.bash/emacs")
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -14,7 +22,6 @@
 (add-hook 'c-mode-hook 'highlight-indentation-mode)
 (add-hook 'python-mode-hook 'fci-mode)
 (add-hook 'python-mode-hook 'highlight-indentation-mode)
-
 
 ;; Define + active modification to compile that locally sets
 ;; shell-command-switch to "-ic".
@@ -30,6 +37,9 @@
 (require 'bash-completion)
 (require 'cython-mode)
 (require 'web-mode)
+(require 'move-text)
+
+(move-text-default-bindings)
 
 (set-face-background 'highlight-indentation-face "#7e7e7e")
 (set-variable 'highlight-indentation-blank-lines "t")
