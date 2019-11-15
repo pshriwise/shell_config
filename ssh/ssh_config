@@ -36,6 +36,31 @@ Host wiley
      ProxyJump login.mcs.anl.gov
      User pshriwise
 
+Host jack
+     HostName jack.ne.anl.gov
+     ProxyJump wiley
+     User pshriwise
+
+Host gary
+     HostName gary.ne.anl.gov
+     ProxyJump wiley
+     User pshriwise
+
+Host arnold
+     HostName arnold.ne.anl.gov
+     ProxyJump wiley
+     User pshriwise
+
+Host vtr1
+     HostName vtr1.ne.anl.gov
+     ProxyJump wiley
+     User pshriwise
+
+Host vtr2
+     HostName vtr2.ne.anl.gov
+     ProxyJump wiley
+     User pshriwise
+
 Host jlse
      HostName login.jlse.anl.gov
      ProxyJump login.mcs.anl.gov
