@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# convenience for exporting environment variables together
+function export_environment_vars() {
+    export PATH
+    export LD_LIBRARY_PATH
+}
+
+function env_openmc() {
+    # EXECUTABLES
+    PATH=$HOME/miniconda3/envs/openmc_umesh/bin:$PATH
+    PATH=$HOME/opt/openmc/bin:$PATH
+    PATH=$HOME/opt/dagmc/bin:$PATH
+
+    # SHARED LIBRARIES
+    LD_LIBRARY_PATH=$HOME/miniconda3/envs/openmc_umesh/lib:$LD_LIBRARY_PATH
+    LD_LIBRARY_PATH=$HOME/opt/libmesh/lib/:$LD_LIBRARY_PATH
+    LD_LIBRARY_PATH=$HOME/opt/dagmc/lib:$LD_LIBRARY_PATH
+
+    export_environment_vars
+
+    echo "Adding OpenMC to environment"
+}
