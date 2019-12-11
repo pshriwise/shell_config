@@ -17,6 +17,11 @@ function env_openmc() {
     LD_LIBRARY_PATH=$HOME/opt/libmesh/lib/:$LD_LIBRARY_PATH
     LD_LIBRARY_PATH=$HOME/opt/dagmc/lib:$LD_LIBRARY_PATH
 
+    # NUCLEAR DATA
+    export OPENMC_CROSS_SECTIONS=$HOME/opt/openmc/xs/nndc_hdf5/cross_sections.xml
+    export OPENMC_ENDF_DATA=$HOME/opt/openmc/xs/endf-b-vii.1/
+
+
     export_environment_vars
 
     echo "Adding OpenMC to environment"
