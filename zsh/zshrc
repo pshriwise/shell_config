@@ -30,9 +30,6 @@ fucntion reset_env() {
 ##############################
 source $HOME/.bash/common/commonrc
 
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
 
 ########################
 # COMPLETION FUNCTIONS #
