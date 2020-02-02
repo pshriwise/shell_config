@@ -10,6 +10,7 @@ function env_openmc() {
     # EXECUTABLES
     PATH=$HOME/miniconda3/envs/openmc_umesh/bin:$PATH
     PATH=$HOME/opt/openmc/bin:$PATH
+    PATH=$HOME/opt/moab/bin:$PATH
     PATH=$HOME/opt/dagmc/bin:$PATH
     PATH=$HOME/opt/h5sh/:$PATH
 
@@ -17,13 +18,84 @@ function env_openmc() {
     LD_LIBRARY_PATH=$HOME/miniconda3/envs/openmc_umesh/lib:$LD_LIBRARY_PATH
     LD_LIBRARY_PATH=$HOME/opt/libmesh/lib/:$LD_LIBRARY_PATH
     LD_LIBRARY_PATH=$HOME/opt/dagmc/lib:$LD_LIBRARY_PATH
+    LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
 
     # NUCLEAR DATA
     export OPENMC_CROSS_SECTIONS=$HOME/opt/openmc/xs/nndc_hdf5/cross_sections.xml
     export OPENMC_ENDF_DATA=$HOME/opt/openmc/xs/endf-b-vii.1/
 
 
+    # PYMOAB
+    export PYTHONPATH=$HOME/opt/moab/lib/python3.7/site-packages:$PYTHONPATH
+
     export_environment_vars
 
-    echo "Adding OpenMC to environment"
+    echo "Added OpenMC to environment"
+
+    conda activate openmc_umesh
+    echo "Activated openmc unstructured mesh conda environment"
 }
+
+
+function env_dag_openmc_cmp() {
+    # EXECUTABLES
+    PATH=$HOME/dag_openmc_cmp/miniconda3/envs/openmc_umesh/bin:$PATH
+    PATH=$HOME/dag_openmc_cmp/opt/openmc/bin:$PATH
+    PATH=$HOME/dag_openmc_cmp/opt/moab/bin:$PATH
+    PATH=$HOME/dag_openmc_cmp/opt/dagmc/bin:$PATH
+    PATH=$HOME/dag_openmc_cmp/opt/h5sh/:$PATH
+
+    # SHARED LIBRARIES
+    LD_LIBRARY_PATH=$HOME/dag_openmc_cmp/miniconda3/envs/openmc_umesh/lib:$LD_LIBRARY_PATH
+    LD_LIBRARY_PATH=$HOME/dag_openmc_cmp/opt/libmesh/lib/:$LD_LIBRARY_PATH
+    LD_LIBRARY_PATH=$HOME/dag_openmc_cmp/opt/dagmc/lib:$LD_LIBRARY_PATH
+    LD_LIBRARY_PATH=$HOME/dag_openmc_cmp/opt/moab/lib:$LD_LIBRARY_PATH
+
+    # NUCLEAR DATA
+    export OPENMC_CROSS_SECTIONS=/home/pshriwise/dag_openmc_cmp/opt/openmc/xs/lib80x_hdf5/cross_sections.xml
+    export OPENMC_ENDF_DATA=$HOME/dag_openmc_cmp/opt/openmc/xs/endf-b-vii.1/
+
+    # PYMOAB
+    export PYTHONPATH=$HOME/dag_openmc_cmp/opt/moab/lib/python3.7/site-packages:$PYTHONPATH
+
+    export_environment_vars
+
+    echo "Added OpenMC to environment"
+
+    conda activate dag_openmc_cmp
+    echo "Activated OpenMC w/ DAGMC comparison environment (installs in $HOME/dag_openmc_cmp)"
+}
+
+function env_delta () {
+    # EXECUTABLES
+    PATH=$HOME/delta_tracking/opt/openmc/bin:$PATH
+
+    # SHARED LIBRARIES
+    LD_LIBRARY_PATH=$HOME/delta_tracking/miniconda3/envs/openmc_umesh/lib:$LD_LIBRARY_PATH
+
+    # NUCLEAR DATA
+    export OPENMC_CROSS_SECTIONS=/home/pshriwise/delta_tracking/opt/openmc/xs/nndc_hdf5/cross_sections.xml
+    export OPENMC_ENDF_DATA=$HOME/delta_tracking/opt/openmc/xs/endf-b-vii.1/
+
+    export_environment_vars
+
+    echo "Added OpenMC to environment"
+
+    pyenv shell 3.7.3
+    echo "Activated OpenMC Delta Tracking dev environment (installs in $HOME/delta_tracking/opt)"
+}
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/pshriwise/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/pshriwise/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/pshriwise/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/pshriwise/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
