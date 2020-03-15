@@ -18,14 +18,16 @@ LocalForward localhost:2223 tux-c1.cae.wisc.edu:22
 LocalForward localhost:8000 serenity.ep.wisc.edu:4001
 LocalForward localhost:8001 serenity.ep.wisc.edu:4002
 LocalForward localhost:5053 144.92.12.206:5053
+
 Host ec2
      HostName 52.7.194.101
      User ubuntu
 
 Host ulam
      HostName ulam.cels.anl.gov
-     ProxyJump login.mcs.anl.gov
+     ProxyJump mcs
      User pshriwise
+     LocalForward 4001 localhost:4001
 
 Host mcs
      HostName login.mcs.anl.gov
@@ -101,6 +103,7 @@ ForwardAgent yes
 ForwardX11 yes
 ForwardX11Trusted yes
 LocalForward localhost:5053 fti421-mariott:5053
+
 Host aci-compile
      HostName aci-service-2.chtc.wisc.edu
      User shriwise

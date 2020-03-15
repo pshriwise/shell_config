@@ -11,8 +11,7 @@ eval "$(pyenv init -)"
 
 pyenv shell 3.6.6
 
-alias visit='~/opt/visit/visit2_13_1.linux-x86_64/bin/visit'
-alias h5sh='~/opt/h5sh/h5sh'
+alias visit='~/opt/visit/visit3_1_0.linux-x86_64/bin/visit'
 alias trelis='/opt/Trelis-16.5/bin/trelis -nojournal'
 
 alias bear-in-winter='sudo echo "Hibernating..." && gnome-screensaver-command -l && sudo pm-hibernate'
@@ -46,7 +45,7 @@ function env_openmc() {
     PATH=$HOME/opt/dagmc/bin/:$HOME/opt/dagmc/tools/:$PATH
     PATH=$HOME/opt/openmc/bin/:$HOME/.local/bin:$PATH
     PATH=$HOME/opt/openmc/openmc/scripts/:$PATH
-    PATH=$HOME/opt/njoy/src/build:$PATH
+    PATH=$HOME/opt/njoy/NJOY21/bin:$PATH
     PATH=$HOME/opt/openmc-plotgui:$PATH
 
     pyenv shell 3.7.3
@@ -205,7 +204,7 @@ function export_environment_vars() {
 
 alias swc_run='docker run -it --net=host -e DISPLAY=:0 -v /tmp/.X11-unix:/tmp/.X11-unix -v /home/shriwise/Downloads:/home/shriwise/Downloads swc_python:latest /bin/bash'
 
-libinput-gestures-setup start $> /dev/null
+#libinput-gestures-setup start $> /dev/null
 
 ###############
 # SSH Aliases #
