@@ -18,6 +18,12 @@ export LD_LIBRARY_PATH=/home/pshriwise/arrc/opt/hdf5/lib:$LD_LIBRARY_PATH
 
 }
 
+function env_gpu() {
+
+alias nvcc='/soft/compilers/cuda/cuda-10.0.130/bin/nvcc'
+
+}
+
 function env_openmc() {
 
 pyenv shell 3.7.3
