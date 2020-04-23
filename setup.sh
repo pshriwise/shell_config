@@ -84,13 +84,21 @@ then
     fi
 fi
 
+user=$(whoami)
+
+if [ "${user}" != "root" ]
+then
+    sudo="sudo"
+else
+    sudo=""
+fi
 
 ## Ask to install standard ubuntu packages
 while true; do
     read -p "Install standard set of Ubuntu packages for development? [y/n] " yn
     case $yn in
         [y] ) echo "Installing common Ubuntu packages for dev."; \
-              for pkg in $(cat ~/.bash/pkgs); do sudo apt install -y $pkg; done; \
+              for pkg in $(cat ~/.bash/pkgs); do $sudo apt install -y $pkg; done; \
               break;;
         [n] ) echo "Ok."; exit;;
         * ) echo "Please enter y or n.";;
