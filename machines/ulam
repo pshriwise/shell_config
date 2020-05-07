@@ -6,6 +6,20 @@ function export_environment_vars() {
     export LD_LIBRARY_PATH
 }
 
+function env_cardinal() {
+    # set environment for conda MPI compilers
+    export FC=/usr/bin/mpifort
+    export F90=/usr/bin/mpif90
+    export CXX=/usr/bin/mpic++
+    export CC=/usr/bin/mpicc
+    export HDF5_ROOT=/usr/lib/x86_64-linux-gnu/hdf5/serial/
+    export LD_LIBRARY_PATH=/home/pshriwise/opt/cardinal/contrib/moose/petsc/arch-moose/lib:$LD_LIBRARY_PATH
+    export LD_LIBRARY_PATH=/home/pshriwise/opt/cardinal/cardinal/contrib/moose/libmesh/installed/lib:$LD_LIBRARY_PATH
+    export LD_LIBRARY_PATH=/home/pshriwise/opt/cardinal/cardinal/lib:$LD_LIBRARY_PATH
+
+    export OPENMC_CROSS_SECTIONS=/home/pshriwise/opt/openmc/xs/nndc_hdf5/cross_sections.xml
+}
+
 function env_openmc() {
     # EXECUTABLES
     PATH=$HOME/miniconda3/envs/openmc_umesh/bin:$PATH
@@ -29,7 +43,6 @@ function env_openmc() {
     export PYTHONPATH=$HOME/opt/moab/lib/python3.7/site-packages:$PYTHONPATH
 
     export_environment_vars
-
     echo "Added OpenMC to environment"
 
     conda activate openmc_umesh
@@ -92,17 +105,23 @@ function env_delta () {
     echo "Activated OpenMC Delta Tracking dev environment (installs in $HOME/delta_tracking/opt)"
 }
 
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/pshriwise/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/pshriwise/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/pshriwise/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/pshriwise/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+# __conda_setup="$('/home/pshriwise/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/home/pshriwise/miniconda3/etc/profile.d/conda.sh" ]; then
+#         . "/home/pshriwise/miniconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/home/pshriwise/miniconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# <<< Conda initialize <<<
