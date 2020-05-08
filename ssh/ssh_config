@@ -25,7 +25,7 @@ Host ec2
 
 Host ulam
      HostName ulam.cels.anl.gov
-     ProxyJump mcs
+     ProxyJump login-gce
      User pshriwise
      LocalForward 4001 localhost:4001
 
@@ -35,7 +35,7 @@ Host mcs
 
 Host wiley
      HostName wiley.ne.anl.gov
-     ProxyJump login.mcs.anl.gov
+     ProxyJump login-gce
      User pshriwise
 
 Host jack
@@ -65,7 +65,7 @@ Host vtr2
 
 Host jlse
      HostName login.jlse.anl.gov
-     ProxyJump login.mcs.anl.gov
+     ProxyJump login-gce
      User pshriwise
 
 Host ec2p
@@ -120,3 +120,22 @@ Host tippytyper
 ForwardAgent yes
 ForwardX11 yes
 ForwardX11Trusted yes
+
+###################################################
+ControlPath ~/.ssh/.control_channels/%h:%p:%r
+
+Host login-gce
+Hostname logins.cels.anl.gov
+User pshriwise
+IdentityFile gce
+ControlMaster auto
+ControlPersist yes
+LogLevel FATAL
+
+Host homes-gce
+Hostname homes.cels.anl.gov
+User pshriwise
+IdentityFile gce
+ProxyCommand ssh login-gce -q -W %h:%p
+ForwardX11 yes
+###################################################
