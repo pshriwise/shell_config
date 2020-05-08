@@ -51,9 +51,9 @@ function env_openmc() {
     pyenv shell 3.7.3
 
     # SHARED LIBRARIES
-    LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
-    LD_LIBRARY_PATH=$HOME/opt/dagmc/lib:$LD_LIBRARY_PATH
-    LD_LIBRARY_PATH=$HOME/opt/openmc/lib:$LD_LIBRARY_PATH
+    # LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
+    # LD_LIBRARY_PATH=$HOME/opt/dagmc/lib:$LD_LIBRARY_PATH
+    # LD_LIBRARY_PATH=$HOME/opt/openmc/lib:$LD_LIBRARY_PATH
 
     # DATA
     export OPENMC_MULTIPOLE_LIBRARY=$HOME/opt/openmc/xs/WMP_Library
