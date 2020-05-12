@@ -47,3 +47,10 @@ function _travis_trigger_build() {
         '*::arg->args'
 
 }
+
+#######################
+# FINAL SHELL OPTIONS #
+#######################
+
+# do not expand some expressions before passing to cmd
+setopt +o nomatch
