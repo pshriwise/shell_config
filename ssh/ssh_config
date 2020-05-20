@@ -137,5 +137,6 @@ Hostname homes.cels.anl.gov
 User pshriwise
 IdentityFile gce
 ProxyCommand ssh login-gce -q -W %h:%p
+DynamicForward 32000
 ForwardX11 yes
 ###################################################
