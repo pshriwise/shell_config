@@ -234,3 +234,4 @@ alias swc_run='docker run -it --net=host -e DISPLAY=:0 -v /tmp/.X11-unix:/tmp/.X
 alias ssh-jack='ssh -t wiley "ssh jack"'
 alias ssh-gary='ssh -t wiley "ssh gary"'
 alias ssh-wiley='ssh wiley'
+alias anl_vpn="tmux new -d 'ssh homes-gce'"
