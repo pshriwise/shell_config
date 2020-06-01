@@ -6,6 +6,16 @@ function export_environment_vars() {
     export LD_LIBRARY_PATH
 }
 
+function env_openfoam_dev() {
+
+    export MPI_ROOT=/usr
+    export MPI_ARCH_INC="-I/usr/include/mpich -L/usr/lib/x86_64-linux-gnu"
+    export MPI_ARCH_LIBS="-L/usr/lib/x86_64-linux-gnu -lmpich"
+    export MPI_ARCH_FLAGS="-Wl,-Bsymbolic-functions -Wl,-z,relro"
+
+    source $HOME/opt/OpenFOAM-dev/etc/bashrc
+}
+
 function env_enrico() {
     export FC=/usr/bin/mpifort
     export F90=/usr/bin/mpif90
@@ -30,6 +40,8 @@ function env_cardinal() {
 
     export NEKRS_HOME=/home/pshriwise/opt/cardinal/cardinal/
     export OPENMC_CROSS_SECTIONS=/home/pshriwise/opt/openmc/xs/nndc_hdf5/cross_sections.xml
+
+    export PATH=/home/pshriwise/opt/cardinal/cardinal/bin:$PATH
 }
 
 function env_openmc() {
