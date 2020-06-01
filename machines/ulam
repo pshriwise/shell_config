@@ -42,6 +42,8 @@ function env_cardinal() {
     export OPENMC_CROSS_SECTIONS=/home/pshriwise/opt/openmc/xs/nndc_hdf5/cross_sections.xml
 
     export PATH=/home/pshriwise/opt/cardinal/cardinal/bin:$PATH
+
+    pyenv shell 3.6.6
 }
 
 function env_openmc() {
