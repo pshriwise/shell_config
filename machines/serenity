@@ -12,7 +12,7 @@ eval "$(pyenv init -)"
 pyenv shell 3.6.6
 
 alias visit='~/opt/visit/visit3_1_0.linux-x86_64/bin/visit'
-alias trelis='/opt/Trelis-16.5/bin/trelis -nojournal'
+alias trelis='/opt/Trelis-17.0/bin/trelis -nojournal'
 
 alias bear-in-winter='sudo echo "Hibernating..." && gnome-screensaver-command -l && sudo pm-hibernate'
 
