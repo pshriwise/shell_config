@@ -46,6 +46,9 @@ alias ch='make -j 8 check'
 alias bci='make -j8 check && make -j8 install'
 alias bi='make -j8 install'
 
+# gnome desktop aliases #
+alias gdm-restart='/etc/init.d/gdm3 restart'
+
 #########################################
 ### Mount/UnMount remote directories ####
 #########################################
