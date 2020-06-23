@@ -1,0 +1,3 @@
+
+# set locale for proper terminal output
+export LC_CTYPE="en_US.UTF-8"
