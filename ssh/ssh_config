@@ -1,3 +1,15 @@
+Host olcf
+     HostName home.ccs.ornl.gov
+     User pshriwise
+     PreferredAuthentications keyboard-interactive,password
+     ControlMaster no
+
+Host summit
+     HostName summit.olcf.ornl.gov
+     User pshriwise
+     PreferredAuthentications keyboard-interactive,password
+     ControlMaster no
+
 Host home
 	HostName 68.191.162.181
 	User shriwise
@@ -28,6 +40,10 @@ Host ulam
      ProxyJump login-gce
      User pshriwise
      LocalForward 4001 localhost:4001
+
+Host gitlab.cels.anl.gov
+     User shriwise
+     ProxyJump mcs
 
 Host mcs
      HostName login.mcs.anl.gov
@@ -131,6 +147,7 @@ IdentityFile gce
 ControlMaster auto
 ControlPersist yes
 LogLevel FATAL
+
 
 Host homes-gce
 Hostname homes.cels.anl.gov
