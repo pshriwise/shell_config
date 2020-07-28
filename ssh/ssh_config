@@ -137,6 +137,15 @@ ForwardAgent yes
 ForwardX11 yes
 ForwardX11Trusted yes
 
+Host inl
+     HostName hpclogin.inl.gov
+     User shripatr
+
+Host sawtooth
+     HostName sawtooth1.inl.gov
+     User shripatr
+     ProxyJump inl
+
 ###################################################
 ControlPath ~/.ssh/.control_channels/%h:%p:%r
 
