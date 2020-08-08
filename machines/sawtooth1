@@ -1,0 +1,40 @@
+#!/bin/bash
+
+
+function env_enrico() {
+  module purge
+  module load mpich/3.3.2 gcc/9.2.0-gcc-4.8.5-bxc7 mvapich2/2.3.3-gcc-9.2.0 cmake/3.16.2-gcc-9.2.0-r3q3
+
+  export HDF5_ROOT=$HOME/opt/hdf5
+
+  export CC=$(which mpicc)
+  export CXX=$(which mpicxx)
+  export FC=$(which mpifort)
+
+  export OPENMC_CROSS_SECTIONS=$HOME/opt/openmc/xs/mcnp_endfb71/cross_sections.xml
+}
+
+function env_openmc() {
+  module purge
+  module load mpich/3.3.2 gcc/9.2.0-gcc-4.8.5-bxc7 mvapich2/2.3.3-gcc-9.2.0 cmake/3.16.2-gcc-9.2.0-r3q3
+
+  export HDF5_ROOT=$HOME/opt/hdf5
+
+  export CC=$(which mpicc)
+  export CXX=$(which mpicxx)
+  export FC=$(which mpifort)
+
+  export OPENMC_CROSS_SECTIONS=$HOME/opt/openmc/xs/nndc_hdf5/cross_sections.xml
+}
+
+function env_msr-wigner() {
+
+  conda activate msr-wigner
+
+  export CC=$(which mpicc)
+  export CXX=$(which mpicxx)
+
+  export PATH=$HOME/msr-wigner/opt/openmc/bin:$PATH
+  export OPENMC_ENDF_DATA=$HOME/msr-wigner/opt/openmc/xs/endf-b-vii.1/
+  export OPENMC_CROSS_SECTIONS=$HOME/msr-wigner/opt/openmc/xs/nndc_hdf5/cross_sections.xml
+}
