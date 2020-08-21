@@ -8,10 +8,10 @@ function export_environment_vars() {
 
 function env_openfoam_dev() {
 
-    export MPI_ROOT=/usr
     export MPI_ARCH_INC="-I/usr/include/mpich -L/usr/lib/x86_64-linux-gnu"
     export MPI_ARCH_LIBS="-L/usr/lib/x86_64-linux-gnu -lmpich"
     export MPI_ARCH_FLAGS="-Wl,-Bsymbolic-functions -Wl,-z,relro"
+    export WM_MPLIB=SYSTEMMPI
 
     source $HOME/opt/OpenFOAM-dev/etc/bashrc
 }
