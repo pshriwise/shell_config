@@ -166,8 +166,8 @@
 
 ;;; Code:
 
-(unless (version<= "25" emacs-version)
-  (error "Fill-column-indicator requires version 25 or later"))
+;;; (unless (version<= "25" emacs-version)
+;;;  (warning "Fill-column-indicator requires version 25 or later"))
 
 ;;; ---------------------------------------------------------------------
 ;;; User Options
