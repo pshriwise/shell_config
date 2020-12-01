@@ -81,7 +81,6 @@ Host vtr2
 
 Host jlse
      HostName login.jlse.anl.gov
-     ProxyJump login-gce
      User pshriwise
 
 Host ec2p
