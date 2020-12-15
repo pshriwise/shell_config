@@ -33,6 +33,7 @@ function env_cardinal() {
     export FC=/usr/bin/mpifort.mpich
     export CXX=/usr/bin/mpic++
     export CC=/usr/bin/mpicc
+    export MPICH_FC=gfortran
     export HDF5_ROOT=/usr/lib/x86_64-linux-gnu/hdf5/mpich/
     export LD_LIBRARY_PATH=/home/pshriwise/opt/cardinal/contrib/moose/petsc/arch-moose/lib:$LD_LIBRARY_PATH
     export LD_LIBRARY_PATH=/home/pshriwise/opt/cardinal/cardinal/contrib/moose/libmesh/installed/lib:$LD_LIBRARY_PATH
