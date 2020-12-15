@@ -49,7 +49,7 @@ function env_openmc() {
     PATH=$HOME/opt/dagmc/bin/:$HOME/opt/dagmc/tools/:$PATH
     PATH=$HOME/opt/openmc/bin/:$HOME/.local/bin:$PATH
     PATH=$HOME/opt/openmc/openmc/scripts/:$PATH
-    PATH=$HOME/opt/njoy/NJOY21/bin:$PATH
+    PATH=$HOME/opt/njoy/bin:$PATH
     PATH=$HOME/opt/openmc-plotgui:$PATH
 
     pyenv shell 3.7.3
