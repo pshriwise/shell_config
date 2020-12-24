@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# if this is a non-interactive login, do nothing
+if [[ $- != *i* ]] && return
+
 # infinite history
 export HISTSIZE=
 export HISTFILESIZE=

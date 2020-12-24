@@ -1,5 +1,8 @@
 #!/bin/zsh
 
+# if this is a non-interactive login, do nothing
+if [[ $- != *i* ]] && return
+
 # Killer: share history between multiple shells
 setopt SHARE_HISTORY
 #
