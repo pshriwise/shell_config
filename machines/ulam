@@ -44,7 +44,8 @@ function env_cardinal() {
     export NEKRS_HOME=/home/pshriwise/opt/cardinal/cardinal/install/
     export OPENMC_CROSS_SECTIONS=/home/pshriwise/opt/openmc/xs/nndc_hdf5/cross_sections.xml
 
-    export PATH=/home/pshriwise/opt/cardinal/cardinal/bin:/home/pshriwise/opt/cardinal/cardinal/install/bin:$PATH
+    export PATH=/home/pshriwise/opt/cardinal/bin:/home/pshriwise/opt/cardinal/install/bin:$PATH
+    export PATH=$HOME/opt/cardinal/contrib/moose/libmesh/installed/bin:$PATH
 
     pyenv shell 3.6.6
 }
