@@ -1,0 +1,26 @@
+#! /usr/bin/env bash
+
+module purge
+module load openmpi/4.0.5_ucx1.9
+module load cmake/3.16.2-gcc-9.3.0-tza7
+module load hdf5/1.12.0_ucx1.9
+
+user=$(whoami)
+
+export CC=mpicc
+export CXX=mpicxx
+export FC=mpif90
+export F77=mpif77
+
+export HDF5_ROOT=/apps/local/hdf5/1.12.0_ucx1.9/
+
+export PETSC_ARCH=arch-moose
+export PETSC_DIR=/home/$user/opt/cardinal/contrib/moose/petsc
+
+export CARDINAL_HOME=/home/$user/opt/cardinal
+export NEKRS_HOME=$CARDINAL_HOME/install
+
+
+export PATH=/home/$user/opt/cardinal:$PATH
+export PATH=/home/$user/opt/cardinal/install/bin/:$PATH
+export PATH=/home/$user/opt/cardinal/contrib/moose/libmesh/installed/bin:$PATH

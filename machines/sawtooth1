@@ -1,17 +1,69 @@
 #!/bin/bash
 
+### General Options
 
-function env_enrico() {
-  module purge
-  module load mpich/3.3.2 gcc/9.2.0-gcc-4.8.5-bxc7 mvapich2/2.3.3-gcc-9.2.0 cmake/3.16.2-gcc-9.2.0-r3q3
+# custom terminal
+export PS1="\n\e[1;33m[\u@\h \w]\e[m \n>> "
 
-  export HDF5_ROOT=$HOME/opt/hdf5
+### Environment Functions
+
+
+function env_enrico_nek() {
+  conda_init
+  conda activate enrico
 
   export CC=$(which mpicc)
   export CXX=$(which mpicxx)
   export FC=$(which mpifort)
 
+  export OPENMC_CROSS_SECTIONS=/home/shripatr/opt/openmc/xs/endfb71_hdf5/cross_sections.xml
+}
+
+function env_enrico_foam() {
+
+  echo "Setting environment for ENRICO w/ OpenFOAM..."
+
+  echo "Loading modules..."
+
+  module load \
+  gcc/9.2.0-gcc-4.8.5-bxc7 \
+  mvapich2/2.3.4-gcc-9.2.0 \
+  hdf5/1.12.0_mvapich2 \
+  cmake/3.16.2-intel-19.0.5-gfqx
+
+  module list
+
+  export CC=$(which mpicc)
+  export CXX=$(which mpicxx)
+  export FC=$(which mpifort)
+
+  echo "Sourcing OpenFOAM env file..."
+
+  source $HOME/opt/enrico/enrico/vendor/OpenFOAM-dev/etc/bashrc
+
   export OPENMC_CROSS_SECTIONS=$HOME/opt/openmc/xs/mcnp_endfb71/cross_sections.xml
+}
+
+function env_cardinal() {
+
+  conda activate cardinal
+
+  export HDF5_ROOT=$CONDA_PREFIX
+
+  export FC=$(which mpifort)
+  export F90=$(which mpif90)
+  export CC=$(which mpicc)
+  export CXX=$(which mpicxx)
+  export CMAKE_PREFIX_PATH=$CONDA_PREFIX
+
+  export LD_LIBRARY_PATH=$HOME/opt/cardinal/contrib/moose/petsc/arch-moose/lib:$LD_LIBRARY_PATH
+  export LD_LIBRARY_PATH=$HOME/opt/cardinal/cardinal/contrib/moose/libmesh/installed/lib:$LD_LIBRARY_PATH
+  export LD_LIBRARY_PATH=$HOME/opt/cardinal/cardinal/lib:$LD_LIBRARY_PATH
+
+  export NEKRS_HOME=$HOME/opt/cardinal/cardinal/
+  export OPENMC_CROSS_SECTIONS=$HOME/opt/openmc/xs/nndc_hdf5/cross_sections.xml
+
+  export PATH=$HOME/opt/cardinal/cardinal/bin:$PATH
 }
 
 function env_openmc() {
@@ -36,5 +88,5 @@ function env_msr-wigner() {
 
   export PATH=$HOME/msr-wigner/opt/openmc/bin:$PATH
   export OPENMC_ENDF_DATA=$HOME/msr-wigner/opt/openmc/xs/endf-b-vii.1/
-  export OPENMC_CROSS_SECTIONS=$HOME/msr-wigner/opt/openmc/xs/nndc_hdf5/cross_sections.xml
+  export OPENMC_CROSS_SECTIONS=$HOME/msr-wigner/opt/openmc/xs/endfb71_hdf5/cross_sections.xml
 }
