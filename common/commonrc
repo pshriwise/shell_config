@@ -148,9 +148,29 @@ function set-title() {
   echo -e ${TITLE}
 }
 
-export EDITOR='emacs -nw'
+##########################
+### ADD DOCKER ALIASES ###
+##########################
 
-export TRAVIS_TOKEN=AZto9_eZf3lNw28shUfaGw
+function doccker-rm-all() {
+    while true; do
+        read -p "Warning!! This will remove all docker images. Proceed? [y/n] " yn
+        case $yn in
+            [y] ) echo "Installing common Ubuntu packages for dev."; \
+                  docker container prune && docker image prune -a
+                  break;;
+            [n] ) echo "Ok."; exit;;
+            * ) echo "Please enter y or n.";;
+        esac
+    done
+}
+
+function docker-clean() {
+    docker image prune -a
+    docker container prune
+}
+
+export EDITOR='emacs -nw'
 
 export PATH=$HOME/.bash/bin:$PATH
 
