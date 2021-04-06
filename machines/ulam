@@ -32,19 +32,12 @@ function env_enrico() {
 
 function env_cardinal() {
     # set environment for conda MPI compilers
-    export FC=/usr/bin/mpifort.mpich
-    export CXX=/usr/bin/mpic++
-    export CC=/usr/bin/mpicc
     export MPICH_FC=gfortran
     export HDF5_ROOT=/usr/lib/x86_64-linux-gnu/hdf5/mpich/
-    export LD_LIBRARY_PATH=/home/pshriwise/opt/cardinal/contrib/moose/petsc/arch-moose/lib:$LD_LIBRARY_PATH
-    export LD_LIBRARY_PATH=/home/pshriwise/opt/cardinal/cardinal/contrib/moose/libmesh/installed/lib:$LD_LIBRARY_PATH
-    export LD_LIBRARY_PATH=/home/pshriwise/opt/cardinal/cardinal/lib:$LD_LIBRARY_PATH
+    export NEKRS_HOME=/home/pshriwise/opt/cardinal/install/
+    export OPENMC_CROSS_SECTIONS=/home/pshriwise/opt/openmc/xs/endfb71_hdf5/cross_sections.xml
 
-    export NEKRS_HOME=/home/pshriwise/opt/cardinal/cardinal/install/
-    export OPENMC_CROSS_SECTIONS=/home/pshriwise/opt/openmc/xs/nndc_hdf5/cross_sections.xml
-
-    export PATH=/home/pshriwise/opt/cardinal/bin:/home/pshriwise/opt/cardinal/install/bin:$PATH
+    export PATH=/home/pshriwise/opt/cardinal/:/home/pshriwise/opt/cardinal/install/bin:$PATH
     export PATH=$HOME/opt/cardinal/contrib/moose/libmesh/installed/bin:$PATH
 
     pyenv shell 3.6.6
