@@ -6,6 +6,19 @@ function export_environment_vars() {
     export LD_LIBRARY_PATH
 }
 
+function env_siggraph() {
+    export PATH=$HOME/opt/siggraph_rt/moab/bin:$PATH
+    export PATH=$HOME/opt/siggraph_rt/dagmc/bin:$PATH
+    export PATH=$HOME/opt/siggraph_rt/openmc/bin:$PATH
+    export OPENMC_CROSS_SECTIONS=$HOME/opt/openmc/xs/nndc_hdf5/cross_sections.xml
+
+    export PYTHONPATH=$HOME/opt/siggraph_rt/moab/lib/python3.8/site-packages/:$PYTHONPATH
+
+    pyenv shell 3.8.1
+
+    echo "Environment set for SIGGRAPH testing."
+}
+
 function env_openfoam_dev() {
 
     export MPI_ARCH_INC="-I/usr/include/mpich -L/usr/lib/x86_64-linux-gnu"
