@@ -146,6 +146,11 @@ Host sawtooth
      User shripatr
      ProxyJump inl
 
+Host bebop
+     HostName bebop.lcrc.anl.gov
+     User pshriwise
+     ProxyJump login-gce
+
 ###################################################
 ControlPath ~/.ssh/.control_channels/%h:%p:%r
 
