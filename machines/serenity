@@ -41,7 +41,32 @@ fi
 # MCNP Datapath
 export DATAPATH=/home/shriwise/storage/mcnp6.2/Disc1/MCNP_DATA_620/xsdir
 
+function env_exp_openmc() {
+    # EXECUTABLES
+    PATH=$HOME/opt/moab/bin:$PATH
+    PATH=$HOME/opt/dagmc/bin/:$HOME/opt/dagmc/tools/:$PATH
+    PATH=$HOME/opt/openmc_exp/bin/:$HOME/.local/bin:$PATH
+    PATH=$HOME/opt/openmc_exp/openmc/scripts/:$PATH
+    PATH=$HOME/opt/njoy/bin:$PATH
+    PATH=$HOME/opt/openmc-plotgui:$PATH
 
+    pyenv shell 3.8.0
+
+    # DATA
+    export OPENMC_MULTIPOLE_LIBRARY=$HOME/opt/openmc/xs/WMP_Library
+    export OPENMC_CROSS_SECTIONS=$HOME/opt/openmc/xs/nndc_hdf5/cross_sections.xml
+    export OPENMC_ENDF_DATA=$HOME/opt/openmc/xs/endf-b-vii.1/
+
+    # for testing
+    export OMP_NUM_THREADS=2
+
+    PYTHONPATH=/home/shriwise/opt/moab/lib/python3.7/site-packages:$PYTHONPATH
+
+    # export environment varialbers
+    export_environment_vars
+
+    echo "Adding Experimental OpenMC to environment"
+}
 
 function env_openmc() {
     # EXECUTABLES
