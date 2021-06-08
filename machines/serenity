@@ -38,9 +38,6 @@ fi
 ### ENVIRONMENTS FOR OTHER APPLICATIONS ###
 ###########################################
 
-# MCNP Datapath
-export DATAPATH=/home/shriwise/storage/mcnp6.2/Disc1/MCNP_DATA_620/xsdir
-
 function env_exp_openmc() {
     # EXECUTABLES
     PATH=$HOME/opt/moab/bin:$PATH
@@ -79,10 +76,9 @@ function env_openmc() {
 
     pyenv shell 3.7.3
 
-    # SHARED LIBRARIES
-    # LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
-    # LD_LIBRARY_PATH=$HOME/opt/dagmc/lib:$LD_LIBRARY_PATH
-    # LD_LIBRARY_PATH=$HOME/opt/openmc/lib:$LD_LIBRARY_PATH
+    # Still need MOAB's shared libraries depending on it's install method
+    # (autotools vs. CMake)
+    LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
 
     # DATA
     export OPENMC_MULTIPOLE_LIBRARY=$HOME/opt/openmc/xs/WMP_Library
@@ -121,7 +117,6 @@ function env_cardinal() {
     export LD_LIBRARY_PATH=/home/shriwise/opt/cardinal/cardinal/contrib/moose/petsc/arch-moose/lib:$LD_LIBRARY_PATH
     export LD_LIBRARY_PATH=/home/shriwise/opt/cardinal/cardinal/contrib/moose/libmesh/installed/lib:$LD_LIBRARY_PATH
     export LD_LIBRARY_PATH=/home/shriwise/opt/cardinal/cardinal/lib:$LD_LIBRARY_PATH
-
 }
 
 function env_yt() {
@@ -194,7 +189,8 @@ function env_mcnp() {
     export PATH=/home/shriwise/opt/mcnp/mcnp6/MCNP_CODE/bin:$PATH
     export DATAPATH=/home/shriwise/opt/mcnp/mcnp6/MCNP_DATA
     export ISCDATA=/home/shriwise/opt/mcnp/mcnp6/MCNP_CODE/MCNP620/Utilities/ISC/data
-#    export DATAPATH=/home/shriwise/storage/mcnp6.2/Disc1/MCNP_DATA_620/xsdir
+    # MCNP Datapath
+    export DATAPATH=/home/shriwise/storage/mcnp6.2/Disc1/MCNP_DATA_620/xsdir
 }
 
 function env_dd() {
@@ -237,7 +233,6 @@ function env_pyne() {
 }
 
 function env_trelis() {
-
     # EXECUTABLES
     PATH=$HOME/opt/moab/bin:$PATH
     PATH=$HOME/opt/dagmc/bin/:$HOME/opt/dagmc/tools/:$PATH
@@ -249,6 +244,13 @@ function env_trelis() {
     PYTHONPATH=/opt/Trelis-16.5/bin/:$PYTHONPATH
 }
 
+function env_pyarc_py2() {
+    pyenv shell system
+
+    export PYTHONPATH=$HOME/opt/workbench/Workbench-Linux/:$PYTHONPATH
+    export PYTHONPATH=$HOME/internal/nse/neams_workbench/workbench_data/PyARC:$PYTHONPATH
+}
+
 # convenience for exporting environment variables together
 function export_environment_vars() {
     export PATH
@@ -258,8 +260,6 @@ function export_environment_vars() {
 }
 
 alias swc_run='docker run -it --net=host -e DISPLAY=:0 -v /tmp/.X11-unix:/tmp/.X11-unix -v /home/shriwise/Downloads:/home/shriwise/Downloads swc_python:latest /bin/bash'
-
-#libinput-gestures-setup start $> /dev/null
 
 ###############
 # SSH Aliases #
