@@ -107,16 +107,15 @@ function env_enrico() {
 }
 
 function env_cardinal() {
-    env_openmc
+    # set environment for conda MPI compilers
+    export MPICH_FC=gfortran
+    export HDF5_ROOT=/usr/lib/x86_64-linux-gnu/hdf5/mpich/
+    export NEKRS_HOME=$HOME/opt/cardinal/install/
+    export OPENMC_CROSS_SECTIONS=$HOME/opt/openmc/xs/endfb71_hdf5/cross_sections.xml
+    export MOOSE_DIR=$HOME/opt/cardinal/contrib/moose
 
-    export FC=/usr/bin/mpifort
-    export F90=/usr/bin/mpif90
-    export CXX=/usr/bin/mpic++
-    export CC=/usr/bin/mpicc
-    export HDF5_ROOT=/usr/lib/x86_64-linux-gnu/hdf5/serial/
-    export LD_LIBRARY_PATH=/home/shriwise/opt/cardinal/cardinal/contrib/moose/petsc/arch-moose/lib:$LD_LIBRARY_PATH
-    export LD_LIBRARY_PATH=/home/shriwise/opt/cardinal/cardinal/contrib/moose/libmesh/installed/lib:$LD_LIBRARY_PATH
-    export LD_LIBRARY_PATH=/home/shriwise/opt/cardinal/cardinal/lib:$LD_LIBRARY_PATH
+    export PATH=$HOME/opt/cardinal/:$HOME/opt/cardinal/install/bin:$PATH
+    export PATH=$HOME/opt/cardinal/contrib/moose/libmesh/installed/bin:$PATH
 }
 
 function env_yt() {
