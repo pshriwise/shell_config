@@ -30,7 +30,7 @@ fi
 
 ### Include Git Aware Prompt ###
 export GITAWAREPROMPT=~/.bash/bash/
-source $GITAWAREPROMPT/prompt.sh
+# source $GITAWAREPROMPT/prompt.sh
 
 #keybinding addition
 if [ "$TERM" == "xterm" ]; then
