@@ -20,6 +20,7 @@ export PETSC_DIR=/home/$user/opt/cardinal/contrib/moose/petsc
 export CARDINAL_HOME=/home/$user/opt/cardinal
 export NEKRS_HOME=$CARDINAL_HOME/install
 
+export OPENMC_CROSS_SECTIONS=$HOME/nndc_hdf5/cross_sections.xml
 
 export PATH=/home/$user/opt/cardinal:$PATH
 export PATH=/home/$user/opt/cardinal/install/bin/:$PATH
