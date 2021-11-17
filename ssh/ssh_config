@@ -79,6 +79,11 @@ Host vtr2
      ProxyJump wiley
      User pshriwise
 
+Host vtr3
+     HostName vtr3.ne.anl.gov
+     ProxyJump wiley
+     User pshriwise
+
 Host kookie
      HostName kookie.ne.anl.gov
      ProxyJump wiley
