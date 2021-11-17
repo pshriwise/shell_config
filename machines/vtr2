@@ -1,0 +1,13 @@
+
+
+export NO_GIT_PROMPT=1
+
+function env_pyarc() {
+  export PYTHONPATH=$HOME/.local/lib/python3.7/site-packages/:$PYTHONPATH
+  . /opt/intel/Compiler/11.1/080/bin/ifortvars.sh intel64
+}
+
+function env_griffin() {
+  export PATH=/home/kumars/projects/pygriffin/griffin_source/:$PATH
+  alias griffin='griffin-opt'
+}
