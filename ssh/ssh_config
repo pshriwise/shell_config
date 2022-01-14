@@ -54,8 +54,8 @@ Host wiley
      ProxyJump login-gce
      User pshriwise
 
-Host jack
-     HostName jack.ne.anl.gov
+Host ci1
+     HostName ci1.ne.anl.gov
      ProxyJump wiley
      User pshriwise
 
@@ -150,6 +150,7 @@ ForwardX11Trusted yes
 Host inl
      HostName hpclogin.inl.gov
      User shripatr
+     DynamicForward 5555
 
 Host sawtooth
      HostName sawtooth1.inl.gov
