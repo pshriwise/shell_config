@@ -170,6 +170,15 @@ function docker-clean() {
     docker container prune
 }
 
+function delayed_cmd() {
+    pid=$(exec sh -c 'echo "$PPID"')
+    sleep $1
+    notify-send "$pid: Executing command '$2' after $3"
+    sleep $3
+    eval $2
+    notify-send "Delayed Command '$2' executed"
+}
+
 export EDITOR='emacs -nw'
 
 export PATH=$HOME/.bash/bin:$PATH
