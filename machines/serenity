@@ -9,10 +9,11 @@ export PATH=$HOME/opt/pdfgrep/bin:$PATH
 
 
 eval "$(pyenv init -)"
+eval "$(pyenv init --path)"
 
 pyenv shell 3.6.6
 
-alias visit='~/opt/visit/visit3_1_2.linux-x86_64/bin/visit'
+alias visit='~/opt/visit/visit3_2_1.linux-x86_64/bin/visit'
 alias trelis='/opt/Trelis-16.5/bin/trelis -nojournal'
 alias trelis17='/opt/Trelis-17.0/bin/trelis -nojournal'
 
@@ -74,7 +75,7 @@ function env_openmc() {
     PATH=$HOME/opt/njoy/bin:$PATH
     PATH=$HOME/opt/openmc-plotgui:$PATH
 
-    pyenv shell 3.7.3
+    pyenv shell 3.9.1
 
     # Still need MOAB's shared libraries depending on it's install method
     # (autotools vs. CMake)
@@ -127,7 +128,7 @@ function env_yt() {
     PATH=$HOME/opt/njoy/src/build:$PATH
     PATH=$HOME/opt/openmc-plotgui:$PATH
 
-    pyenv shell 3.7.3
+    pyenv shell 3.9.1
 
     # SHARED LIBRARIES
     LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
@@ -199,7 +200,7 @@ function env_dd() {
     PATH=$HOME/opt/embree/bin/embree2:$PATH
     PATH=$HOME/opt/embree/bin/embree3:$PATH
 
-    pyenv shell 3.7.3
+    pyenv shell 3.9.1
 
     # SHARED LIBRARIES
     LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
@@ -258,6 +259,17 @@ function export_environment_vars() {
     export PYTHONPATH
 }
 
+function docker_run_x11() {
+    docker run -it --net=host \
+       --hostname "neams-workbench" \
+       --device /dev/dri/ \
+       -e DISPLAY=$DISPLAY \
+       -v "$HOME/.Xauthority:$DOCKER_HOME/.Xauthority/:rw" \
+       -v "$HOME/.Xauthority-n:$DOCKER_HOME/.Xauthority-n/:rw" \
+       -v "/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+       $1 bash
+}
+
 alias swc_run='docker run -it --net=host -e DISPLAY=:0 -v /tmp/.X11-unix:/tmp/.X11-unix -v /home/shriwise/Downloads:/home/shriwise/Downloads swc_python:latest /bin/bash'
 
 ###############
@@ -267,3 +279,6 @@ alias ssh-jack='ssh -t wiley "ssh jack"'
 alias ssh-gary='ssh -t wiley "ssh gary"'
 alias ssh-wiley='ssh wiley'
 alias anl_vpn="tmux new -d 'ssh homes-gce'"
+
+# Fix weird QT warning
+unset XDG_SESSION_TYPE
