@@ -78,3 +78,16 @@ export OMP_NUM_THREADS=2
 export HDF5_DISABLE_VERSION_CHECK=2
 
 }
+
+function env_intel_rt() {
+
+module use /soft/modulefiles
+module use /soft/restricted/CNDA/modulefiles
+
+module load intel
+module load cmake tbb
+
+export OPENMC_CROSS_SECTIONS=/home/pshriwise/opt/openmc/nndc_hdf5/cross_sections.xml
+export OMP_NUM_THREADS=2
+
+}
