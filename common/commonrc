@@ -19,6 +19,24 @@ mkcd() { mkdir $1 ;  cd $1 ; }
 rmdir  () { rm -rf "$@" ;       }
 follow () { cp $1 $2 ; cd $2 ;  }
 
+# list of files in the current directory
+# modified #1 hours or sooner
+ls-time() {
+    t=$(echo "${@: -1} / 24.0" | bc -l)
+
+    if [ $# -gt 1 ]; then
+        ls_flags=$1
+    else
+        ls_flags=""
+    fi
+
+    files=$(find . -maxdepth 1 -type f -mtime -$t -print0)
+    if [ ! -z "$files" ] ; then
+        echo -n $files | xargs -0 ls $ls_flags
+    fi
+}
+
+
 grepall (){ grep -rn $1 ./* --color=always; }
 
 # tmux aliases
