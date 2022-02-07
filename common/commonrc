@@ -30,7 +30,7 @@ ls-time() {
         ls_flags=""
     fi
 
-    files=$(find . -maxdepth 1 -type f -mtime -$t -print0)
+    files=$(find "${@:(-2):1}" -maxdepth 1 -type f -mtime -$t -print0)
     if [ ! -z "$files" ] ; then
         echo -n $files | xargs -0 ls $ls_flags
     fi
