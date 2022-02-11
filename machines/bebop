@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+function env_openmc_ww {
+  conda activate openmc-ww
+  export PATH=$HOME/opt/openmc/bin:$PATH
+  export OPENMC_CROSS_SECTIONS=$HOME/opt/openmc/xs/endfb80_hdf5/cross_sections.xml
+
+}
+
+function env_cardinal {
+  module purge
+  module load gcc/8.2.0-g7hppkz
+  module load openmpi/3.1.4
+  module load cmake/3.14.2-gvwazz3
+  module load hdf5/1.8.16-mz7lmxh
+  module load python/intel-parallel-studio-cluster.2019.5-zqvneip/3.6.9
+
+  export CC=mpicc
+  export CXX=mpicxx
+  export FC=mpif90
+
+  # Revise for your Cardinal repository location
+  export NEKRS_HOME=$HOME/cardinal/install
+}
