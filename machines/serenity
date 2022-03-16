@@ -194,7 +194,7 @@ function env_stream() {
 function env_mcnp() {
     export PATH=/home/shriwise/opt/mcnp/mcnp6/MCNP_CODE/bin:$PATH
     # MCNP Datapath
-    export DATAPATH=/home/shriwise/etc/menc_data
+    export DATAPATH=/home/shriwise/etc/mcnp_data
     export ISCDATA=/home/shriwise/opt/mcnp/mcnp6/MCNP_CODE/MCNP620/Utilities/ISC/data
 }
 
