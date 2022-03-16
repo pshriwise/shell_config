@@ -24,7 +24,7 @@ follow () { cp $1 $2 ; cd $2 ;  }
 ls-time() {
 
     if [ "$1" == "-h" ]; then
-        echo "Usage: ls-time <ls_flags> <directory> <time>"
+        echo "Usage: ls-time <ls_flags> <directory> <hrs>"
         return
     fi
 
