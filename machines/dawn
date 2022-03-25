@@ -34,10 +34,49 @@ if [ "/bin/bash" != "$BASH" ]; then
     compdef _docker-run-img docker-run-img
 fi
 
+#########################
+# Environment Functions #
+#########################
+function export_environment_vars() {
+    export PATH
+    export LD_LIBRARY_PATH
+    export HDF5_ROOT
+    export PYTHONPATH
+}
 
 function env_conda() {
     eval "$(/home/shriwise/opt/miniconda3/bin/conda shell.zsh hook)"
 }
+
+function env_openmc() {
+
+    # EXECUTABLES
+    PATH=$HOME/opt/bin:$HOME/.local/bin:$PATH
+    PATH=$HOME/opt/njoy/bin:$PATH
+
+    pyenv shell 3.9.1
+
+    # Still need MOAB's shared libraries depending on it's install method
+    # (autotools vs. CMake)
+    LD_LIBRARY_PATH=$HOME/opt/moab/lib:$LD_LIBRARY_PATH
+
+    # DATA
+    export OPENMC_XS_DIR=$HOME/data/xs/openmc
+    export OPENMC_MULTIPOLE_LIBRARY=$OPENMC_XS_DIR/WMP_Library
+    export OPENMC_CROSS_SECTIONS=$OPENMC_XS_DIR/nndc_hdf5/cross_sections.xml
+    export OPENMC_ENDF_DATA=$OPENMC_XS_DIR/endf-b-vii.1
+
+    # for testing
+    export OMP_NUM_THREADS=2
+
+    PYTHONPATH=/home/shriwise/opt/moab/lib/python3.9/site-packages:$PYTHONPATH
+
+    # export environment varialbers
+    export_environment_vars
+
+    echo "Adding OpenMC to environment"
+}
+
 
 ###############
 # SSH Aliases #
