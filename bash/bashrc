@@ -27,13 +27,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
-### Include Git Aware Prompt ###
-export GITAWAREPROMPT=~/.bash/bash/
-if [ "$NO_GIT_PROMPT" != "true" ]; then
-    source $GITAWAREPROMPT/prompt.sh
-fi
-
 #keybinding addition
 if [ "$TERM" == "xterm" ]; then
     bind '"\C-H":backward-kill-word'
@@ -49,3 +42,9 @@ source $HOME/.bash/bash/details
 ##############################
 source $HOME/.bash/common/commonrc
 source ~/.bash/common/commonrc
+
+### Include Git Aware Prompt ###
+export GITAWAREPROMPT=~/.bash/bash/
+if [ "$NO_GIT_PROMPT" != "true" ]; then
+   source $GITAWAREPROMPT/prompt.sh
+fi
