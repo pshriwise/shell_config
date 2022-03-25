@@ -1,0 +1,45 @@
+#!/bin/bash
+
+#######################
+# Python Environments #
+#######################
+export PYENV_ROOT=$HOME/.pyenv/
+export PATH=$PYENV_ROOT/bin:$PATH
+eval "$(pyenv init -)"
+eval "$(pyenv init --path)"
+
+####################
+# Custom Functions #
+####################
+function docker-run-x11() {
+    docker run -it --net=host \
+           --device /dev/dri/ \
+           -e DISPLAY=$DISPLAY \
+           -e XAUTHORITY=$XAUTHORITY \
+           -v "/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+           -v "$HOME/.Xauthority:$DOCKER_HOME/.Xauthority/:rw" \
+           -v "$HOME/.Xauthority-n:$DOCKER_HOME/.Xauthority-n/:rw" \
+           -v $XAUTHORITY $1 bash
+}
+
+if [ "/bin/bash" != "$BASH" ]; then
+    function _docker-run-x11 {
+        local state
+
+        _arguments -C \
+                   '1:images:($(docker images --format "{{.Repository}}:{{.Tag}}" | grep -v "<none>"))' \
+                   '*::arg->args'
+    }
+
+    compdef _docker-run-img docker-run-img
+fi
+
+
+function env_conda() {
+    eval "$(/home/shriwise/opt/miniconda3/bin/conda shell.zsh hook)"
+}
+
+###############
+# SSH Aliases #
+###############
+alias anl_vpn="tmux new -d 'ssh homes-gce'"

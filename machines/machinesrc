@@ -4,15 +4,17 @@
 # MACHINE SPECIFIC CONFIGURATIONS #
 ###################################
 
-# serenity - work machine
 MACHINE_NAME="$(hostname)"
 
 if [ "$NO_MACHINE_CONFIG" != "true" ]
 then
     if [ -f $HOME/.bash/machines/$MACHINE_NAME ]
     then
-        echo "Importing configuration for $MACHINE_NAME"
         source $HOME/.bash/machines/$MACHINE_NAME;
+        if [[ $MACHINE_NAME == "dawn" ]]; then
+            MACHINE_NAME="$MACHINE_NAME 🔆"
+        fi
+        echo "Imported configuration for $MACHINE_NAME"
     elif [ -d $HOME/.machine/ ]
     then
     MACHINE_NAME="$(ls ~/.machine/)"
