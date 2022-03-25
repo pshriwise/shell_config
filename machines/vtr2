@@ -1,6 +1,6 @@
 
 
-export NO_GIT_PROMPT=1
+export NO_GIT_PROMPT=true
 
 function env_pyarc() {
   export PYTHONPATH=$HOME/.local/lib/python3.7/site-packages/:$PYTHONPATH
@@ -9,5 +9,7 @@ function env_pyarc() {
 
 function env_griffin() {
   export PATH=/home/kumars/projects/pygriffin/griffin_source/:$PATH
+  export PATH=/home/kumars/projects/pygriffin/griffin_source/isoxml:$PATH
   alias griffin='griffin-opt'
+  alias isoxml='isoxml-opt'
 }
