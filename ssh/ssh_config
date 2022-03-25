@@ -25,10 +25,6 @@ Host cae
 ForwardAgent yes
 ForwardX11 yes
 ForwardX11Trusted yes
-LocalForward localhost:2222 serenity.ep.wisc.edu:22
-LocalForward localhost:2223 tux-c1.cae.wisc.edu:22
-LocalForward localhost:8000 serenity.ep.wisc.edu:4001
-LocalForward localhost:8001 serenity.ep.wisc.edu:4002
 LocalForward localhost:5053 144.92.12.206:5053
 
 Host ec2
@@ -123,12 +119,19 @@ ForwardX11 yes
 ForwardX11Trusted yes
 
 Host serenity
-       HostName serenity.ep.wisc.edu
+       HostName 107.195.166.171
        User shriwise
 ForwardAgent yes
 ForwardX11 yes
 ForwardX11Trusted yes
-LocalForward localhost:5053 fti421-mariott:5053
+
+Host dawn
+       HostName 107.195.166.171
+       User shriwise
+       Port 5000
+ForwardAgent yes
+ForwardX11 yes
+ForwardX11Trusted yes
 
 Host aci-compile
      HostName aci-service-2.chtc.wisc.edu
