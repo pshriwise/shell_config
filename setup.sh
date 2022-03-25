@@ -53,7 +53,7 @@ then
     echo "Appending source of h5rc to existing .h5rc..."
     tail -n +2 >> ~/.h5rc
 else
-    ln -s ~/.bashrc/h5sh/h5rc ~/.h5rc
+    ln -s ~/.bash/h5sh/h5rc ~/.h5rc
 fi
 
 if [ -f ~/.zshrc ]
