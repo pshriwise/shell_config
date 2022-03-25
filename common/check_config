@@ -21,7 +21,10 @@ else
     # check for updates
     var=$(git log master..origin/master --oneline)
     if [ "${var}" != "" ]; then
-	echo "Shell configuration is behind. Please update."
+        echo
+	echo "Shell configuration is behind. Updating..."
+        git rebase origin/master
+        echo
     fi
     # return to previous directory
     cd - &> /dev/null
