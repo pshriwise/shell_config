@@ -15,7 +15,8 @@ pyenv shell 3.9.2
 # Pre-packaged Installations #
 ##############################
 export PATH=$HOME/soft/paraview/bin:$PATH
-
+export PATH=$HOME/soft/cubit/Cubit-15.5/bin:$PATH
+alias cubit='clarox -nojournal'
 
 ####################
 # Custom Functions #
