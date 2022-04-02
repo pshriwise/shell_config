@@ -11,6 +11,12 @@ eval "$(pyenv init --path)"
 # default pyenv shell
 pyenv shell 3.9.2
 
+##############################
+# Pre-packaged Installations #
+##############################
+export PATH=$HOME/soft/paraview/bin:$PATH
+
+
 ####################
 # Custom Functions #
 ####################
