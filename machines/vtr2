@@ -3,13 +3,22 @@
 export NO_GIT_PROMPT=true
 
 function env_pyarc() {
-  export PYTHONPATH=$HOME/.local/lib/python3.7/site-packages/:$PYTHONPATH
+  # export PYTHONPATH=$HOME/.local/lib/python3.7/site-packages:$PYTHONPATH
+  export PYTHONPATH=$HOME/opt/PyARC:$PYTHONPATH
   . /opt/intel/Compiler/11.1/080/bin/ifortvars.sh intel64
 }
 
+function env_pygriffin() {
+  export PYTHONPATH=/home/pshriwise/opt/PyGriffin:$PYTHONPATH
+}
+
 function env_griffin() {
-  export PATH=/home/kumars/projects/pygriffin/griffin_source/:$PATH
+  export PATH=/home/kumars/projects/pygriffin/griffin_source:$PATH
   export PATH=/home/kumars/projects/pygriffin/griffin_source/isoxml:$PATH
   alias griffin='griffin-opt'
   alias isoxml='isoxml-opt'
+}
+
+function env_workbench() {
+  export PATH=/home/pshriwise/opt/workbench/Workbench-Linux/bin:$PATH
 }
