@@ -22,3 +22,23 @@ function env_griffin() {
 function env_workbench() {
   export PATH=/home/pshriwise/opt/workbench/Workbench-Linux/bin:$PATH
 }
+
+function env_wigner() {
+    conda activate msr-wigner
+
+    # EXECUTABLES
+    PATH=$HOME/msr-wigner/opt/openmc/openmc/scripts/:$PATH
+    PATH=$HOME/msr-wigner/opt/openmc/bin/:$PATH
+    PATH=$HOME/msr-wigner/opt/njoy/NJOY21/bin/:$PATH
+
+    # DATA
+    export OPENMC_CROSS_SECTIONS=$HOME/msr-wigner/opt/openmc/xs/nndc_hdf5/cross_sections.xml
+    export OPENMC_ENDF_DATA=$HOME/msr-wigner/opt/openmc/xs/endf-b-vii.1/
+
+    export OMP_NUM_THREADS=2
+
+    # export environment variables
+    export_environment_vars
+
+    echo "Environment set for MSR Wigner study"
+}
