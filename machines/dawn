@@ -87,6 +87,20 @@ function env_openmc() {
     echo "Adding OpenMC to environment"
 }
 
+function env_pyarc() {
+    export PYTHONPATH=$HOME/internal/nse/pyarc/soft/PyARC:$PYTHONPATH
+
+}
+
+function env_pygriffin() {
+    export PYTHONPATH=$HOME/internal/nse/pyarc/soft/PyGriffin:$PYTHONPATH
+}
+
+function env_workbench() {
+    export PATH=$HOME/internal/nse/pyarc/soft/workbench/Workbench-4.1.1/bin:$PATH
+    export PATH=$HOME/internal/nse/pyarc/soft/workbench/Workbench-4.1.1/rte:$PATH
+    alias python-workbench='entry.sh'
+}
 
 ###############
 # SSH Aliases #
