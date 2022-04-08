@@ -56,6 +56,7 @@ function env_aurora() {
     export PATH=$HOME/opt/aurora/src/aurora:$PATH
     export MOOSE_LIBRARY_PATH=/home/pshriwise/opt/aurora/src/aurora/openmc/lib/
     export OPENMC_CROSS_SECTIONS=$HOME/opt/openmc/xs/endfb71_hdf5/cross_sections.xml
+    export PYTHONPATH=$HOME/opt/aurora/soft/lib/python3.9/site-packages:$PYTHONPATH
     pyenv shell 3.9.1-aurora
 }
 
