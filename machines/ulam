@@ -70,6 +70,12 @@ function env_cardinal() {
     pyenv shell 3.6.6
 }
 
+function env_pygriffin() {
+    export PATH=$HOME/opt/griffin/:$PATH
+    export PYTHONPATH=$HOME/opt/griffin/moose/python:$PYTHONPATH
+    pyenv shell 3.7.3-pygriffin
+}
+
 function env_openmc() {
     # EXECUTABLES
     PATH=$HOME/opt/openmc/bin:$PATH
