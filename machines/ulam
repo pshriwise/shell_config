@@ -42,7 +42,7 @@ function env_enrico() {
     export OPENMC_CROSS_SECTIONS=$HOME/opt/openmc/xs/lib80x_hdf5/cross_sections.xml
 }
 
-function env_moose_copmile() {
+function env_moose_compile() {
     # set environment for conda MPI compilers
     export MPICH_FC=gfortran
     export HDF5_ROOT=/usr/lib/x86_64-linux-gnu/hdf5/mpich/
@@ -51,7 +51,7 @@ function env_moose_copmile() {
 }
 
 function env_aurora() {
-    env_moose_copmile()
+    env_moose_compile()
     export PATH=$HOME/opt/aurora/soft/bin:$PATH
     export PATH=$HOME/opt/aurora/src/aurora:$PATH
     export MOOSE_LIBRARY_PATH=/home/pshriwise/opt/aurora/src/aurora/openmc/lib/
@@ -62,7 +62,7 @@ function env_aurora() {
 
 
 function env_cardinal() {
-    env_moose_copmile()
+    env_moose_compile()
 
     export PATH=$HOME/opt/cardinal/:$HOME/opt/cardinal/install/bin:$PATH
     export PATH=$HOME/opt/cardinal/contrib/moose/libmesh/installed/bin:$PATH
