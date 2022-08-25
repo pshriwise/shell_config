@@ -14,6 +14,9 @@ then
         if [[ $MACHINE_NAME == "dawn" ]]; then
             MACHINE_NAME="$MACHINE_NAME 🔆"
         fi
+        if [[ $MACHINE_NAME == "dusk" ]]; then
+            MACHINE_NAME="$MACHINE_NAME 🌙"
+        fi
         echo "Imported configuration for $MACHINE_NAME"
     elif [ -d $HOME/.machine/ ]
     then
