@@ -14,7 +14,7 @@ pyenv shell 3.9.2
 ##############################
 # Pre-packaged Installations #
 ##############################
-export PATH=$HOME/soft/paraview/bin:$PATH
+export PATH=$PATH:$HOME/soft/paraview/bin
 
 alias cubit='clarox -nojournal'
 alias coreform_cubit='HDF5_DISABLE_VERSION_CHECK=1 coreform_cubit -nojournal'
@@ -142,3 +142,4 @@ function env_mcnp() {
 # SSH Aliases #
 ###############
 alias anl_vpn="tmux new -d 'ssh homes-gce'"
+alias nse_vpn="sshuttle -D --dns -r wiley 0/0"
