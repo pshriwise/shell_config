@@ -41,10 +41,6 @@ Host gitlab.cels.anl.gov
      User shriwise
      ProxyJump mcs
 
-Host mcs
-     HostName login.mcs.anl.gov
-     DynamicForward 32000
-
 Host wiley
      HostName wiley.ne.anl.gov
      ProxyJump login-gce
@@ -52,42 +48,35 @@ Host wiley
 
 Host ci1
      HostName ci1.ne.anl.gov
-     ProxyJump wiley
      User pshriwise
 
 Host gary
      HostName gary.ne.anl.gov
-     ProxyJump wiley
      User pshriwise
 
 Host arnold
      HostName arnold.ne.anl.gov
-     ProxyJump wiley
      User pshriwise
 
 Host vtr1
      HostName vtr1.ne.anl.gov
-     ProxyJump wiley
+     ProxyJump login-gce
      User pshriwise
 
 Host vtr2
      HostName vtr2.ne.anl.gov
-     ProxyJump wiley
      User pshriwise
 
 Host vtr3
      HostName vtr3.ne.anl.gov
-     ProxyJump wiley
      User pshriwise
 
 Host vtr5
      HostName vtr5.ne.anl.gov
-     ProxyJump wiley
      User pshriwise
 
 Host kookie
      HostName kookie.ne.anl.gov
-     ProxyJump wiley
      User pshriwise
 
 Host jlse
