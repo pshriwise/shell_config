@@ -176,7 +176,7 @@ ControlPath ~/.ssh/.control_channels/%h:%p:%r
 Host login-gce
 Hostname logins.cels.anl.gov
 User pshriwise
-IdentityFile gce
+IdentityFile ~/.ssh/gce
 ControlMaster auto
 ControlPersist yes
 LogLevel FATAL
@@ -185,7 +185,7 @@ LogLevel FATAL
 Host homes-gce
 Hostname homes.cels.anl.gov
 User pshriwise
-IdentityFile gce
+IdentityFile ~/.ssh/gce
 ProxyCommand ssh login-gce -q -W %h:%p
 DynamicForward 32000
 ForwardX11 yes
