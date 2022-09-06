@@ -100,7 +100,6 @@ function env_openmc() {
     echo "Added OpenMC to environment"
 }
 
-
 function env_dag_openmc_cmp() {
     # EXECUTABLES
     PATH=$HOME/dag_openmc_cmp/miniconda3/envs/openmc_umesh/bin:$PATH
@@ -156,24 +155,26 @@ function env_delta () {
     echo "Activated OpenMC Delta Tracking dev environment (installs in $HOME/delta_tracking/opt)"
 }
 
+function env_conda {
+    >>> conda initialize >>>
+    !! Contents within this block are managed by 'conda init' !!
+    __conda_setup="$('/home/pshriwise/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
+    else
+        if [ -f "/home/pshriwise/miniconda3/etc/profile.d/conda.sh" ]; then
+            . "/home/pshriwise/miniconda3/etc/profile.d/conda.sh"
+        else
+            export PATH="/home/pshriwise/miniconda3/bin:$PATH"
+        fi
+    fi
+    unset __conda_setup
+    <<< Conda initialize <<<
+}
+
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init --path)"
     eval "$(pyenv init -)"
 fi
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/home/pshriwise/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/home/pshriwise/miniconda3/etc/profile.d/conda.sh" ]; then
-#         . "/home/pshriwise/miniconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/home/pshriwise/miniconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# <<< Conda initialize <<<
