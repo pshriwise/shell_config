@@ -156,8 +156,7 @@ function env_delta () {
 }
 
 function env_conda {
-    >>> conda initialize >>>
-    !! Contents within this block are managed by 'conda init' !!
+    # !! Contents within this block are managed by 'conda init' !!
     __conda_setup="$('/home/pshriwise/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
     if [ $? -eq 0 ]; then
         eval "$__conda_setup"
@@ -169,7 +168,6 @@ function env_conda {
         fi
     fi
     unset __conda_setup
-    <<< Conda initialize <<<
 }
 
 export PYENV_ROOT="$HOME/.pyenv"
