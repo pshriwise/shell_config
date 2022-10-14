@@ -16,6 +16,11 @@ pyenv shell 3.9.2
 ##############################
 export PATH=$PATH:$HOME/soft/paraview/bin
 
+##########################
+# Optional Software Path #
+##########################
+export PATH=$HOME/opt/bin:$PATH
+
 alias cubit='clarox -nojournal'
 alias coreform_cubit='HDF5_DISABLE_VERSION_CHECK=1 coreform_cubit -nojournal'
 
@@ -61,8 +66,25 @@ function env_cubit() {
 }
 
 
-function env_conda() {
-    eval "$(/home/shriwise/opt/miniconda3/bin/conda shell.zsh hook)"
+function env_mamba() {
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/pshriwise/soft/mambaforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/pshriwise/soft/mambaforge3/etc/profile.d/conda.sh" ]; then
+        . "/home/pshriwise/soft/mambaforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/pshriwise/soft/mambaforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+if [ -f "/home/pshriwise/soft/mambaforge3/etc/profile.d/mamba.sh" ]; then
+    . "/home/pshriwise/soft/mambaforge3/etc/profile.d/mamba.sh"
+fi
+# <<< conda initialize <<<
 }
 
 function env_openmc() {
