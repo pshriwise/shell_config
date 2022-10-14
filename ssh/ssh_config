@@ -88,7 +88,7 @@ Host kookie
 
 Host jlse
      HostName login.jlse.anl.gov
-     ProxyJump homes-gce
+     ProxyJump login-gce
      User pshriwise
 
 Host ec2p
@@ -186,3 +186,33 @@ ProxyCommand ssh login-gce -q -W %h:%p
 DynamicForward 32000
 ForwardX11 yes
 ###################################################
+
+###################################################
+ControlPath ~/.ssh/.control_channels/%h:%p:%r
+
+Host login-gce-service
+Hostname logins.cels.anl.gov
+User svc_pyarc
+IdentityFile ~/.ssh/gce_svcpyarc
+ControlMaster auto
+ControlPersist yes
+LogLevel FATAL
+
+
+Host homes-gce-service
+Hostname homes.cels.anl.gov
+User svcpyarc
+IdentityFile ~/.ssh/gce_svc_pyarc
+ProxyCommand ssh login-gce -q -W %h:%p
+DynamicForward 32000
+ForwardX11 yes
+###################################################
+
+Host wiley-service
+     HostName wiley.ne.anl.gov
+     User svcpyarc
+
+Host ci1-service
+     HostName ci1.ne.anl.gov
+     ProxyJump wiley
+     User svcpyarc
