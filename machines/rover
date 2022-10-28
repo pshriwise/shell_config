@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# pyenv environment
+
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+###############
+# SSH Aliases #
+###############
+alias anl_vpn="tmux new -d 'ssh homes-gce'"
+alias nse_vpn="sshuttle -D --dns -r wiley 0/0"
