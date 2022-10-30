@@ -127,9 +127,9 @@ ForwardX11 yes
 ForwardX11Trusted yes
 
 Host dawn
-       HostName 146.137.70.66
+       HostName 107.204.179.100
        User pshriwise
-       Port 5000
+DynamicForward 8000
 ForwardAgent yes
 ForwardX11 yes
 ForwardX11Trusted yes
