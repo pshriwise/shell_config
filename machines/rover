@@ -12,3 +12,6 @@ eval "$(pyenv init -)"
 ###############
 alias anl_vpn="tmux new -d 'ssh homes-gce'"
 alias nse_vpn="sshuttle -D --dns -r wiley 0/0"
+alias pip="pip3"
+alias python="python3"
+alias code='open -a "Visual Studio Code"'
