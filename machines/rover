@@ -12,6 +12,22 @@ eval "$(pyenv init -)"
 ###############
 alias anl_vpn="tmux new -d 'ssh homes-gce'"
 alias nse_vpn="sshuttle -D --dns -r wiley 0/0"
-alias pip="pip3"
-alias python="python3"
 alias code='open -a "Visual Studio Code"'
+
+# Optional software path
+export PATH=$HOME/opt/bin:$PATH
+export PATH=/opt/homebrew/opt/pyside@2/bin:$PATH
+
+function env_clang() {
+    CLANG_DIR=$HOME/soft/clang
+    export PATH=$CLANG_DIR/bin:$PATH
+    export LD_LIBRARY_PATH=$CLANG_DIR/lib:$LD_LIBRARY_PATH
+    export LIBRARY_PATH=$CLANG_DIR/lib:$LIBRARY_PATH
+    export CXX=$CLANG_DIR/bin/clang++
+    export CC=$CLANG_DIR/bin/clang
+}
+
+function env_openmc() {
+    export OPENMC_CROSS_SECTIONS=$HOME/data/xs/openmc/nndc_hdf5/cross_sections.xml
+    export OMP_NUM_THREADS=2
+}
