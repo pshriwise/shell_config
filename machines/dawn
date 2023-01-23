@@ -160,6 +160,10 @@ function env_mcnp() {
     ulimit -s unlimited
 }
 
+function env_rust() {
+    export PATH=$HOME/.cargo/bin:$PATH
+}
+
 ###############
 # SSH Aliases #
 ###############
