@@ -54,3 +54,12 @@ An installation script for **most** of these packages is provided as
 `prerequisites.sh`. In partuclar, the `mpsyt` package will need to be installed
 manually.
 
+### Updating the GNOME terminal
+
+There is a profile description in `/local/gnome-terminal-profile.dconf` that can be applied with the command:
+
+```shell
+$ cat gnome-terminal-profile.dconf | dconf load /org/gnome/terminal/
+```
+
+(a similar `dconf` command with `dump` will allow one to export the profile if it needs updating)
