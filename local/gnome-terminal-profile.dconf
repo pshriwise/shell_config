@@ -1,0 +1,10 @@
+[:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+audible-bell=false
+background-color='rgb(3,19,31)'
+cursor-blink-mode='on'
+cursor-shape='ibeam'
+font='Ubuntu Mono derivative Powerline 12'
+foreground-color='rgb(224,232,248)'
+use-system-font=false
+use-theme-colors=false
+visible-name='pshriwise'
