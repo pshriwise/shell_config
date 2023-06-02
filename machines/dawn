@@ -70,6 +70,7 @@ function env_cardinal() {
     export LD_LIBRARY_PATH=$HOME/soft/cardinal/contrib/moose/libmesh/installed/lib:$LD_LIBRARY_PATH
     # make sure cardinal finds the right OpenMC library at runtime
     export LD_LIBRARY_PATH=$HOME/soft/cardinal/install/lib:$LD_LIBRARY_PATH
+    export NEKRS_HOME=/home/pshriwise/soft/cardinal/install
 }
 
 function env_mamba() {
