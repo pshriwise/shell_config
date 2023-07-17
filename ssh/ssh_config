@@ -32,7 +32,7 @@ Host ec2
      User ubuntu
 
 Host ulam
-     HostName ulam.cels.anl.gov
+     HostName ulam.cps.anl.gov
      ProxyJump login-gce
      User pshriwise
      LocalForward 4001 localhost:4001
