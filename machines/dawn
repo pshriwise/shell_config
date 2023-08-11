@@ -178,6 +178,10 @@ function env_rust() {
     export PATH=$HOME/.cargo/bin:$PATH
 }
 
+function env_genfoam {
+    source /usr/lib/openfoam/openfoam2306/etc/bashrc
+}
+
 ###############
 # SSH Aliases #
 ###############
