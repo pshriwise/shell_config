@@ -166,6 +166,12 @@ Host bebop
      User pshriwise
      ProxyJump login-gce
 
+Host openmc-workshop-proxy
+     HostName 44.207.34.193
+     User ec2-user
+     IdentityFile ~/.ssh/dawn-tmp.pem
+
+
 ###################################################
 ControlPath ~/.ssh/.control_channels/%h:%p:%r
 
