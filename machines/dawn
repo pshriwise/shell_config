@@ -182,6 +182,13 @@ function env_genfoam {
     source /usr/lib/openfoam/openfoam2306/etc/bashrc
 }
 
+function rebuild_w_type {
+    cwd=$(pwd)
+    BUILD_TYPE=$1
+    for i in "${@:2}"; do cd $i && cmake .. -DCMAKE_BUILD_TYPE=$BUILD_TYPE && make -j10 all install; done
+    cd $cwd
+}
+
 ###############
 # SSH Aliases #
 ###############
