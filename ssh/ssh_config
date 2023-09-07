@@ -52,6 +52,7 @@ Host wiley
 
 Host ci1
      HostName ci1.ne.anl.gov
+     ProxyJump wiley
      User pshriwise
 
 Host gary
@@ -64,26 +65,32 @@ Host arnold
 
 Host vtr1
      HostName vtr1.ne.anl.gov
+     ProxyJump wiley
      User pshriwise
 
 Host vtr2
      HostName vtr2.ne.anl.gov
+     ProxyJump wiley
      User pshriwise
 
 Host vtr3
      HostName vtr3.ne.anl.gov
+     ProxyJump wiley
      User pshriwise
 
 Host vtr4
      HostName vtr4.ne.anl.gov
+     ProxyJump wiley
      User pshriwise
 
 Host vtr5
      HostName vtr5.ne.anl.gov
+     ProxyJump wiley
      User pshriwise
 
 Host kookie
      HostName kookie.ne.anl.gov
+     ProxyJump wiley
      User pshriwise
 
 Host jlse
