@@ -19,7 +19,7 @@ export PATH=$HOME/opt/bin:$PATH
 export PATH=/opt/homebrew/opt/pyside@2/bin:$PATH
 
 function env_clang() {
-    CLANG_DIR=$HOME/soft/clang
+    CLANG_DIR=$HOME/soft/compilers/clang
     export PATH=$CLANG_DIR/bin:$PATH
     export LD_LIBRARY_PATH=$CLANG_DIR/lib:$LD_LIBRARY_PATH
     export LIBRARY_PATH=$CLANG_DIR/lib:$LIBRARY_PATH
@@ -30,6 +30,10 @@ function env_clang() {
 function env_openmc() {
     export OPENMC_CROSS_SECTIONS=$HOME/data/xs/openmc/nndc_hdf5/cross_sections.xml
     export OMP_NUM_THREADS=2
+}
+
+function env_brew() {
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 }
 
 function env_mamba() {
@@ -53,3 +57,5 @@ fi
 # <<< conda initialize <<<
 
 }
+
+env_brew
