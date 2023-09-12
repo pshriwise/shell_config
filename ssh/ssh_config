@@ -86,18 +86,13 @@ Host vtr4
      ProxyJump wiley
      User pshriwise
 
+##########
+# grep for "sshuttle" in commonrc before trying any fancy tunneling again
+##########
 Host vtr5
      HostName vtr5.ne.anl.gov
      ProxyJump wiley
      User pshriwise
-ForwardAgent yes
-ForwardX11 yes
-ForwardX11Trusted yes
-
-Host vtr5-tunnel
-     HostName localhost
-     User pshriwise
-     Port 2222
 ForwardAgent yes
 ForwardX11 yes
 ForwardX11Trusted yes
