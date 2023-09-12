@@ -49,6 +49,9 @@ Host wiley
      HostName wiley.ne.anl.gov
      ProxyJump login-gce
      User pshriwise
+ForwardAgent yes
+ForwardX11 yes
+ForwardX11Trusted yes
 
 Host ci1
      HostName ci1.ne.anl.gov
@@ -87,9 +90,17 @@ Host vtr5
      HostName vtr5.ne.anl.gov
      ProxyJump wiley
      User pshriwise
-     ForwardAgent yes
-     ForwardX11 yes
-     ForwardX11Trusted yes
+ForwardAgent yes
+ForwardX11 yes
+ForwardX11Trusted yes
+
+Host vtr5-tunnel
+     HostName localhost
+     User pshriwise
+     Port 2222
+ForwardAgent yes
+ForwardX11 yes
+ForwardX11Trusted yes
 
 Host kookie
      HostName kookie.ne.anl.gov
