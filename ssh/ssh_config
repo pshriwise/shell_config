@@ -91,8 +91,8 @@ Host vtr4
 ##########
 Host vtr5
      HostName vtr5.ne.anl.gov
-     ProxyJump wiley
      User pshriwise
+ProxyJump wiley
 ForwardAgent yes
 ForwardX11 yes
 ForwardX11Trusted yes
@@ -143,8 +143,9 @@ ForwardX11 yes
 ForwardX11Trusted yes
 
 Host dawn
-       HostName 107.204.179.100
+       HostName ep-r031480.ep.wisc.edu
        User pshriwise
+ProxyJump cae
 DynamicForward 8000
 ForwardAgent yes
 ForwardX11 yes
