@@ -106,6 +106,7 @@ directly above the
 
 For the `sudo` command: `/etc/pam.d/sudo`
 For the GNOME login: `/etc/pam.d/gdm-password`
+For ALL logins (including screensaver unlock), add to the top of: `/etc/pam.d/common-auth`
 
 
 NOTE: This can mess with unlocking the Gnome keyring and cause an annoying prompt
