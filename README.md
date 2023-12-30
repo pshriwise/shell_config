@@ -63,3 +63,50 @@ $ cat gnome-terminal-profile.dconf | dconf load /org/gnome/terminal/
 ```
 
 (a similar `dconf` command with `dump` will allow one to export the profile if it needs updating)
+
+
+## Enabling passwordless login with a yubikey
+
+1. Install required privilieged access management library (`libpam-u2f`)
+
+```shell
+$ sudo apt install libpam-u2f
+```
+
+2. Associate the U2F keys with the account
+
+```
+$ mkdir /etc/Yubico/
+$ pamu2fcfg > /etc/Yubico/u2f_keys
+```
+
+(touch key after entering the final command here)
+
+3. Create a security file for this authentication method
+
+```shell
+$ echo "auth sufficient pam_u2f.so authfile=/etc/Yubico/u2f_keys" > /etc/pam.d/common-u2f
+```
+
+4. Update relevant security protocal files under `/etc/pam.d/`
+
+Add the line
+
+```
+@include common-u2f
+```
+
+directly above the
+
+```
+@include common-auth
+
+```
+
+
+For the `sudo` command: `/etc/pam.d/sudo`
+For the GNOME login: `/etc/pam.d/gdm-password`
+
+
+NOTE: This can mess with unlocking the Gnome keyring and cause an annoying prompt
+on each login. The simple fix for this is to make the Gnome keyring password empty.
