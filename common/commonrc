@@ -205,7 +205,13 @@ function delayed_cmd() {
 
 export EDITOR='emacs -nw'
 
+################################
+# CUSTOM SCRIPTS & EXECUTABLES #
+################################
+export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.bash/bin:$PATH
+
+
 
 #######################
 ### ADD SSH ALIASES ###
