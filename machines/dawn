@@ -52,6 +52,12 @@ if [ "/bin/bash" != "$BASH" ]; then
     compdef _docker-run-img docker-run-img
 fi
 
+function chase() {
+    echo $2
+    scp $1 $2:$3 && ssh -t $2 "cd $3 && exec ${SHELL} -l"
+}
+
+
 #########################
 # Environment Functions #
 #########################
@@ -77,29 +83,8 @@ function env_cardinal() {
 }
 
 function env_mamba() {
-  eval "$(/home/pshriwise/soft/miniforge3/bin/conda shell.zsh hook)"
+    eval "$(/home/pshriwise/soft/miniforge3/bin/conda shell.zsh hook)"
 }
-
-# function env_mamba() {
-# # >>> conda initialize >>>
-# # !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/home/pshriwise/soft/mambaforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/home/pshriwise/soft/mambaforge/etc/profile.d/conda.sh" ]; then
-#         . "/home/pshriwise/soft/mambaforge/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/home/pshriwise/soft/mambaforge/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-
-# if [ -f "/home/pshriwise/soft/mambaforge/etc/profile.d/mamba.sh" ]; then
-#     . "/home/pshriwise/soft/mambaforge/etc/profile.d/mamba.sh"
-# fi
-# # <<< conda initialize <<<
-# }
 
 function env_openmc() {
 
@@ -115,14 +100,7 @@ function env_openmc() {
 
     # DATA
     export OPENMC_XS_DIR=$HOME/data/xs/openmc
-    export OPENMC_MULTIPOLE_LIBRARY=$OPENMC_XS_DIR/WMP_Library
-    export OPENMC_CROSS_SECTIONS=$OPENMC_XS_DIR/nndc_hdf5/cross_sections.xml
-    export OPENMC_ENDF_DATA=$OPENMC_XS_DIR/endf-b-vii.1
-
-    # for testing
-    export OMP_NUM_THREADS=2
-
-    PYTHONPATH=/home/shriwise/opt/moab/lib/python3.9/site-packages:$PYTHONPATH
+    export OPENMC_CROSS_SECTIONS=$OPENMC_XS_DIR/endfb-vii.1-hdf5/cross_sections.xml
 
     # source ncrystal file if present
     if [ -f "$HOME/opt/setup.sh" ]; then
@@ -134,6 +112,29 @@ function env_openmc() {
     export_environment_vars
 
     echo "Adding OpenMC to environment"
+}
+
+function env_openmc_test() {
+
+    env_openmc
+
+    # DATA
+    export OPENMC_XS_DIR=$HOME/data/xs/openmc
+    export OPENMC_MULTIPOLE_LIBRARY=$OPENMC_XS_DIR/WMP_Library
+    export OPENMC_CROSS_SECTIONS=$OPENMC_XS_DIR/nndc_hdf5/cross_sections.xml
+    export OPENMC_ENDF_DATA=$OPENMC_XS_DIR/endf-b-vii.1
+
+    # for testing
+    export OMP_NUM_THREADS=2
+
+    debug_check=$(openmc -v | grep "Debug")
+
+    YELLOW='\033[1;33m'
+    NC='\033[0m' # No Color
+    if [ -z "${debug_check}" ] ; then
+       echo "${YELLOW}WARNING: OpenMC executable build type is not \"Debug\"${NC}"
+       echo "$(openmc -v)"
+    fi
 }
 
 function env_mcnp() {
