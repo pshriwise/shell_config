@@ -11,6 +11,16 @@ eval "$(pyenv init --path)"
 # default pyenv shell
 pyenv shell 3.9.1
 
+##########################
+# Optional Software Path #
+##########################
+export PATH=$HOME/opt/bin:$PATH
+
+###########
+# Aliases #
+###########
+alias gvw='gh repo view --web'
+
 ####################
 # Custom Functions #
 ####################
@@ -45,6 +55,52 @@ function export_environment_vars() {
     export LD_LIBRARY_PATH
     export HDF5_ROOT
     export PYTHONPATH
+}
+
+function env_openmc() {
+
+    # EXECUTABLES
+    PATH=$HOME/opt/bin:$HOME/.local/bin:$PATH
+    PATH=$HOME/opt/njoy/bin:$PATH
+
+    pyenv shell 3.10.1
+
+    # DATA
+    export OPENMC_XS_DIR=$HOME/data/xs/openmc
+    export OPENMC_MULTIPOLE_LIBRARY=$OPENMC_XS_DIR/WMP_Library
+    export OPENMC_CROSS_SECTIONS=$OPENMC_XS_DIR/nndc_hdf5/cross_sections.xml
+    export OPENMC_ENDF_DATA=$OPENMC_XS_DIR/endf-b-vii.1
+
+    # for testing
+    export OMP_NUM_THREADS=2
+
+    PYTHONPATH=/home/shriwise/opt/moab/lib/python3.10/site-packages:$PYTHONPATH
+
+    # source ncrystal file if present
+    if [ -f "$HOME/opt/setup.sh" ]; then
+        echo "Setting up NCRYSTAL environment..."
+        source $HOME/opt/setup.sh
+    fi
+
+    # export environment varialbers
+    export_environment_vars
+
+    echo "Adding OpenMC to environment"
+}
+
+function env_micromamba() {
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba init' !!
+export MAMBA_EXE='/home/pshriwise/tmp/bin/micromamba';
+export MAMBA_ROOT_PREFIX='/home/pshriwise/micromamba';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell bash --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias micromamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
 }
 
 ###############
