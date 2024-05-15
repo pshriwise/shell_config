@@ -181,7 +181,7 @@ function env_ww_gen () {
 
 function env_mcnp {
     export DATAPATH=/opt/mcnp/6.2/MCNP_DATA/
-    export PATH=/opt/mcnp/6.2/MCNP_CODE/bin/mcnp6:$PATH
+    export PATH=/opt/mcnp/6.2/MCNP_CODE/bin/:$PATH
 }
 
 function env_conda {
