@@ -82,6 +82,17 @@ function env_cardinal() {
     export PYTHONPATH=$HOME/soft/cardinal/contrib/moose/python:$PYTHONPATH
 }
 
+function env_cardinal_dev() {
+    # make sure the MOOSE library links to the right libmesh library at runtime
+    export LD_LIBRARY_PATH=$HOME/soft/cardinal-dev/contrib/moose/libmesh/installed/lib:$LD_LIBRARY_PATH
+    # make sure cardinal finds the right OpenMC library at runtime
+    export LD_LIBRARY_PATH=$HOME/soft/cardinal-dev/install/lib:$LD_LIBRARY_PATH
+    export NEKRS_HOME=/home/pshriwise/soft/cardinal-dev/install
+    export PYTHONPATH=$HOME/soft/cardinal-dev/contrib/moose/python:$PYTHONPATH
+    export PYTHONPATH=$HOME/soft/cardinal-dev/contrib/openmc:$PYTHONPATH
+    export PATH=$HOME/soft/cardinal-dev/install/bin:$PATH
+}
+
 function env_mamba() {
     eval "$(/home/pshriwise/soft/miniforge3/bin/conda shell.zsh hook)"
 }
@@ -92,7 +103,7 @@ function env_openmc() {
     PATH=$HOME/opt/bin:$HOME/.local/bin:$PATH
     PATH=$HOME/opt/njoy/bin:$PATH
 
-    pyenv shell 3.9.1
+    pyenv shell 3.10.7
 
     # Still need MOAB's shared libraries depending on it's install method
     # (autotools vs. CMake)
