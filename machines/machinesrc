@@ -12,19 +12,19 @@ then
     then
         source $HOME/.bash/machines/$MACHINE_NAME;
         if [[ $MACHINE_NAME == "dawn" ]]; then
-            MACHINE_NAME="$MACHINE_NAME 🔆"
+            MACHINE_ICON="🔆"
         fi
         if [[ $MACHINE_NAME == "dusk" ]]; then
-            MACHINE_NAME="$MACHINE_NAME 🌙"
+            MACHINE_ICON="🌙"
         fi
-        echo "Imported configuration for $MACHINE_NAME"
+        echo "Imported configuration for $MACHINE_NAME $MACHINE_ICON"
     elif [ -d $HOME/.machine/ ]
     then
     MACHINE_NAME="$(ls ~/.machine/)"
     echo "Found dir-based machine name..."
-    echo "Importing configuration for $MACHINE_NAME"
+    echo "Importing configuration for $MACHINE_NAME $MACHINE_ICON"
     source $HOME/.bash/machines/$MACHINE_NAME;
     else
-        echo "No specific configuration found for $MACHINE_NAME"
+        echo "No specific configuration found for $MACHINE_NAME $MACHINE_ICON"
     fi
 fi

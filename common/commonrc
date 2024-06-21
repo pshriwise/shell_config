@@ -45,6 +45,8 @@ ls-time() {
 
 grepall (){ grep -rn $1 ./* --color=always; }
 
+machine_config () { source ~/.bash/machines/machinesrc ; emacs -nw ~/.bash/machines/$MACHINE_NAME }
+
 # tmux aliases
 alias ta='tmux attach'
 
