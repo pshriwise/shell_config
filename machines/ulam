@@ -94,7 +94,7 @@ function env_openmc() {
     # PYMOAB
     export PYTHONPATH=$HOME/opt/moab/lib/python3.7/site-packages:$PYTHONPATH
 
-    pyenv shell 3.7.3
+    pyenv shell 3.11.7
 
     export_environment_vars
     echo "Added OpenMC to environment"
