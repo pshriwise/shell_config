@@ -188,6 +188,10 @@ Host openmc-workshop-proxy
      User ec2-user
      IdentityFile ~/.ssh/dawn-tmp.pem
 
+Host openmc-workshop-image-edit
+     HostName 52.202.110.50
+     User ubuntu
+     IdentityFile ~/.ssh/dawn-tmp.pem
 
 ###################################################
 ControlPath ~/.ssh/.control_channels/%h:%p:%r
