@@ -147,6 +147,7 @@ Host dawn
        User pshriwise
 ProxyJump cae
 DynamicForward 8000
+DynamicForward 32000
 ForwardAgent yes
 ForwardX11 yes
 ForwardX11Trusted yes
@@ -265,3 +266,8 @@ Host jedi
      HostName login.jedi.fz-juelich.de
      User shriwise1
      IdentityFile ~/.ssh/id_jedi
+
+Host coreform
+     HostName top.coreform.com
+     Port 1924
+     User shriwise
