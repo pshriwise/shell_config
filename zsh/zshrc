@@ -57,3 +57,7 @@ function _travis_trigger_build() {
 
 # do not expand some expressions before passing to cmd
 setopt +o nomatch
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
