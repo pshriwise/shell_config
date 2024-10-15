@@ -243,3 +243,14 @@ Host ci1-service
      HostName ci1.ne.anl.gov
      ProxyJump wiley
      User svcpyarc
+
+Host judac
+     HostNAme judac.fz-juelich.de
+     User shriwise1
+     IdentityFile ~/.ssh/id_judoor
+
+Host jureca
+     AddressFamily inet
+     HostName jureca-ipv4.fz-juelich.de
+     User shriwise1
+     IdentityFile ~/.ssh/id_jureca
