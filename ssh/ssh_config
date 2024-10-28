@@ -254,3 +254,9 @@ Host jureca
      HostName jureca-ipv4.fz-juelich.de
      User shriwise1
      IdentityFile ~/.ssh/id_jureca
+
+Host jedi
+     AddressFamily inet
+     HostName login.jedi.fz-juelich.de
+     User shriwise1
+     IdentityFile ~/.ssh/id_jedi
