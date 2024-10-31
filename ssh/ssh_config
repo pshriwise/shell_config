@@ -178,6 +178,11 @@ Host sawtooth
      User shripatr
      ProxyJump inl
 
+Host bitterroot
+     HostName bitterroot1.inl.gov
+     User shripatr
+     ProxyJump inl
+
 Host bebop
      HostName bebop.lcrc.anl.gov
      User pshriwise
