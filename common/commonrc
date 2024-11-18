@@ -42,6 +42,7 @@ ls-time() {
     fi
 }
 
+dawn_connect() { tmux new -n dawn-connection -d "ssh -L 8888:localhost:8888 dawn"; }
 
 grepall (){ grep -rn $1 ./* --color=always; }
 
