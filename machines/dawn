@@ -58,6 +58,20 @@ function chase() {
 }
 
 
+jupyter-scratch() {
+  if [ ! -d $HOME/tmp/jupyter-lab-scratch ]; then
+       mkdir -p $HOME/tmp/jupyter-lab-scratch
+  fi
+
+  res=$(tmux ls | grep jupyter-scratch)
+
+  if [[ -z "${res}" ]]; then
+      echo "No jupyter scratch session active. Starting the server..."
+      tmux new -s jupyter-scratch -d
+      tmux send-keys -t jupyter-scratch "cd $HOME/tmp/jupyter-lab-scratch && env_openmc && jupyter lab --port=8888 --no-browser" Enter
+  fi
+}
+
 #########################
 # Environment Functions #
 #########################
