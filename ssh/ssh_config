@@ -261,6 +261,12 @@ Host jureca
      User shriwise1
      IdentityFile ~/.ssh/id_jureca
 
+Host juwels
+     AddressFamily inet
+     HostName juwels-booster.fz-juelich.de
+     User shriwise1
+     IdentityFile ~/.ssh/id_juwels
+
 Host jedi
      AddressFamily inet
      HostName login.jedi.fz-juelich.de
