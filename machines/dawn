@@ -87,24 +87,32 @@ function env_cubit() {
     export PATH=$PATH:/opt/Coreform-Cubit-2021.11/bin/
 }
 
-function env_cardinal() {
+function env_cardinal_common() {
+    if [ -z "$CARDINAL_DIR" ]; then echo "CARDINAL_DIR IS UNSET"; return; fi
     # make sure the MOOSE library links to the right libmesh library at runtime
-    export LD_LIBRARY_PATH=$HOME/soft/cardinal/contrib/moose/libmesh/installed/lib:$LD_LIBRARY_PATH
+    export LD_LIBRARY_PATH=$CARDINAL_DIR/contrib/moose/libmesh/installed/lib:$LD_LIBRARY_PATH
     # make sure cardinal finds the right OpenMC library at runtime
-    export LD_LIBRARY_PATH=$HOME/soft/cardinal/install/lib:$LD_LIBRARY_PATH
-    export NEKRS_HOME=/home/pshriwise/soft/cardinal/install
-    export PYTHONPATH=$HOME/soft/cardinal/contrib/moose/python:$PYTHONPATH
+    export LD_LIBRARY_PATH=$CARDINAL_DIR/install/lib:$LD_LIBRARY_PATH
+    export NEKRS_HOME=$CARDINAL_DIR/install
+    export MOOSE_DIR=$CARDINAL_DIR/contrib/moose
+    export PYTHONPATH=$MOOSE_DIR/python:$PYTHONPATH
+    export PYTHONPATH=$CARDINAL_DIR/contrib/openmc:$PYTHONPATH
+    export PATH=$CARDINAL_DIR:$PATH
+    export PATH=$CARDINAL_DIR/install/bin:$PATH
+
+    # OpenMC DATA
+    export OPENMC_XS_DIR=$HOME/data/xs/openmc
+    export OPENMC_CROSS_SECTIONS=$OPENMC_XS_DIR/endfb-vii.1-hdf5/cross_sections.xml
+}
+
+function env_cardinal() {
+    export CARDINAL_DIR=$HOME/soft/cardinal-dev
+    env_cardinal_common
 }
 
 function env_cardinal_dev() {
-    # make sure the MOOSE library links to the right libmesh library at runtime
-    export LD_LIBRARY_PATH=$HOME/soft/cardinal-dev/contrib/moose/libmesh/installed/lib:$LD_LIBRARY_PATH
-    # make sure cardinal finds the right OpenMC library at runtime
-    export LD_LIBRARY_PATH=$HOME/soft/cardinal-dev/install/lib:$LD_LIBRARY_PATH
-    export NEKRS_HOME=/home/pshriwise/soft/cardinal-dev/install
-    export PYTHONPATH=$HOME/soft/cardinal-dev/contrib/moose/python:$PYTHONPATH
-    export PYTHONPATH=$HOME/soft/cardinal-dev/contrib/openmc:$PYTHONPATH
-    export PATH=$HOME/soft/cardinal-dev/install/bin:$PATH
+    export CARDINAL_DIR=$HOME/soft/cardinal-dev
+    env_cardinal_common
 }
 
 function env_mamba() {
