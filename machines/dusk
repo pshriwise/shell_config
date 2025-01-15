@@ -9,7 +9,7 @@ eval "$(pyenv init -)"
 eval "$(pyenv init --path)"
 
 # default pyenv shell
-pyenv shell 3.13.3
+pyenv shell 3.13.0
 
 ##########################
 # Optional Software Path #
