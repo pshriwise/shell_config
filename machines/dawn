@@ -106,7 +106,7 @@ function env_cardinal_common() {
 }
 
 function env_cardinal() {
-    export CARDINAL_DIR=$HOME/soft/cardinal-dev
+    export CARDINAL_DIR=$HOME/soft/cardinal
     env_cardinal_common
 }
 
