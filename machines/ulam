@@ -19,6 +19,11 @@ function env_siggraph() {
     echo "Environment set for SIGGRAPH testing."
 }
 
+function env_xdg_benchmarking() {
+    export OPENMC_CROSS_SECTIONS=~/data/xs/openmc/endfb-viii.0-hdf5/cross_sections.xml
+    pyenv shell 3.12.0
+}
+
 function env_openfoam_dev() {
 
     export MPI_ARCH_INC="-I/usr/include/mpich -L/usr/lib/x86_64-linux-gnu"
@@ -84,7 +89,7 @@ function env_cardinal_common() {
 }
 
 function env_cardinal() {
-    export CARDINAL_DIR=$HOME/soft/cardinal-dev
+    export CARDINAL_DIR=$HOME/soft/cardinal
     env_cardinal_common
 }
 
