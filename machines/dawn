@@ -125,7 +125,7 @@ function env_openmc() {
     PATH=$HOME/opt/bin:$HOME/.local/bin:$PATH
     PATH=$HOME/opt/njoy/bin:$PATH
 
-    pyenv shell 3.10.7
+    pyenv shell 3.11.7
 
     # Still need MOAB's shared libraries depending on it's install method
     # (autotools vs. CMake)
