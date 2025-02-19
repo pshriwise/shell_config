@@ -37,7 +37,7 @@ function env_openmc() {
     PATH=$HOME/opt/bin:$HOME/.local/bin:$PATH
     PATH=$HOME/opt/njoy/bin:$PATH
 
-    pyenv shell 3.10.1
+    pyenv shell 3.12.7
 
     # DATA
     export OPENMC_XS_DIR=$HOME/data/xs/openmc
