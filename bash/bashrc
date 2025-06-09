@@ -37,6 +37,10 @@ fi
 ###############################
 source $HOME/.bash/bash/details
 
+# Set smart auto-complete for up-history
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+
 ##############################
 # IMPORT ALL COMMON SETTINGS #
 ##############################
