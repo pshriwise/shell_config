@@ -145,6 +145,8 @@ function env_openmc() {
     export_environment_vars
 
     echo "Adding OpenMC to environment"
+    echo "OpenMC executable $(which openmc)"
+    openmc -v
 }
 
 function env_openmc_test() {
