@@ -98,12 +98,12 @@ function remmnt {
 	echo "Using third argument to set directory name."
 	if [ ! -d ~/mnt/$3 ]; then mkdir -p ~/mnt/$3; fi
 	if [ "$(ls -A ~/mnt/$3)" ]; then echo "Destination directory is not empty. Exiting..." ; exit 1; fi
-	sshfs -oauto_cache,reconnect $1:/ ~/mnt/$3
+	sshfs -oauto_cache,reconnect $1:/home/ ~/mnt/$3
 	if [ $? -ne 0 ]; then echo "Mount failed. Removing intended destination directory..."; rmdir ~/mnt/$3; fi
     else
 	if [ ! -d ~/mnt/$1 ]; then mkdir -p ~/mnt/$1; fi
 	if [ "$(ls -A ~/mnt/$1)" ]; then echo "Destination directory is not empty. Exiting..." ; exit 1; fi
-	sshfs -oauto_cache,reconnect $1:/ ~/mnt/$1
+	sshfs -oauto_cache,reconnect $1:/home/ ~/mnt/$1
 	if [ $? -ne 0 ]; then echo "Mount failed. Removing intended destination directory..."; rmdir ~/mnt/$1; fi
     fi
 }
