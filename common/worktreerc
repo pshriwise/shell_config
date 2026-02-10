@@ -1,0 +1,114 @@
+# PR worktree: prwt <PR#> <parent_dir> [owner/repo]
+# Creates/updates: <parent_dir>/pr-<N>
+# Fetches PR head into: refs/prwt/pr-<N> (safe; never checked out)
+# Refuses to overwrite local changes
+# cd's into worktree on success
+
+prwt() {
+  emulate -L zsh
+  setopt err_return nounset pipefail
+
+  local pr parent repo
+  pr="${1:-}"
+  parent="${2:-}"
+  repo="${3:-}"
+
+  if [[ -z "${pr}" || -z "${parent}" ]]; then
+    print -u2 "usage: prwt <pr-number> <parent_dir> [owner/repo]"
+    return 2
+  fi
+
+  parent="${parent:A}"
+  mkdir -p "${parent}" || {
+    print -u2 "prwt: could not create/access parent_dir: ${parent}"
+    return 1
+  }
+
+  if [[ -z "${repo}" ]]; then
+    repo="$(gh repo view --json nameWithOwner -q .nameWithOwner 2>/dev/null)" || {
+      print -u2 "prwt: couldn't infer repo."
+      print -u2 "  set default: gh repo set-default OWNER/REPO"
+      print -u2 "  or pass it:  prwt ${pr} ${parent:q} OWNER/REPO"
+      return 2
+    }
+  fi
+
+  # Used ONLY for bare repo cache naming
+  local safe_repo
+  safe_repo="${repo//\//__}"
+
+  local bare_root
+  bare_root="${PRWT_BARE_DIR:-$HOME/.cache/prwt}"
+  bare_root="${bare_root:A}"
+
+  local bare_repo wt_path branch fetch_ref
+  bare_repo="${bare_root}/${safe_repo}.git"
+  wt_path="${parent}/pr-${pr}"      # ← FLATTENED HERE
+  branch="pr-${pr}"
+  fetch_ref="refs/prwt/${branch}"
+
+  mkdir -p "${bare_repo:h}"
+
+  # Ensure bare repo exists
+  if [[ ! -d "${bare_repo}" ]]; then
+    print -u2 "prwt: creating bare cache at ${bare_repo}"
+    git clone --bare "https://github.com/${repo}.git" "${bare_repo}" || {
+      print -u2 "prwt: failed to clone bare repo (check gh auth)"
+      return 1
+    }
+  fi
+
+  # Fetch PR head into a SAFE ref
+  git --git-dir="${bare_repo}" fetch -f "https://github.com/${repo}.git" \
+    "refs/pull/${pr}/head:${fetch_ref}" || {
+      print -u2 "prwt: failed to fetch PR #${pr} from ${repo}"
+      return 1
+    }
+
+  if [[ ! -d "${wt_path}" ]]; then
+    # Create new worktree
+    git --git-dir="${bare_repo}" worktree add --detach "${wt_path}" "${fetch_ref}" || {
+      print -u2 "prwt: failed to create worktree at ${wt_path}"
+      return 1
+    }
+    git -C "${wt_path}" switch -C "${branch}" "${fetch_ref}" || {
+      print -u2 "prwt: failed to attach branch ${branch}"
+      return 1
+    }
+  else
+    # Verify ownership
+    if ! git --git-dir="${bare_repo}" worktree list --porcelain | grep -Fq "worktree ${wt_path:A}"; then
+      print -u2 "prwt: '${wt_path}' exists but is not a worktree of ${bare_repo}"
+      return 1
+    fi
+
+    git -C "${wt_path}" switch "${branch}" 2>/dev/null || \
+      git -C "${wt_path}" switch -C "${branch}" "${fetch_ref}"
+
+    # Refuse destructive update if dirty
+    if [[ -n "$(git -C "${wt_path}" status --porcelain)" ]]; then
+      print -u2 "prwt: refusing to update ${wt_path} due to local changes."
+      print -u2 ""
+      print -u2 "Status:"
+      git -C "${wt_path}" status --porcelain | sed 's/^/  /' >&2
+      print -u2 ""
+      print -u2 "Diff summary:"
+      git -C "${wt_path}" diff --stat >&2 || true
+      return 1
+    fi
+
+    git -C "${wt_path}" reset --hard "${fetch_ref}" || {
+      print -u2 "prwt: failed to update worktree"
+      return 1
+    }
+  fi
+
+  cd "${wt_path}" || {
+    print -u2 "prwt: failed to cd into ${wt_path}"
+    return 1
+  }
+
+  print "✅ PR #${pr} ready"
+  print "   Repo: ${repo}"
+  print "   Path: ${wt_path}"
+}

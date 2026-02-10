@@ -209,11 +209,16 @@ function delayed_cmd() {
 export EDITOR='emacs -nw'
 
 ################################
+# Git stuff #
+################################
+export GIT_EDITOR='emacs -nw'
+source $HOME/.bash/common/worktreerc
+
+################################
 # CUSTOM SCRIPTS & EXECUTABLES #
 ################################
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.bash/bin:$PATH
-
 
 
 #######################
