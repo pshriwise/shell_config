@@ -57,6 +57,25 @@ function chase() {
     scp $1 $2:$3 && ssh -t $2 "cd $3 && exec ${SHELL} -l"
 }
 
+function build_project() {
+    cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/opt -DCMAKE_PREFIX_PATH=$HOME $CMAKE_ARGS
+    make -j10 all install
+}
+
+function build_and_test_project() {
+    build_project()
+    make test
+}
+
+function build_and_install_project() {
+    build_project()
+    make install
+}
+
+function build_install_test_project() {
+    build_and_test_project()
+    make install
+}
 
 jupyter-scratch() {
   if [ ! -d $HOME/tmp/jupyter-lab-scratch ]; then
