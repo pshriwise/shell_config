@@ -61,6 +61,105 @@ alias gfu='git fetch upstream'
 alias gt='cd $(git rev-parse --show-toplevel)'
 alias git-clean-reset='git reset --hard HEAD && git clean -dxf'
 
+ghpr() {
+  set -euo pipefail
+
+  if ! command -v gh >/dev/null 2>&1; then
+    echo "ghpr: GitHub CLI (gh) is not installed" >&2
+    return 127
+  fi
+
+  if ! command -v git >/dev/null 2>&1; then
+    echo "ghpr: git is not installed" >&2
+    return 127
+  fi
+
+  if [ $# -lt 1 ]; then
+    echo "usage: ghpr <PR_NUMBER|PR_URL> [-- <extra args to gh pr checkout>]" >&2
+    return 2
+  fi
+
+  pr="$1"
+  shift || true
+
+  # Allow passing extra args to gh pr checkout after --
+  extra_args=()
+  if [ "${1:-}" = "--" ]; then
+    shift
+    extra_args=("$@")
+  fi
+
+  # Checkout via gh (creates/switches local branch)
+  gh pr checkout "$pr" "${extra_args[@]}"
+
+  # Query PR head info
+  # NOTE: headRepository is the contributor fork repo; headRefName is the contributor branch name
+  head_owner="$(gh pr view "$pr" --json headRepositoryOwner --jq '.headRepositoryOwner.login')"
+  head_name="$(gh pr view "$pr" --json headRepository --jq '.headRepository.name')"
+  head_ref="$(gh pr view "$pr" --json headRefName --jq '.headRefName')"
+  head_ssh="$(gh pr view "$pr" --json headRepository --jq '.headRepository.sshUrl')"
+  head_https="$(gh pr view "$pr" --json headRepository --jq '.headRepository.url')"
+
+  # If for some reason sshUrl isn't available, fall back to https
+  remote_url="$head_ssh"
+  if [ -z "$remote_url" ] || [ "$remote_url" = "null" ]; then
+    remote_url="$head_https"
+  fi
+
+  if [ -z "$remote_url" ] || [ "$remote_url" = "null" ]; then
+    echo "ghpr: could not determine head repo URL for PR '$pr'" >&2
+    return 1
+  fi
+
+  # Choose a remote name based on contributor login (e.g., "octocat")
+  base_remote="$head_owner"
+  remote="$base_remote"
+
+  # If remote exists, check whether it already points to this fork; otherwise find a free suffix
+  if git remote get-url "$remote" >/dev/null 2>&1; then
+    existing="$(git remote get-url "$remote")"
+    if [ "$existing" != "$remote_url" ]; then
+      i=2
+      while git remote get-url "${base_remote}-${i}" >/dev/null 2>&1; do
+        existing_i="$(git remote get-url "${base_remote}-${i}")"
+        if [ "$existing_i" = "$remote_url" ]; then
+          remote="${base_remote}-${i}"
+          break
+        fi
+        i=$((i+1))
+      done
+      if [ "$remote" = "$base_remote" ]; then
+        remote="${base_remote}-${i}"
+      fi
+    fi
+  fi
+
+  # Add remote if missing
+  if ! git remote get-url "$remote" >/dev/null 2>&1; then
+    echo "Adding contributor remote '$remote' -> $remote_url"
+    git remote add "$remote" "$remote_url"
+  else
+    # Keep URL current if it matches the same fork; if it differs we handled via suffix above
+    true
+  fi
+
+  # Fetch the contributor remote
+  git fetch "$remote" --prune
+
+  # If current branch is tracking something else, don't stomp it.
+  # But if it has no upstream, set upstream to contributor branch (useful for pushing fixes to their fork)
+  cur_branch="$(git branch --show-current)"
+  if ! git rev-parse --abbrev-ref --symbolic-full-name "@{u}" >/dev/null 2>&1; then
+    # Only set upstream if the branch exists on the contributor remote (it should)
+    if git show-ref --verify --quiet "refs/remotes/$remote/$head_ref"; then
+      git branch --set-upstream-to="$remote/$head_ref" "$cur_branch" >/dev/null 2>&1 || true
+    fi
+  fi
+
+  echo "Done. Contributor fork remote: $remote (branch: $head_ref)"
+}
+
+
 # external ip alias #
 alias wanip='dig +short myip.opendns.com @resolver1.opendns.com'
 
@@ -72,6 +171,7 @@ alias cbt='make clean && make -j 8 && make test'
 alias ch='make -j 8 check'
 alias bci='make -j8 check && make -j8 install'
 alias bi='make -j8 install'
+alias bi='make -j8 all install t'
 
 # gnome desktop aliases #
 alias gdm-restart='/etc/init.d/gdm3 restart'
@@ -146,28 +246,27 @@ fi
 }
 
 ### mps-youtube Stuff (relies on pianobar) ###
-function ytube() {
+function tunes() {
 
 #check to see if a mpsyt tmux session is already in existence
-if [ 0 -eq "$(tmux list-sessions | grep ytube | wc -l )" ] ; then
+if [ 0 -eq "$(tmux list-sessions | grep music | wc -l )" ] ; then
     #create a mpsyt tmux and enter it
-    echo "Creating tmux for mpsyt..."
-    tmux new -s ytube "PYTHONPATH=/home/shriwise/.local/lib/python3.3/site-packages:$PYTHONPATH mpsyt"
+    echo "Creating tmux for music player..."
+    tmux new -s music music-player
 else
-    echo "Entering mpsyt..."
-    tmux a -t ytube
+    tmux a -t music
 fi
 
 }
 
-function pnext () { tmux send -t pandora n; tmux send -t ytube "Enter"; }
 
-function ppause() { tmux send -t pandora p; tmux send -t ytube p; }
+function pnext () { tmux send -t music n;}
 
-function pquit () { tmux send -t pandora q; tmux send -t ytube "q";
-		    tmux send -t ytube "exit"; tmux send -t ytube "Enter"; }
+function ppause() { tmux send -t music p; }
 
-function pplay () { tmux send -t pandora p; tmux send -t ytube p; }
+function pquit () { tmux send -t music q; tmux send -t music "exit"; tmux send -t music "Enter"; }
+
+function pplay () { tmux send -t music p; }
 
 
 function set-title() {
