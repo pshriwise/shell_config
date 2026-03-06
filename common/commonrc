@@ -173,6 +173,8 @@ alias bci='make -j8 check && make -j8 install'
 alias bi='make -j8 install'
 alias bi='make -j8 all install t'
 
+alias swap-twiddle='sudo swapoff -a && sudo swapon -a'
+
 # gnome desktop aliases #
 alias gdm-restart='/etc/init.d/gdm3 restart'
 
