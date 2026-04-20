@@ -282,3 +282,7 @@ Host coreform
      HostName top.coreform.com
      Port 1924
      User shriwise
+
+Host dwarf
+    HostName 192.168.1.82
+    User pshriwise
