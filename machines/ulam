@@ -118,7 +118,7 @@ function env_openmc() {
     # PYMOAB
     export PYTHONPATH=$HOME/opt/moab/lib/python3.7/site-packages:$PYTHONPATH
 
-    pyenv shell 3.11.7
+    pyenv shell 3.12.7
 
     export_environment_vars
     echo "Added OpenMC to environment"
@@ -155,17 +155,15 @@ function env_dag_openmc_cmp() {
 
 function env_delta () {
     # EXECUTABLES
-    PATH=$HOME/delta_tracking/opt/openmc/bin:$PATH
+    PATH=$HOME/delta_tracking/soft/openmc/bin:$PATH
 
     # SHARED LIBRARIES
     LD_LIBRARY_PATH=$HOME/delta_tracking/miniconda3/envs/openmc_umesh/lib:$LD_LIBRARY_PATH
 
     # NUCLEAR DATA
-    export OPENMC_CROSS_SECTIONS=/home/pshriwise/delta_tracking/opt/openmc/xs/nndc_hdf5/cross_sections.xml
-    export OPENMC_ENDF_DATA=$HOME/delta_tracking/opt/openmc/xs/endf-b-vii.1/
+    export OPENMC_CROSS_SECTIONS=/home/pshriwise/data/xs/openmc/nndc_hdf5/cross_sections.xml
 
     export_environment_vars
-
     echo "Added OpenMC to environment"
 
     export PYENV_ROOT="$HOME/.pyenv"
@@ -176,7 +174,7 @@ function env_delta () {
     fi
 
     pyenv shell 3.7.3
-    echo "Activated OpenMC Delta Tracking dev environment (installs in $HOME/delta_tracking/opt)"
+    echo "Activated OpenMC Delta Tracking dev environment (installs in $HOME/delta_tracking/soft)"
 }
 
 function env_ww_gen () {
