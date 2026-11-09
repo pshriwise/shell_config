@@ -276,7 +276,7 @@ Host jedi
      AddressFamily inet
      HostName login.jedi.fz-juelich.de
      User shriwise1
-     IdentityFile ~/.ssh/id_jedi
+     IdentityFile ~/.ssh/jsc
 
 Host coreform
      HostName top.coreform.com
