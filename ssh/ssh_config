@@ -286,3 +286,7 @@ Host coreform
 Host dwarf
     HostName 192.168.1.82
     User pshriwise
+
+Host pippy
+    HostName 100.73.249.43
+    User pi
